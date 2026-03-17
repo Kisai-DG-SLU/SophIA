@@ -51,20 +51,21 @@
 
       --neon-red: #ff3b3b;
       --neon-green: #00ff9c;
-      --header-height: 60px;
 
+      --header-height: 88px;
       --max: 1180px;
       --radius: 20px;
       --shadow: 0 20px 50px rgba(0,0,0,.28);
+      --reading-width: 760px;
     }
 
     * { box-sizing: border-box; }
-    
-    html { 
+
+    html {
       scroll-behavior: smooth;
-      scroll-padding-top: 60px;
+      scroll-padding-top: var(--header-height);
     }
-    
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -129,6 +130,46 @@
     }
 
     .nav-links a:hover { color: var(--text); }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-left: .75rem;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .lang-btn.active {
+      background: rgba(143,194,255,.16);
+      border-color: rgba(143,194,255,.42);
+      box-shadow: 0 0 0 4px rgba(143,194,255,.10);
+    }
+
+    .lang-btn .flag {
+      filter: saturate(1.05);
+    }
 
     .btn {
       display: inline-flex;
@@ -284,16 +325,19 @@
 
     .grid-3 .card {
       border: 1px solid var(--neon-green);
-
-    box-shadow:
-      0 0 6px rgba(0,255,156,0.6),
-      0 0 16px rgba(0,255,156,0.35),
-      var(--shadow);
+      box-shadow:
+        0 0 6px rgba(0,255,156,0.6),
+        0 0 16px rgba(0,255,156,0.35),
+        var(--shadow);
     }
-    
+
     .card p, .card li {
       color: var(--muted);
       font-size: .98rem;
+    }
+
+    .card p + p {
+      margin-top: .85rem;
     }
 
     .card ul {
@@ -315,7 +359,6 @@
       background: rgba(255,0,0,0.05);
       border: 1px solid var(--neon-red);
       font-weight: 600;
-
       box-shadow:
         0 0 6px rgba(255,59,59,0.6),
         0 0 16px rgba(255,59,59,0.4);
@@ -431,10 +474,15 @@
     }
 
     .book-section p {
-      max-width: 760px;
+      max-width: var(--reading-width);
       margin-inline: auto;
     }
-    
+
+    .book-note {
+      font-style: italic;
+      margin-top: -.4rem;
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .grid-3,
@@ -458,6 +506,10 @@
         flex-wrap: wrap;
       }
 
+      .lang-switch {
+        margin-left: 0;
+      }
+
       .logo-wrap {
         min-height: 280px;
       }
@@ -475,14 +527,22 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#problem">Problem</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#avancement">Status</a>
-        <a href="#documentation">Documentation</a>
-        <a href="#book">Book</a>
-        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#problem" data-i18n="nav.problem">Problem</a>
+        <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
+        <a href="#avancement" data-i18n="nav.status">Status</a>
+        <a href="#documentation" data-i18n="nav.documentation">Documentation</a>
+        <a href="#book" data-i18n="nav.book">Book</a>
+        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer" data-i18n="nav.github">GitHub</a>
+
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="lang-btn" id="lang-fr" type="button" data-lang="fr" aria-label="Choisir le français" title="Français">
+            <span class="flag">🇫🇷</span>
+          </button>
+          <button class="lang-btn" id="lang-en" type="button" data-lang="en" aria-label="Choose English" title="English">
+            <span class="flag">🇬🇧</span>
+          </button>
+        </div>
       </nav>
-      
     </div>
   </header>
 
@@ -490,20 +550,20 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Open architecture • Sovereign AI infrastructure</div>
+          <div class="eyebrow" data-i18n="hero.eyebrow">Open architecture • Sovereign AI infrastructure</div>
           <h1>SOPHIA</h1>
           <p class="lead">
-            <strong>Sovereign Orchestrator Platform for Holistic Intelligence Architecture.</strong><br />
-            An open architecture for building sovereign, secure and auditable AI systems.
+            <strong data-i18n="hero.titleLine">Sovereign Orchestrator Platform for Holistic Intelligence Architecture.</strong><br />
+            <span data-i18n="hero.subtitle">An open architecture for building sovereign, secure and auditable AI systems.</span>
           </p>
-          <p class="lead">
+          <p class="lead" data-i18n="hero.description">
             SOPHIA explores how artificial intelligence systems can be deployed in controlled infrastructures using open technologies, local models and secure information pipelines.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#architecture">View Architecture</a>
-            <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer">GitHub Repository</a>
-            <a class="btn btn-secondary" href="./docs/SOPHIA_prior_art.pdf">Prior Art</a>
+            <a class="btn btn-primary" href="#architecture" data-i18n="hero.viewArchitecture">View Architecture</a>
+            <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer" data-i18n="hero.githubRepo">GitHub Repository</a>
+            <a class="btn btn-secondary" href="./docs/SOPHIA_prior_art.pdf" data-i18n="hero.priorArt">Prior Art</a>
           </div>
         </div>
 
@@ -517,17 +577,17 @@
 
     <section class="section" id="problem">
       <div class="container">
-        <h2>AI infrastructure faces structural challenges</h2>
-        <p class="section-intro">
+        <h2 data-i18n="problem.title">AI infrastructure faces structural challenges</h2>
+        <p class="section-intro" data-i18n="problem.intro">
           Artificial intelligence adoption raises several structural risks: dependency on proprietary platforms, information leakage, unreliable knowledge ingestion, weak governance and unstable context management.
         </p>
 
         <div class="problem-list">
-          <div class="problem-pill">Lack of sovereignty</div>
-          <div class="problem-pill">Data Leakage</div>
-          <div class="problem-pill">Hallucinations</div>
-          <div class="problem-pill">Model Collapse</div>
-          <div class="problem-pill">Context Loss</div>
+          <div class="problem-pill" data-i18n="problem.pill1">Lack of sovereignty</div>
+          <div class="problem-pill" data-i18n="problem.pill2">Data Leakage</div>
+          <div class="problem-pill" data-i18n="problem.pill3">Hallucinations</div>
+          <div class="problem-pill" data-i18n="problem.pill4">Model Collapse</div>
+          <div class="problem-pill" data-i18n="problem.pill5">Context Loss</div>
         </div>
       </div>
     </section>
@@ -535,26 +595,26 @@
     <section class="section">
       <div class="container grid-3">
         <article class="card">
-          <h3>Orchestration</h3>
-          <p>SOPHIA treats AI as infrastructure: projects, tasks, workspaces, context and memory are structured explicitly rather than improvised around a chat interface.</p>
+          <h3 data-i18n="cards.orchestration.title">Orchestration</h3>
+          <p data-i18n="cards.orchestration.text">SOPHIA treats AI as infrastructure: projects, tasks, workspaces, context and memory are structured explicitly rather than improvised around a chat interface.</p>
         </article>
 
         <article class="card">
-          <h3>Security</h3>
-          <p>The architecture integrates Zero Trust principles, controlled external acquisition, semantic validation and strong separation between internal services and external information flows.</p>
+          <h3 data-i18n="cards.security.title">Security</h3>
+          <p data-i18n="cards.security.text">The architecture integrates Zero Trust principles, controlled external acquisition, semantic validation and strong separation between internal services and external information flows.</p>
         </article>
 
         <article class="card">
-          <h3>Open Source</h3>
-          <p>SOPHIA does not try to replace existing tools. It assembles open-source components into a coherent, auditable and reproducible architecture.</p>
+          <h3 data-i18n="cards.opensource.title">Open Source</h3>
+          <p data-i18n="cards.opensource.text">SOPHIA does not try to replace existing tools. It assembles open-source components into a coherent, auditable and reproducible architecture.</p>
         </article>
       </div>
     </section>
 
     <section class="section" id="architecture">
       <div class="container">
-        <h2>Architecture Overview</h2>
-        <p class="section-intro">
+        <h2 data-i18n="architecture.title">Architecture Overview</h2>
+        <p class="section-intro" data-i18n="architecture.intro">
           SOPHIA follows a Hub &amp; Spoke architecture: a central orchestration layer coordinates memory, inference, tooling, external knowledge acquisition and isolated execution environments.
         </p>
 
@@ -594,22 +654,22 @@ sophia-git (Forgejo) centralizes:
     <section class="section">
       <div class="container grid-2">
         <article class="card">
-          <h3>Core Concepts</h3>
+          <h3 data-i18n="concepts.title">Core Concepts</h3>
           <ul>
-            <li><strong>Project Model</strong> — everything is structured as a project</li>
-            <li><strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated</li>
-            <li><strong>Context Management</strong> — context is built explicitly</li>
-            <li><strong>Workspace Management</strong> — execution environments are isolated and reproducible</li>
+            <li data-i18n="concepts.item1"><strong>Project Model</strong> — everything is structured as a project</li>
+            <li data-i18n="concepts.item2"><strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated</li>
+            <li data-i18n="concepts.item3"><strong>Context Management</strong> — context is built explicitly</li>
+            <li data-i18n="concepts.item4"><strong>Workspace Management</strong> — execution environments are isolated and reproducible</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Distinctive Mechanisms</h3>
+          <h3 data-i18n="mechanisms.title">Distinctive Mechanisms</h3>
           <ul>
-            <li><strong>Paranoid Airlock</strong> — isolated web acquisition pipeline</li>
-            <li><strong>Search Fog</strong> — decoy queries to reduce correlation</li>
-            <li><strong>Semantic Court</strong> — validation before knowledge ingestion</li>
-            <li><strong>DLP</strong> — filtering of sensitive outgoing information</li>
+            <li data-i18n="mechanisms.item1"><strong>Paranoid Airlock</strong> — isolated web acquisition pipeline</li>
+            <li data-i18n="mechanisms.item2"><strong>Search Fog</strong> — decoy queries to reduce correlation</li>
+            <li data-i18n="mechanisms.item3"><strong>Semantic Court</strong> — validation before knowledge ingestion</li>
+            <li data-i18n="mechanisms.item4"><strong>DLP</strong> — filtering of sensitive outgoing information</li>
           </ul>
         </article>
       </div>
@@ -617,8 +677,8 @@ sophia-git (Forgejo) centralizes:
 
     <section class="section">
       <div class="container">
-        <h2>Key Technologies</h2>
-        <p class="section-intro">
+        <h2 data-i18n="tech.title">Key Technologies</h2>
+        <p class="section-intro" data-i18n="tech.intro">
           The current proof of concept is based on a pragmatic open-source stack.
         </p>
         <div class="stack">
@@ -635,33 +695,33 @@ sophia-git (Forgejo) centralizes:
 
     <section class="section" id="avancement">
       <div class="container">
-        <h2>Project Status</h2>
-        <p class="section-intro">
+        <h2 data-i18n="status.title">Project Status</h2>
+        <p class="section-intro" data-i18n="status.intro">
           SOPHIA is an experimental architecture project. The proof of concept infrastructure is deployed, the documentation is being published, and the platform model is progressively being stabilized.
         </p>
 
         <div class="card">
-          <div class="status">Experimental proof of concept in progress</div>
+          <div class="status" data-i18n="status.badge">Experimental proof of concept in progress</div>
 
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-phase">Phase 0–1</div>
-              <div>Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.</div>
+              <div data-i18n="status.phase1">Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.</div>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-phase">Phase 2</div>
-              <div>GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>sophia-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.</div>
+              <div data-i18n="status.phase2">GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>sophia-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.</div>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-phase">Phase 3</div>
-              <div>AI routing layer, local inference, development workspaces, centralized tooling and improved execution workflows.</div>
+              <div data-i18n="status.phase3">AI routing layer, local inference, development workspaces, centralized tooling and improved execution workflows.</div>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-phase">Phase 4+</div>
-              <div>Memory reinforcement, semantic validation, DLP filtering, observability and progressive industrialization.</div>
+              <div data-i18n="status.phase4">Memory reinforcement, semantic validation, DLP filtering, observability and progressive industrialization.</div>
             </div>
           </div>
         </div>
@@ -671,52 +731,55 @@ sophia-git (Forgejo) centralizes:
     <section class="section" id="documentation">
       <div class="container grid-2">
         <article class="card">
-          <h3>Documentation</h3>
+          <h3 data-i18n="docs.title">Documentation</h3>
           <ul>
-            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/vision.md" target="_blank" rel="noreferrer">Vision</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/problem-space.md" target="_blank" rel="noreferrer">Problem Space</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/security.md" target="_blank" rel="noreferrer">Security</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/roadmap.md" target="_blank" rel="noreferrer">Roadmap</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/vision.md" target="_blank" rel="noreferrer" data-i18n="docs.vision">Vision</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/problem-space.md" target="_blank" rel="noreferrer" data-i18n="docs.problemSpace">Problem Space</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/architecture.md" target="_blank" rel="noreferrer" data-i18n="docs.architecture">Architecture</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/security.md" target="_blank" rel="noreferrer" data-i18n="docs.security">Security</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/sophia-platform/blob/main/docs/roadmap.md" target="_blank" rel="noreferrer" data-i18n="docs.roadmap">Roadmap</a></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Author</h3>
-            <p>
-              SOPHIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?
-            </p>
-            <p>
-              The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering, sovereign AI architecture and secure orchestration.
-            </p>
-            <p>
-              Damien Guesdon is also the author of <em>SophIA — Assistant suprême ?</em>, a book exploring the real nature of artificial intelligence, the limits of generative models, and the architectural foundations required to build sovereign, secure and auditable AI systems.
-            </p>
+          <h3 data-i18n="author.title">Author</h3>
+          <p data-i18n="author.p1">
+            SOPHIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?
+          </p>
+          <p data-i18n="author.p2">
+            The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering, sovereign AI architecture and secure orchestration.
+          </p>
+          <p data-i18n="author.p3">
+            Damien Guesdon is also the author of <em>SophIA — Assistant suprême ?</em>, a book exploring the real nature of artificial intelligence, the limits of generative models, and the architectural foundations required to build sovereign, secure and auditable AI systems.
+          </p>
 
           <div class="author-actions">
-            <a class="btn btn-primary" href="https://damienguesdon.github.io/" target="_blank" rel="noreferrer">
+            <a class="btn btn-primary" href="https://damienguesdon.github.io/" target="_blank" rel="noreferrer" data-i18n="author.cv">
               View CV
             </a>
-            <a class="btn btn-secondary" href="https://kisai-dg-slu.github.io/" target="_blank" rel="noreferrer">
+            <a class="btn btn-secondary" href="https://kisai-dg-slu.github.io/" target="_blank" rel="noreferrer" data-i18n="author.dashboard">
               AI Training Dashboard
             </a>
           </div>
         </article>
-
       </div>
     </section>
 
     <section class="section cta">
       <div class="container">
         <div class="cta-card">
-          <h2>Explore SOPHIA</h2>
-          <p class="section-intro" style="margin-inline:auto;">
+          <h2 data-i18n="cta.title">Explore SOPHIA</h2>
+          <p class="section-intro" style="margin-inline:auto;" data-i18n="cta.text">
             The project is still under active construction, but its documentation, concepts and public repository are already available.
           </p>
 
           <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
-            <a class="btn btn-primary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer">View GitHub Repository</a>
-            <a class="btn btn-secondary" href="./docs/SOPHIA_prior_art.pdf">Prior Art Description</a>
+            <a class="btn btn-primary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer" data-i18n="cta.github">
+              View GitHub Repository
+            </a>
+            <a class="btn btn-secondary" href="./docs/SOPHIA_prior_art.pdf" data-i18n="cta.priorArt">
+              Prior Art Description
+            </a>
           </div>
         </div>
       </div>
@@ -725,21 +788,21 @@ sophia-git (Forgejo) centralizes:
     <section class="section book-section" id="book">
       <div class="container">
         <div class="card">
-          <h2>The Book Behind the Vision</h2>
-          <p class="section-intro">
+          <h2 data-i18n="book.title">The Book Behind the Vision</h2>
+          <p class="section-intro" data-i18n="book.p1">
             <strong>SophIA — Assistant suprême ?</strong> is Damien Guesdon’s book on the real nature of artificial intelligence, the limits of large language models, and the engineering principles required to build sovereign AI systems.
           </p>
-          <p class="section-intro" style="font-style: italic; margin-top: -.4rem;">
+          <p class="section-intro book-note" data-i18n="book.note">
             Currently available in French only.
           </p>
-          <p class="section-intro">
+          <p class="section-intro" data-i18n="book.p2">
             It explores hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SOPHIA.
           </p>
           <div class="book-actions" style="justify-content:center;">
-            <a class="btn btn-primary" href="AMAZON_KINDLE_URL" target="_blank" rel="noreferrer">
+            <a class="btn btn-primary" href="AMAZON_KINDLE_URL" target="_blank" rel="noreferrer" data-i18n="book.kindle">
               Buy Kindle Edition
             </a>
-            <a class="btn btn-secondary" href="AMAZON_PAPERBACK_URL" target="_blank" rel="noreferrer">
+            <a class="btn btn-secondary" href="AMAZON_PAPERBACK_URL" target="_blank" rel="noreferrer" data-i18n="book.paperback">
               Buy Paperback Edition
             </a>
           </div>
@@ -747,16 +810,300 @@ sophia-git (Forgejo) centralizes:
       </div>
     </section>
   </main>
-  
+
   <footer class="footer">
     <div class="container footer-grid">
-      <div>© 2026 SOPHIA / Damien Guesdon</div>
+      <div data-i18n="footer.copy">© 2026 SOPHIA / Damien Guesdon</div>
       <div>
         <a href="mailto:contact@kisai.fr">contact@kisai.fr</a>
         &nbsp;•&nbsp;
-        <a href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer" data-i18n="footer.github">GitHub</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        meta: {
+          title: "SOPHIA — Architecture IA souveraine",
+          description: "SOPHIA est une architecture ouverte pour construire des systèmes d’IA souverains, sécurisés et auditables."
+        },
+        nav: {
+          problem: "Problématique",
+          architecture: "Architecture",
+          status: "Avancement",
+          documentation: "Documentation",
+          book: "Livre",
+          github: "GitHub"
+        },
+        hero: {
+          eyebrow: "Architecture ouverte • Infrastructure IA souveraine",
+          titleLine: "Sovereign Orchestrator Platform for Holistic Intelligence Architecture.",
+          subtitle: "Une architecture ouverte pour construire des systèmes d’IA souverains, sécurisés et auditables.",
+          description: "SOPHIA explore comment des systèmes d’intelligence artificielle peuvent être déployés dans des infrastructures contrôlées à l’aide de technologies ouvertes, de modèles locaux et de pipelines d’information sécurisés.",
+          viewArchitecture: "Voir l’architecture",
+          githubRepo: "Dépôt GitHub",
+          priorArt: "Antériorité"
+        },
+        problem: {
+          title: "L’infrastructure IA fait face à des défis structurels",
+          intro: "L’adoption de l’intelligence artificielle soulève plusieurs risques structurels : dépendance aux plateformes propriétaires, fuite d’information, ingestion de connaissances peu fiable, gouvernance faible et gestion du contexte instable.",
+          pill1: "Manque de souveraineté",
+          pill2: "Fuite de données",
+          pill3: "Hallucinations",
+          pill4: "Effondrement des modèles",
+          pill5: "Perte de contexte"
+        },
+        cards: {
+          orchestration: {
+            title: "Orchestration",
+            text: "SOPHIA traite l’IA comme une infrastructure : projets, tâches, espaces de travail, contexte et mémoire sont structurés explicitement plutôt qu’improvisés autour d’une interface de chat."
+          },
+          security: {
+            title: "Sécurité",
+            text: "L’architecture intègre les principes Zero Trust, une acquisition externe contrôlée, une validation sémantique et une séparation forte entre services internes et flux d’informations externes."
+          },
+          opensource: {
+            title: "Open Source",
+            text: "SOPHIA ne cherche pas à remplacer les outils existants. Elle assemble des composants open source dans une architecture cohérente, auditable et reproductible."
+          }
+        },
+        architecture: {
+          title: "Vue d’ensemble de l’architecture",
+          intro: "SOPHIA suit une architecture Hub & Spoke : une couche centrale d’orchestration coordonne la mémoire, l’inférence, l’outillage, l’acquisition de connaissances externes et des environnements d’exécution isolés."
+        },
+        concepts: {
+          title: "Concepts clés",
+          item1: "<strong>Modèle par projet</strong> — tout est structuré comme un projet",
+          item2: "<strong>Brain / Repo / Workspace</strong> — mémoire, production et exécution sont séparées",
+          item3: "<strong>Gestion du contexte</strong> — le contexte est construit explicitement",
+          item4: "<strong>Gestion des workspaces</strong> — les environnements d’exécution sont isolés et reproductibles"
+        },
+        mechanisms: {
+          title: "Mécanismes distinctifs",
+          item1: "<strong>Sas paranoïaque</strong> — pipeline isolé d’acquisition web",
+          item2: "<strong>Brouillard de recherche</strong> — requêtes leurres pour réduire la corrélation",
+          item3: "<strong>Tribunal sémantique</strong> — validation avant ingestion des connaissances",
+          item4: "<strong>DLP</strong> — filtrage des informations sensibles en sortie"
+        },
+        tech: {
+          title: "Technologies clés",
+          intro: "La preuve de concept actuelle repose sur une pile open source pragmatique."
+        },
+        status: {
+          title: "État du projet",
+          intro: "SOPHIA est un projet d’architecture expérimental. L’infrastructure de preuve de concept est déployée, la documentation est en cours de publication et le modèle de plateforme se stabilise progressivement.",
+          badge: "Preuve de concept expérimentale en cours",
+          phase1: "Fondations physiques, serveur bare metal, cluster OKD, accès WireGuard et premières contraintes de sécurité.",
+          phase2: "Couche GitOps, segmentation par namespaces, Forgejo, structuration des trois piliers : <em>sophia-brain</em>, <em>Guesdon-Brain</em> et <em>projects</em>.",
+          phase3: "Couche de routage IA, inférence locale, espaces de développement, outillage centralisé et amélioration des workflows d’exécution.",
+          phase4: "Renforcement mémoire, validation sémantique, filtrage DLP, observabilité et industrialisation progressive."
+        },
+        docs: {
+          title: "Documentation",
+          vision: "Vision",
+          problemSpace: "Espace de problème",
+          architecture: "Architecture",
+          security: "Sécurité",
+          roadmap: "Feuille de route"
+        },
+        author: {
+          title: "Auteur",
+          p1: "SOPHIA est initiée par Damien Guesdon comme une exploration architecturale : comment permettre aux organisations d’utiliser l’intelligence artificielle sans perdre le contrôle de leurs systèmes d’information ?",
+          p2: "Le projet s’appuie sur plus de 20 ans d’expérience en infrastructure, réseau et systèmes, prolongés par une spécialisation actuelle en ingénierie IA, architecture IA souveraine et orchestration sécurisée.",
+          p3: "Damien Guesdon est également l’auteur de <em>SophIA — Assistant suprême ?</em>, un livre qui explore la nature réelle de l’intelligence artificielle, les limites des modèles génératifs et les fondations architecturales nécessaires pour construire des systèmes d’IA souverains, sécurisés et auditables.",
+          cv: "Voir le CV",
+          dashboard: "Dashboard de formation IA"
+        },
+        cta: {
+          title: "Explorer SOPHIA",
+          text: "Le projet est encore en construction active, mais sa documentation, ses concepts et son dépôt public sont déjà disponibles.",
+          github: "Voir le dépôt GitHub",
+          priorArt: "Description d’antériorité"
+        },
+        book: {
+          title: "Le livre derrière la vision",
+          p1: "<strong>SophIA — Assistant suprême ?</strong> est le livre de Damien Guesdon sur la nature réelle de l’intelligence artificielle, les limites des grands modèles de langage et les principes d’ingénierie nécessaires pour construire des systèmes d’IA souverains.",
+          note: "Actuellement disponible uniquement en français.",
+          p2: "Il aborde les hallucinations, le model collapse, les fuites de données, les prompt injections, l’orchestration, le RAG, l’exécution sécurisée, le Zero Trust et la vision architecturale qui a conduit à SOPHIA.",
+          kindle: "Acheter la version Kindle",
+          paperback: "Acheter la version brochée"
+        },
+        footer: {
+          copy: "© 2026 SOPHIA / Damien Guesdon",
+          github: "GitHub"
+        }
+      },
+
+      en: {
+        meta: {
+          title: "SOPHIA — Sovereign AI Architecture",
+          description: "SOPHIA is an open architecture for building sovereign, secure and auditable AI systems."
+        },
+        nav: {
+          problem: "Problem",
+          architecture: "Architecture",
+          status: "Status",
+          documentation: "Documentation",
+          book: "Book",
+          github: "GitHub"
+        },
+        hero: {
+          eyebrow: "Open architecture • Sovereign AI infrastructure",
+          titleLine: "Sovereign Orchestrator Platform for Holistic Intelligence Architecture.",
+          subtitle: "An open architecture for building sovereign, secure and auditable AI systems.",
+          description: "SOPHIA explores how artificial intelligence systems can be deployed in controlled infrastructures using open technologies, local models and secure information pipelines.",
+          viewArchitecture: "View Architecture",
+          githubRepo: "GitHub Repository",
+          priorArt: "Prior Art"
+        },
+        problem: {
+          title: "AI infrastructure faces structural challenges",
+          intro: "Artificial intelligence adoption raises several structural risks: dependency on proprietary platforms, information leakage, unreliable knowledge ingestion, weak governance and unstable context management.",
+          pill1: "Lack of sovereignty",
+          pill2: "Data Leakage",
+          pill3: "Hallucinations",
+          pill4: "Model Collapse",
+          pill5: "Context Loss"
+        },
+        cards: {
+          orchestration: {
+            title: "Orchestration",
+            text: "SOPHIA treats AI as infrastructure: projects, tasks, workspaces, context and memory are structured explicitly rather than improvised around a chat interface."
+          },
+          security: {
+            title: "Security",
+            text: "The architecture integrates Zero Trust principles, controlled external acquisition, semantic validation and strong separation between internal services and external information flows."
+          },
+          opensource: {
+            title: "Open Source",
+            text: "SOPHIA does not try to replace existing tools. It assembles open-source components into a coherent, auditable and reproducible architecture."
+          }
+        },
+        architecture: {
+          title: "Architecture Overview",
+          intro: "SOPHIA follows a Hub & Spoke architecture: a central orchestration layer coordinates memory, inference, tooling, external knowledge acquisition and isolated execution environments."
+        },
+        concepts: {
+          title: "Core Concepts",
+          item1: "<strong>Project Model</strong> — everything is structured as a project",
+          item2: "<strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated",
+          item3: "<strong>Context Management</strong> — context is built explicitly",
+          item4: "<strong>Workspace Management</strong> — execution environments are isolated and reproducible"
+        },
+        mechanisms: {
+          title: "Distinctive Mechanisms",
+          item1: "<strong>Paranoid Airlock</strong> — isolated web acquisition pipeline",
+          item2: "<strong>Search Fog</strong> — decoy queries to reduce correlation",
+          item3: "<strong>Semantic Court</strong> — validation before knowledge ingestion",
+          item4: "<strong>DLP</strong> — filtering of sensitive outgoing information"
+        },
+        tech: {
+          title: "Key Technologies",
+          intro: "The current proof of concept is based on a pragmatic open-source stack."
+        },
+        status: {
+          title: "Project Status",
+          intro: "SOPHIA is an experimental architecture project. The proof of concept infrastructure is deployed, the documentation is being published, and the platform model is progressively being stabilized.",
+          badge: "Experimental proof of concept in progress",
+          phase1: "Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.",
+          phase2: "GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>sophia-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.",
+          phase3: "AI routing layer, local inference, development workspaces, centralized tooling and improved execution workflows.",
+          phase4: "Memory reinforcement, semantic validation, DLP filtering, observability and progressive industrialization."
+        },
+        docs: {
+          title: "Documentation",
+          vision: "Vision",
+          problemSpace: "Problem Space",
+          architecture: "Architecture",
+          security: "Security",
+          roadmap: "Roadmap"
+        },
+        author: {
+          title: "Author",
+          p1: "SOPHIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?",
+          p2: "The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering, sovereign AI architecture and secure orchestration.",
+          p3: "Damien Guesdon is also the author of <em>SophIA — Assistant suprême ?</em>, a book exploring the real nature of artificial intelligence, the limits of generative models, and the architectural foundations required to build sovereign, secure and auditable AI systems.",
+          cv: "View CV",
+          dashboard: "AI Training Dashboard"
+        },
+        cta: {
+          title: "Explore SOPHIA",
+          text: "The project is still under active construction, but its documentation, concepts and public repository are already available.",
+          github: "View GitHub Repository",
+          priorArt: "Prior Art Description"
+        },
+        book: {
+          title: "The Book Behind the Vision",
+          p1: "<strong>SophIA — Assistant suprême ?</strong> is Damien Guesdon’s book on the real nature of artificial intelligence, the limits of large language models, and the engineering principles required to build sovereign AI systems.",
+          note: "Currently available in French only.",
+          p2: "It explores hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SOPHIA.",
+          kindle: "Buy Kindle Edition",
+          paperback: "Buy Paperback Edition"
+        },
+        footer: {
+          copy: "© 2026 SOPHIA / Damien Guesdon",
+          github: "GitHub"
+        }
+      }
+    };
+
+    function getNestedValue(obj, path) {
+      return path.split('.').reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : null, obj);
+    }
+
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+
+      document.documentElement.lang = lang;
+      document.title = dict.meta.title;
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', dict.meta.description);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', dict.meta.title);
+
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogDescription) ogDescription.setAttribute('content', dict.meta.description);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const value = getNestedValue(dict, key);
+        if (value !== null) {
+          el.innerHTML = value;
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      localStorage.setItem('sophia-lang', lang);
+    }
+
+    function detectInitialLanguage() {
+      const saved = localStorage.getItem('sophia-lang');
+      if (saved && translations[saved]) return saved;
+
+      const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      if (browserLang.startsWith('fr')) return 'fr';
+      return 'en';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const initialLang = detectInitialLanguage();
+      applyLanguage(initialLang);
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          applyLanguage(btn.dataset.lang);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
