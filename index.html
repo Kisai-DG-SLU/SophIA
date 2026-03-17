@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOPHIA — Sovereign AI Architecture</title>
+  <meta name="description" content="SOPHIA is an open architecture for building sovereign, secure and auditable AI systems." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Damien Guesdon" />
+  <meta name="keywords" content="AI infrastructure, sovereign AI, AI architecture, LLM, RAG, Kubernetes, OKD, open source AI platform" />
+
+  <meta property="og:title" content="SOPHIA — Sovereign AI Architecture" />
+  <meta property="og:description" content="An open architecture for building sovereign, secure and auditable AI systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sophia.kisai.fr" />
+  <meta property="og:image" content="./images/sophia-logo.png" />
+
+  <link rel="icon" href="./images/sophia-favicon.png" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SOPHIA",
+    "alternateName": "Sovereign Orchestrator Platform for Holistic Intelligence Architecture",
+    "url": "https://sophia.kisai.fr",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux / Kubernetes",
+    "description": "SOPHIA is an open architecture for building sovereign, secure and auditable AI systems.",
+    "author": {
+      "@type": "Person",
+      "name": "Damien Guesdon"
+    },
+    "codeRepository": "https://github.com/TON-COMPTE/SophIA"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0d1a2d;
+      --panel: rgba(255,255,255,0.05);
+      --panel-border: rgba(255,255,255,0.08);
+      --text: #e8eef8;
+      --muted: #9db0c9;
+      --primary: #8fc2ff;
+      --primary-2: #b9d8ff;
+      --accent: #5ca4ff;
+      --success: #8de0b8;
+      --max: 1180px;
+      --radius: 20px;
+      --shadow: 0 20px 50px rgba(0,0,0,.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(92,164,255,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(143,194,255,0.10), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, #091625 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(7,17,31,.72);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(143,194,255,.25), rgba(92,164,255,.12));
+      border: 1px solid rgba(255,255,255,.08);
+      display: grid;
+      place-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      font-weight: 600;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #07111f;
+      background: linear-gradient(180deg, var(--primary), var(--primary-2));
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 5rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .38rem .75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(143,194,255,.18);
+      background: rgba(143,194,255,.08);
+      color: var(--primary-2);
+      font-size: .85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      margin: 0 0 .9rem;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    h3 {
+      margin: 0 0 .6rem;
+      font-size: 1.05rem;
+      letter-spacing: -.02em;
+    }
+
+    .lead {
+      margin: 0 0 1.4rem;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin: 1.6rem 0 1.6rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .hero-meta span {
+      padding: .35rem .7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.05);
+    }
+
+    .hero-card, .card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1.2rem;
+    }
+
+    .logo-wrap {
+      min-height: 420px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.06);
+      background:
+        radial-gradient(circle at top left, rgba(92,164,255,.18), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    .logo-wrap img {
+      width: min(100%, 320px);
+    }
+
+    .section {
+      padding: 2.8rem 0;
+    }
+
+    .section-intro {
+      margin: 0 0 1.4rem;
+      max-width: 74ch;
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      padding: 1.25rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .card ul {
+      margin: .65rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .problem-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 1.1rem;
+    }
+
+    .problem-pill {
+      text-align: center;
+      padding: .95rem 1rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.05);
+      font-weight: 600;
+    }
+
+    .architecture-card pre {
+      margin: 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      color: var(--primary-2);
+      font-size: .95rem;
+      line-height: 1.5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .stack span {
+      padding: .55rem .8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: .9rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .timeline-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .timeline-phase {
+      font-weight: 700;
+      color: var(--primary-2);
+      font-size: .95rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: var(--success);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .status::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 6px rgba(141,224,184,.12);
+    }
+
+    .cta {
+      text-align: center;
+      padding-bottom: 4.5rem;
+    }
+
+    .cta-card {
+      background: linear-gradient(180deg, rgba(143,194,255,.09), rgba(255,255,255,.035));
+      border: 1px solid rgba(143,194,255,.18);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 1.6rem 0 2.4rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .problem-list {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: .45rem;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        padding: .7rem 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .logo-wrap {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="SOPHIA home">
+        <span class="brand-mark">
+          <img src="./images/sophia-favicon.png" alt="SOPHIA icon" />
+        </span>
+        <span>SOPHIA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#problem">Problem</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#avancement">Status</a>
+        <a href="#documentation">Documentation</a>
+        <a class="btn btn-secondary" href="https://github.com/TON-COMPTE/SophIA" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Open architecture • Sovereign AI infrastructure</div>
+          <h1>SOPHIA</h1>
+          <p class="lead">
+            <strong>Sovereign Orchestrator Platform for Holistic Intelligence Architecture.</strong><br />
+            An open architecture for building sovereign, secure and auditable AI systems.
+          </p>
+          <p class="lead">
+            SOPHIA explores how artificial intelligence systems can be deployed in controlled infrastructures using open technologies, local models and secure information pipelines.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#architecture">View Architecture</a>
+            <a class="btn btn-secondary" href="https://github.com/TON-COMPTE/SophIA" target="_blank" rel="noreferrer">GitHub Repository</a>
+            <a class="btn btn-secondary" href="./whitepaper/SOPHIA_whitepaper.pdf">Whitepaper</a>
+          </div>
+
+          <div class="hero-meta">
+            <span>OKD / Kubernetes</span>
+            <span>LiteLLM</span>
+            <span>Forgejo</span>
+            <span>Qdrant</span>
+            <span>Ollama</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="logo-wrap">
+            <img src="./images/sophia-logo.png" alt="SOPHIA logo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container">
+        <h2>AI infrastructure faces structural challenges</h2>
+        <p class="section-intro">
+          Artificial intelligence adoption raises several structural risks: dependency on proprietary platforms, information leakage, unreliable knowledge ingestion, weak governance and unstable context management.
+        </p>
+
+        <div class="problem-list">
+          <div class="problem-pill">Sovereignty</div>
+          <div class="problem-pill">Data Leakage</div>
+          <div class="problem-pill">Hallucinations</div>
+          <div class="problem-pill">Model Collapse</div>
+          <div class="problem-pill">Context Loss</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-3">
+        <article class="card">
+          <h3>Orchestration</h3>
+          <p>SOPHIA treats AI as infrastructure: projects, tasks, workspaces, context and memory are structured explicitly rather than improvised around a chat interface.</p>
+        </article>
+
+        <article class="card">
+          <h3>Security</h3>
+          <p>The architecture integrates Zero Trust principles, controlled external acquisition, semantic validation and strong separation between internal services and external information flows.</p>
+        </article>
+
+        <article class="card">
+          <h3>Open Source</h3>
+          <p>SOPHIA does not try to replace existing tools. It assembles open-source components into a coherent, auditable and reproducible architecture.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container">
+        <h2>Architecture Overview</h2>
+        <p class="section-intro">
+          SOPHIA follows a Hub &amp; Spoke architecture: a central orchestration layer coordinates memory, inference, tooling, external knowledge acquisition and isolated execution environments.
+        </p>
+
+        <div class="card architecture-card">
+<pre>Users / IDE / API
+        │
+        ▼
+WireGuard Access
+        │
+        ▼
++----------------------------+
+|        sophia-core         |
+|  Orchestrator / LiteLLM    |
++-------------+--------------+
+              │
+   ┌──────────┼───────────┬──────────────┬──────────────┐
+   ▼          ▼           ▼              ▼              ▼
+sophia-   sophia-     sophia-        sophia-       sophia-
+inference memory      skills         dmz           sandbox
+models    Qdrant      MCP tools      web intake    workspaces
+              │                         │
+              ▼                         ▼
+         knowledge               semantic validation
+              │                         │
+              └──────────────┬──────────┘
+                             ▼
+                      persistent memory
+
+sophia-git (Forgejo) centralizes:
+- sophia-brain
+- Guesdon-Brain
+- project repositories</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="card">
+          <h3>Core Concepts</h3>
+          <ul>
+            <li><strong>Project Model</strong> — everything is structured as a project</li>
+            <li><strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated</li>
+            <li><strong>Context Management</strong> — context is built explicitly</li>
+            <li><strong>Workspace Management</strong> — execution environments are isolated and reproducible</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Distinctive Mechanisms</h3>
+          <ul>
+            <li><strong>Sas Paranoïaque</strong> — isolated web acquisition pipeline</li>
+            <li><strong>Search Fog</strong> — decoy queries to reduce correlation</li>
+            <li><strong>Semantic Court</strong> — validation before knowledge ingestion</li>
+            <li><strong>DLP</strong> — filtering of sensitive outgoing information</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Key Technologies</h2>
+        <p class="section-intro">
+          The current proof of concept is based on a pragmatic open-source stack.
+        </p>
+        <div class="stack">
+          <span>LiteLLM</span>
+          <span>Ollama</span>
+          <span>llama.cpp</span>
+          <span>Qdrant</span>
+          <span>Forgejo</span>
+          <span>OKD</span>
+          <span>Kubernetes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="avancement">
+      <div class="container">
+        <h2>Project Status</h2>
+        <p class="section-intro">
+          SOPHIA is an experimental architecture project. The proof of concept infrastructure is deployed, the documentation is being published, and the platform model is progressively being stabilized.
+        </p>
+
+        <div class="card">
+          <div class="status">Experimental proof of concept in progress</div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-phase">Phase 0–1</div>
+              <div>Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-phase">Phase 2</div>
+              <div>GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>sophia-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-phase">Phase 3</div>
+              <div>AI routing layer, local inference, development workspaces, centralized tooling and improved execution workflows.</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-phase">Phase 4+</div>
+              <div>Memory reinforcement, semantic validation, DLP filtering, observability and progressive industrialization.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="documentation">
+      <div class="container grid-2">
+        <article class="card">
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="https://github.com/TON-COMPTE/SophIA/blob/main/docs/vision.md" target="_blank" rel="noreferrer">Vision</a></li>
+            <li><a href="https://github.com/TON-COMPTE/SophIA/blob/main/docs/problem-space.md" target="_blank" rel="noreferrer">Problem Space</a></li>
+            <li><a href="https://github.com/TON-COMPTE/SophIA/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture</a></li>
+            <li><a href="https://github.com/TON-COMPTE/SophIA/blob/main/docs/security.md" target="_blank" rel="noreferrer">Security</a></li>
+            <li><a href="https://github.com/TON-COMPTE/SophIA/blob/main/docs/roadmap.md" target="_blank" rel="noreferrer">Roadmap</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Author</h3>
+          <p>
+            SOPHIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?
+          </p>
+          <p>
+            The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Explore SOPHIA</h2>
+          <p class="section-intro" style="margin-inline:auto;">
+            The project is still under active construction, but its documentation, concepts and public repository are already available.
+          </p>
+
+          <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+            <a class="btn btn-primary" href="https://github.com/TON-COMPTE/SophIA" target="_blank" rel="noreferrer">View GitHub Repository</a>
+            <a class="btn btn-secondary" href="./whitepaper/SOPHIA_whitepaper.pdf">Read Whitepaper</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>© 2026 SOPHIA / Damien Guesdon</div>
+      <div>
+        <a href="mailto:contact@kisai.fr">contact@kisai.fr</a>
+        &nbsp;•&nbsp;
+        <a href="https://github.com/TON-COMPTE/SophIA" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
