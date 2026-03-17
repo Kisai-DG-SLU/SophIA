@@ -411,6 +411,23 @@
       flex-wrap: wrap;
     }
 
+    .author-actions,
+    .book-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 1.2rem;
+    }
+
+    .book-section .card {
+      text-align: center;
+    }
+
+    .book-section p {
+      max-width: 760px;
+      margin-inline: auto;
+    }
+    
     @media (max-width: 980px) {
       .hero-grid,
       .grid-3,
@@ -455,8 +472,10 @@
         <a href="#architecture">Architecture</a>
         <a href="#avancement">Status</a>
         <a href="#documentation">Documentation</a>
+        <a href="#book">Book</a>
         <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/sophia-platform" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
+      
     </div>
   </header>
 
@@ -580,7 +599,7 @@ sophia-git (Forgejo) centralizes:
         <article class="card">
           <h3>Distinctive Mechanisms</h3>
           <ul>
-            <li><strong>Paranoïd Airlock</strong> — isolated web acquisition pipeline</li>
+            <li><strong>Paranoid Airlock</strong> — isolated web acquisition pipeline</li>
             <li><strong>Search Fog</strong> — decoy queries to reduce correlation</li>
             <li><strong>Semantic Court</strong> — validation before knowledge ingestion</li>
             <li><strong>DLP</strong> — filtering of sensitive outgoing information</li>
@@ -657,16 +676,26 @@ sophia-git (Forgejo) centralizes:
 
         <article class="card">
           <h3>Author</h3>
-          <p>
-            SOPHIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?
-          </p>
-          <p>
-            The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering.
-          </p>
-          <p>
-            A prior art description of the SOPHIA architecture has been deposited through the INPI e-Soleau system.
-          </p>
+            <p>
+              SOPHIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?
+            </p>
+            <p>
+              The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering, sovereign AI architecture and secure orchestration.
+            </p>
+            <p>
+              Damien Guesdon is also the author of <em>SophIA — Assistant suprême ?</em>, a book exploring the real nature of artificial intelligence, the limits of generative models, and the architectural foundations required to build sovereign, secure and auditable AI systems.
+            </p>
+
+          <div class="author-actions">
+            <a class="btn btn-primary" href="https://damienguesdon.github.io/" target="_blank" rel="noreferrer">
+              View CV
+            </a>
+            <a class="btn btn-secondary" href="https://kisai-dg-slu.github.io/" target="_blank" rel="noreferrer">
+              AI Training Dashboard
+            </a>
+          </div>
         </article>
+
       </div>
     </section>
 
@@ -685,8 +714,30 @@ sophia-git (Forgejo) centralizes:
         </div>
       </div>
     </section>
-  </main>
 
+    <section class="section book-section" id="book">
+      <div class="container">
+        <div class="card">
+          <h2>The Book Behind the Vision</h2>
+          <p class="section-intro">
+            <strong>SophIA — Assistant suprême ?</strong> is Damien Guesdon’s book on the real nature of artificial intelligence, the limits of large language models, and the engineering principles required to build sovereign AI systems.
+          </p>
+          <p class="section-intro">
+            It explores hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SOPHIA.
+          </p>
+          <div class="book-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="AMAZON_KINDLE_URL" target="_blank" rel="noreferrer">
+              Buy Kindle Edition
+            </a>
+            <a class="btn btn-secondary" href="AMAZON_PAPERBACK_URL" target="_blank" rel="noreferrer">
+              Buy Paperback Edition
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
   <footer class="footer">
     <div class="container footer-grid">
       <div>© 2026 SOPHIA / Damien Guesdon</div>
