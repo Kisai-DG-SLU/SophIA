@@ -308,7 +308,9 @@
       background:
         radial-gradient(circle at top left, rgba(92,164,255,.18), transparent 28%),
         linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0;
       overflow: hidden;
       position: relative;
@@ -323,17 +325,12 @@
     }
 
     /* Hero : visuel immersif qui remplit bien le cadre */
-    #hero-illustration {
-      object-fit: cover;
-      object-position: center;
-    }
-
-    /* Architecture : on évite de couper un schéma */
+    #hero-illustration,
     #architecture-illustration {
-      object-fit: contain;
-      object-position: center;
-      background: rgba(255,255,255,.02);
-      padding: .75rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
     }
 
     .illustration-placeholder {
@@ -517,15 +514,13 @@
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      min-height: 32px;
+      gap: .6rem;
     }
 
     .footer-brand img {
-      height: 28px;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      opacity: 0.9;
     }
 
     .author-actions,
@@ -981,7 +976,7 @@ models    Qdrant      MCP tools      web intake    workspaces
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="./images/sophia-logo-dark.png" alt="SophIA logo" />
+        <img src="./images/sophia-favicon.png" alt="SophIA logo" />
         <span data-i18n="footer.copy">© 2026 SophIA / Damien Guesdon</span>
       </div>
       <div>
