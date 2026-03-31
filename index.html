@@ -21,7 +21,12 @@
   <meta name="twitter:description" content="Une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance et contrôle." />
   <meta name="twitter:image" content="./images/sophia-og.png" />
 
-  <link rel="icon" href="./images/sophia-favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/sophia-icon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/sophia-icon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="./images/sophia-icon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./images/sophia-icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./images/sophia-icon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
   <script type="application/ld+json">
@@ -126,6 +131,14 @@
       border: 1px solid rgba(255,255,255,.08);
       display: grid;
       place-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .nav-links {
@@ -501,6 +514,20 @@
       flex-wrap: wrap;
     }
 
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 32px;
+    }
+
+    .footer-brand img {
+      height: 28px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
     .author-actions,
     .book-actions {
       display: flex;
@@ -601,6 +628,10 @@
       .illustration-frame {
         min-height: 280px;
       }
+
+      .footer-grid {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -609,7 +640,7 @@
     <div class="container nav">
       <a class="brand" href="#top" aria-label="SophIA home">
         <span class="brand-mark">
-          <img src="./images/sophia-favicon.png" alt="SophIA icon" />
+          <img src="./images/sophia-icon-512.png" alt="SophIA icon" />
         </span>
         <span>SophIA</span>
       </a>
@@ -949,7 +980,10 @@ models    Qdrant      MCP tools      web intake    workspaces
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div data-i18n="footer.copy">© 2026 SophIA / Damien Guesdon</div>
+      <div class="footer-brand">
+        <img src="./images/sophia-logo-dark.png" alt="SophIA logo" />
+        <span data-i18n="footer.copy">© 2026 SophIA / Damien Guesdon</span>
+      </div>
       <div>
         <a href="mailto:contact@kisai.fr">contact@kisai.fr</a>
         &nbsp;•&nbsp;
