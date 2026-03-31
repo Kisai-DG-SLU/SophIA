@@ -324,13 +324,36 @@
       object-position: center;
     }
 
+    .architecture-visual-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .architecture-frame {
+      min-height: 420px;
+      border: 0;
+      border-radius: var(--radius);
+      background: transparent;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
     /* Hero : visuel immersif qui remplit bien le cadre */
-    #hero-illustration,
-    #architecture-illustration {
+    #hero-illustration {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center center;
+    }
+
+    #architecture-illustration {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      background: transparent;
     }
 
     .illustration-placeholder {
@@ -514,13 +537,16 @@
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: .6rem;
+      gap: .9rem;
     }
 
     .footer-brand img {
-      width: 34px;
-      height: 34px;
-      opacity: 0.9;
+      height: 42px;
+      width: auto;
+      max-width: none;
+      display: block;
+      flex-shrink: 0;
+      opacity: 1;
     }
 
     .author-actions,
@@ -811,8 +837,8 @@ models    Qdrant      MCP tools      web intake    workspaces
                       persistent memory</pre>
           </div>
 
-          <div class="card">
-            <div class="illustration-frame" id="architecture-illustration-frame">
+          <div class="card architecture-visual-card">
+            <div class="illustration-frame architecture-frame" id="architecture-illustration-frame">
               <img
                 id="architecture-illustration"
                 src="./images/architecture-overview.png"
@@ -976,7 +1002,7 @@ models    Qdrant      MCP tools      web intake    workspaces
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="./images/sophia-favicon.png" alt="SophIA logo" />
+        <img src="./images/sophia-logo-dark.png" alt="SophIA logo" />
         <span data-i18n="footer.copy">© 2026 SophIA / Damien Guesdon</span>
       </div>
       <div>
