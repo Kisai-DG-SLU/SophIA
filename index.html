@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SophIA — Sovereign AI Architecture</title>
-  <meta name="description" content="SophIA is an open architecture for building sovereign, secure and auditable AI systems." />
+  <title>SophIA — IA d’entreprise maîtrisée</title>
+  <meta name="description" content="SophIA est une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance, contrôle et discipline opérationnelle." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Damien Guesdon" />
-  <meta name="keywords" content="AI infrastructure, sovereign AI, AI architecture, LLM, RAG, Kubernetes, OKD, open source AI platform" />
+  <meta name="keywords" content="IA souveraine, architecture IA, RAG, gouvernance IA, sécurité IA, plateforme IA, Kubernetes, OKD, entreprise" />
 
-  <meta property="og:title" content="SophIA — Sovereign AI Architecture" />
-  <meta property="og:description" content="An open architecture for building sovereign, secure and auditable AI systems." />
+  <meta property="og:title" content="SophIA — IA d’entreprise maîtrisée" />
+  <meta property="og:description" content="Une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance et contrôle." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://SophIA.kisai.fr" />
-  <meta property="og:image" content="./images/sophia-logo.png" />
+  <meta property="og:url" content="https://sophia.kisai.fr" />
+  <meta property="og:image" content="./images/sophia-og.png" />
 
   <link rel="icon" href="./images/sophia-favicon.png" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
@@ -24,10 +24,10 @@
     "@type": "SoftwareApplication",
     "name": "SophIA",
     "alternateName": "Sovereign Orchestrator Platform for Holistic Intelligence Architecture",
-    "url": "https://SophIA.kisai.fr",
-    "applicationCategory": "DeveloperApplication",
+    "url": "https://sophia.kisai.fr",
+    "applicationCategory": "BusinessApplication",
     "operatingSystem": "Linux / Kubernetes",
-    "description": "SophIA is an open architecture for building sovereign, secure and auditable AI systems.",
+    "description": "SophIA is an architectural approach for deploying controlled, secure and auditable AI systems in organizations.",
     "author": {
       "@type": "Person",
       "name": "Damien Guesdon"
@@ -48,11 +48,12 @@
       --primary-2: #b9d8ff;
       --accent: #5ca4ff;
       --success: #8de0b8;
+      --warning: #ffd36b;
 
       --neon-red: #ff3b3b;
       --neon-green: #00ff9c;
 
-      --header-height: 60px;
+      --header-height: 88px;
       --max: 1180px;
       --radius: 20px;
       --shadow: 0 20px 50px rgba(0,0,0,.28);
@@ -127,6 +128,7 @@
       gap: 1.1rem;
       color: var(--muted);
       font-size: .95rem;
+      flex-wrap: wrap;
     }
 
     .nav-links a:hover { color: var(--text); }
@@ -167,10 +169,6 @@
       box-shadow: 0 0 0 4px rgba(143,194,255,.10);
     }
 
-    .lang-btn .flag {
-      filter: saturate(1.05);
-    }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -202,7 +200,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.08fr .92fr;
       gap: 2rem;
       align-items: center;
     }
@@ -241,10 +239,16 @@
     }
 
     .lead {
-      margin: 0 0 1.4rem;
+      margin: 0 0 1.2rem;
       max-width: 68ch;
       color: var(--muted);
       font-size: 1.08rem;
+    }
+
+    .hero-note {
+      margin: 0 0 1.4rem;
+      color: var(--warning);
+      font-size: .97rem;
     }
 
     .hero-actions {
@@ -276,11 +280,9 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-card {
-      padding: 1.2rem;
-    }
+    .hero-card { padding: 1.2rem; }
 
-    .logo-wrap {
+    .illustration-frame {
       min-height: 420px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.06);
@@ -289,11 +291,23 @@
         linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
       display: grid;
       place-items: center;
-      padding: 2rem;
+      padding: 1.2rem;
+      overflow: hidden;
+      position: relative;
     }
 
-    .logo-wrap img {
-      width: min(100%, 320px);
+    .illustration-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .illustration-placeholder {
+      text-align: center;
+      color: var(--muted);
+      max-width: 32ch;
+      font-size: .95rem;
     }
 
     .section {
@@ -319,15 +333,17 @@
       gap: 1rem;
     }
 
-    .card {
-      padding: 1.25rem;
+    .card { padding: 1.25rem; }
+
+    .value-grid .card {
+      border: 1px solid rgba(143,194,255,.18);
     }
 
-    .grid-3 .card {
+    .usecase-grid .card {
       border: 1px solid var(--neon-green);
       box-shadow:
-        0 0 6px rgba(0,255,156,0.6),
-        0 0 16px rgba(0,255,156,0.35),
+        0 0 6px rgba(0,255,156,0.4),
+        0 0 16px rgba(0,255,156,0.16),
         var(--shadow);
     }
 
@@ -360,8 +376,8 @@
       border: 1px solid var(--neon-red);
       font-weight: 600;
       box-shadow:
-        0 0 6px rgba(255,59,59,0.6),
-        0 0 16px rgba(255,59,59,0.4);
+        0 0 6px rgba(255,59,59,0.45),
+        0 0 16px rgba(255,59,59,0.18);
     }
 
     .architecture-card pre {
@@ -397,7 +413,7 @@
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 1rem;
       align-items: start;
       padding: 1rem 0;
@@ -510,7 +526,7 @@
         margin-left: 0;
       }
 
-      .logo-wrap {
+      .illustration-frame {
         min-height: 280px;
       }
     }
@@ -527,20 +543,17 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#problem" data-i18n="nav.problem">Problem</a>
+        <a href="#problem" data-i18n="nav.problem">Problématique</a>
+        <a href="#use-cases" data-i18n="nav.usecases">Cas d’usage</a>
         <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
-        <a href="#avancement" data-i18n="nav.status">Status</a>
+        <a href="#avancement" data-i18n="nav.status">Avancement</a>
         <a href="#documentation" data-i18n="nav.documentation">Documentation</a>
-        <a href="#book" data-i18n="nav.book">Book</a>
-        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noreferrer" data-i18n="nav.github">GitHub</a>
+        <a href="#book" data-i18n="nav.book">Livre</a>
+        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
 
         <div class="lang-switch" aria-label="Language selector">
-          <button class="lang-btn" id="lang-fr" type="button" data-lang="fr" aria-label="Choisir le français" title="Français">
-            <span class="flag">🇫🇷</span>
-          </button>
-          <button class="lang-btn" id="lang-en" type="button" data-lang="en" aria-label="Choose English" title="English">
-            <span class="flag">🇬🇧</span>
-          </button>
+          <button class="lang-btn" id="lang-fr" type="button" data-lang="fr" aria-label="Choisir le français" title="Français">🇫🇷</button>
+          <button class="lang-btn" id="lang-en" type="button" data-lang="en" aria-label="Choose English" title="English">🇬🇧</button>
         </div>
       </nav>
     </div>
@@ -550,26 +563,40 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow" data-i18n="hero.eyebrow">Open architecture • Sovereign AI infrastructure</div>
-          <h1>SophIA</h1>
+          <div class="eyebrow" data-i18n="hero.eyebrow">IA d’entreprise maîtrisée</div>
+          <h1 data-i18n="hero.h1">SophIA aide les organisations à déployer l’IA sans perdre le contrôle.</h1>
           <p class="lead">
-            <strong data-i18n="hero.titleLine">Sovereign Orchestrator Platform for Holistic Intelligence Architecture.</strong><br />
-            <span data-i18n="hero.subtitle">An open architecture for building sovereign, secure and auditable AI systems.</span>
+            <strong data-i18n="hero.titleLine">Une architecture souveraine pour des systèmes d’IA sécurisés, auditables et exploitables.</strong>
           </p>
           <p class="lead" data-i18n="hero.description">
-            SophIA explores how artificial intelligence systems can be deployed in controlled infrastructures using open technologies, local models and secure information pipelines.
+            SophIA s’adresse aux organisations qui veulent aller au-delà des démos et des assistants isolés. Le système structure la mémoire, les outils, l’accès à la connaissance et les environnements d’exécution afin de rendre l’IA gouvernable, sécurisée et exploitable avec une vraie discipline opérationnelle.
+          </p>
+          <p class="hero-note" data-i18n="hero.note">
+            SophIA est actuellement développée comme une approche architecturale en cours de structuration, et non comme un produit fini.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#architecture" data-i18n="hero.viewArchitecture">View Architecture</a>
-            <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noreferrer" data-i18n="hero.githubRepo">GitHub Repository</a>
-            <a class="btn btn-secondary" href="./docs/SophIA_prior_art.pdf" data-i18n="hero.priorArt">Prior Art</a>
+            <a class="btn btn-primary" href="#use-cases" data-i18n="hero.viewUseCases">Voir les cas d’usage</a>
+            <a class="btn btn-secondary" href="#architecture" data-i18n="hero.viewArchitecture">Voir l’architecture</a>
+            <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="hero.githubRepo">Dépôt GitHub</a>
+          </div>
+
+          <div class="hero-meta">
+            <span data-i18n="hero.meta1">Gouvernance IA</span>
+            <span data-i18n="hero.meta2">Sécurité & contrôle</span>
+            <span data-i18n="hero.meta3">RAG & assistants internes</span>
+            <span data-i18n="hero.meta4">Vision plateforme</span>
           </div>
         </div>
 
         <div class="hero-card">
-          <div class="logo-wrap">
-            <img src="./images/sophia-logo.png" alt="SophIA logo" />
+          <div class="illustration-frame" id="hero-illustration-frame">
+            <img
+              id="hero-illustration"
+              src="./images/hero-sophia-overview.png"
+              alt="Illustration de présentation de SophIA"
+              onerror="handleIllustrationError(this, 'hero-illustration-frame', 'Vue d’ensemble visuelle de SophIA à insérer ici')"
+            />
           </div>
         </div>
       </div>
@@ -577,48 +604,90 @@
 
     <section class="section" id="problem">
       <div class="container">
-        <h2 data-i18n="problem.title">AI infrastructure faces structural challenges</h2>
+        <h2 data-i18n="problem.title">Pourquoi les organisations ont du mal à utiliser l’IA de manière maîtrisée</h2>
         <p class="section-intro" data-i18n="problem.intro">
-          Artificial intelligence adoption raises several structural risks: dependency on proprietary platforms, information leakage, unreliable knowledge ingestion, weak governance and unstable context management.
+          La difficulté n’est pas d’avoir accès à l’IA. La difficulté est de l’utiliser sans perdre en gouvernance, en sécurité et en cohérence. Les connaissances sont dispersées, les données sensibles peuvent fuiter, les outils restent mal intégrés et les POC prometteurs ne se transforment pas en systèmes réellement exploitables.
         </p>
 
         <div class="problem-list">
-          <div class="problem-pill" data-i18n="problem.pill1">Lack of sovereignty</div>
-          <div class="problem-pill" data-i18n="problem.pill2">Data Leakage</div>
-          <div class="problem-pill" data-i18n="problem.pill3">Hallucinations</div>
-          <div class="problem-pill" data-i18n="problem.pill4">Model Collapse</div>
-          <div class="problem-pill" data-i18n="problem.pill5">Context Loss</div>
+          <div class="problem-pill" data-i18n="problem.pill1">Usages non maîtrisés</div>
+          <div class="problem-pill" data-i18n="problem.pill2">Exposition des données</div>
+          <div class="problem-pill" data-i18n="problem.pill3">Gouvernance insuffisante</div>
+          <div class="problem-pill" data-i18n="problem.pill4">Accès fragile à la connaissance</div>
+          <div class="problem-pill" data-i18n="problem.pill5">Écart entre POC et production</div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container grid-3">
+      <div class="container grid-3 value-grid">
         <article class="card">
-          <h3 data-i18n="cards.orchestration.title">Orchestration</h3>
-          <p data-i18n="cards.orchestration.text">SophIA treats AI as infrastructure: projects, tasks, workspaces, context and memory are structured explicitly rather than improvised around a chat interface.</p>
+          <h3 data-i18n="cards.control.title">Maîtrise</h3>
+          <p data-i18n="cards.control.text">SophIA donne aux organisations un cadre pour contrôler l’accès de l’IA à la connaissance, aux outils et aux informations externes, au lieu de laisser se développer des usages opaques et improvisés.</p>
         </article>
 
         <article class="card">
-          <h3 data-i18n="cards.security.title">Security</h3>
-          <p data-i18n="cards.security.text">The architecture integrates Zero Trust principles, controlled external acquisition, semantic validation and strong separation between internal services and external information flows.</p>
+          <h3 data-i18n="cards.trust.title">Confiance</h3>
+          <p data-i18n="cards.trust.text">Le système est conçu pour réduire les risques grâce à l’isolation, à la validation, au filtrage et à une gestion explicite du contexte, afin que les résultats de l’IA puissent être gouvernés.</p>
         </article>
 
         <article class="card">
-          <h3 data-i18n="cards.opensource.title">Open Source</h3>
-          <p data-i18n="cards.opensource.text">SophIA does not try to replace existing tools. It assembles open-source components into a coherent, auditable and reproducible architecture.</p>
+          <h3 data-i18n="cards.deployment.title">Déploiement</h3>
+          <p data-i18n="cards.deployment.text">SophIA n’est pas une simple interface de chat. C’est une approche plateforme pour passer de l’expérimentation à des assistants internes, des automatisations encadrées et des services IA réellement exploitables.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section" id="use-cases">
+      <div class="container">
+        <h2 data-i18n="usecases.title">Ce que SophIA permet</h2>
+        <p class="section-intro" data-i18n="usecases.intro">
+          SophIA est pensée pour des cas d’usage concrets où la gouvernance, la sécurité et le contrôle opérationnel comptent autant que la puissance des modèles.
+        </p>
+
+        <div class="grid-3 usecase-grid">
+          <article class="card">
+            <h3 data-i18n="usecases.case1.title">Assistants IA internes</h3>
+            <p data-i18n="usecases.case1.text">Déployer des assistants connectés à la connaissance, aux processus et aux outils internes sans exposer l’organisation à des flux de données non maîtrisés.</p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="usecases.case2.title">Systèmes RAG sécurisés</h3>
+            <p data-i18n="usecases.case2.text">Construire des systèmes de recherche augmentée sur la documentation, les procédures et les savoirs internes avec une ingestion et une validation contrôlées.</p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="usecases.case3.title">Workflows IA gouvernés</h3>
+            <p data-i18n="usecases.case3.text">Structurer des workflows agentiques ou semi-automatisés avec des limites explicites, une exécution isolée et un comportement auditable.</p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="usecases.case4.title">Copilotes produit et support</h3>
+            <p data-i18n="usecases.case4.text">Outiller les équipes support, opérations ou produit avec des assistants contextuels capables de raisonner sur des sources internes de confiance.</p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="usecases.case5.title">Plateformes IA privées</h3>
+            <p data-i18n="usecases.case5.text">Créer une plateforme IA dédiée pour les organisations qui ne peuvent pas dépendre uniquement de SaaS publics pour des raisons de confidentialité, de conformité ou de souveraineté.</p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="usecases.case6.title">Adoption de l’IA avec garde-fous</h3>
+            <p data-i18n="usecases.case6.text">Donner de la liberté aux équipes d’innovation tout en fournissant à la direction des garde-fous d’architecture, de gouvernance et de sécurité dès le départ.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" id="architecture">
       <div class="container">
-        <h2 data-i18n="architecture.title">Architecture Overview</h2>
+        <h2 data-i18n="architecture.title">Vue d’ensemble de l’architecture</h2>
         <p class="section-intro" data-i18n="architecture.intro">
-          SophIA follows a Hub &amp; Spoke architecture: a central orchestration layer coordinates memory, inference, tooling, external knowledge acquisition and isolated execution environments.
+          SophIA suit une architecture de plateforme conçue pour répondre à un besoin simple : utiliser l’IA avec plus de capacité qu’un simple chatbot, mais avec plus de contrôle qu’un assistant SaaS générique.
         </p>
 
-        <div class="card architecture-card">
+        <div class="grid-2" style="margin-bottom:1rem;">
+          <div class="card architecture-card">
 <pre>Users / IDE / API
         │
         ▼
@@ -641,12 +710,19 @@ models    Qdrant      MCP tools      web intake    workspaces
               │                         │
               └──────────────┬──────────┘
                              ▼
-                      persistent memory
+                      persistent memory</pre>
+          </div>
 
-SophIA-git (Forgejo) centralizes:
-- SophIA-brain
-- Guesdon-Brain
-- project repositories</pre>
+          <div class="card">
+            <div class="illustration-frame" id="architecture-illustration-frame">
+              <img
+                id="architecture-illustration"
+                src="./images/architecture-overview.png"
+                alt="Illustration de l’architecture SophIA"
+                onerror="handleIllustrationError(this, 'architecture-illustration-frame', 'Schéma illustré de l’architecture SophIA à insérer ici')"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -654,22 +730,22 @@ SophIA-git (Forgejo) centralizes:
     <section class="section">
       <div class="container grid-2">
         <article class="card">
-          <h3 data-i18n="concepts.title">Core Concepts</h3>
+          <h3 data-i18n="concepts.title">Concepts clés</h3>
           <ul>
-            <li data-i18n="concepts.item1"><strong>Project Model</strong> — everything is structured as a project</li>
-            <li data-i18n="concepts.item2"><strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated</li>
-            <li data-i18n="concepts.item3"><strong>Context Management</strong> — context is built explicitly</li>
-            <li data-i18n="concepts.item4"><strong>Workspace Management</strong> — execution environments are isolated and reproducible</li>
+            <li data-i18n="concepts.item1"><strong>Modèle par projet</strong> — tout est structuré comme un projet</li>
+            <li data-i18n="concepts.item2"><strong>Brain / Repo / Workspace</strong> — mémoire, production et exécution sont séparées</li>
+            <li data-i18n="concepts.item3"><strong>Gestion du contexte</strong> — le contexte est construit explicitement</li>
+            <li data-i18n="concepts.item4"><strong>Gestion des workspaces</strong> — les environnements d’exécution sont isolés et reproductibles</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3 data-i18n="mechanisms.title">Distinctive Mechanisms</h3>
+          <h3 data-i18n="mechanisms.title">Mécanismes distinctifs</h3>
           <ul>
-            <li data-i18n="mechanisms.item1"><strong>Paranoid Airlock</strong> — isolated web acquisition pipeline</li>
-            <li data-i18n="mechanisms.item2"><strong>Search Fog</strong> — decoy queries to reduce correlation</li>
-            <li data-i18n="mechanisms.item3"><strong>Semantic Court</strong> — validation before knowledge ingestion</li>
-            <li data-i18n="mechanisms.item4"><strong>DLP</strong> — filtering of sensitive outgoing information</li>
+            <li data-i18n="mechanisms.item1"><strong>Sas paranoïaque</strong> — pipeline isolé d’acquisition web</li>
+            <li data-i18n="mechanisms.item2"><strong>Brouillard de recherche</strong> — requêtes leurres pour réduire la corrélation</li>
+            <li data-i18n="mechanisms.item3"><strong>Tribunal sémantique</strong> — validation avant ingestion des connaissances</li>
+            <li data-i18n="mechanisms.item4"><strong>DLP</strong> — filtrage des informations sensibles en sortie</li>
           </ul>
         </article>
       </div>
@@ -677,9 +753,9 @@ SophIA-git (Forgejo) centralizes:
 
     <section class="section">
       <div class="container">
-        <h2 data-i18n="tech.title">Key Technologies</h2>
+        <h2 data-i18n="tech.title">Technologies clés</h2>
         <p class="section-intro" data-i18n="tech.intro">
-          The current proof of concept is based on a pragmatic open-source stack.
+          La base actuelle repose sur une pile open source pragmatique, choisie pour sa reproductibilité, sa maîtrise et sa compatibilité avec des environnements contrôlés.
         </p>
         <div class="stack">
           <span>LiteLLM</span>
@@ -695,33 +771,33 @@ SophIA-git (Forgejo) centralizes:
 
     <section class="section" id="avancement">
       <div class="container">
-        <h2 data-i18n="status.title">Project Status</h2>
+        <h2 data-i18n="status.title">État du projet</h2>
         <p class="section-intro" data-i18n="status.intro">
-          SophIA is an experimental architecture project. The proof of concept infrastructure is deployed, the documentation is being published, and the platform model is progressively being stabilized.
+          SophIA est en cours de développement actif en tant que cadre architectural. Les fondations, les concepts et les principes de conception sont déjà définis et validés, tandis que le système est progressivement enrichi et consolidé.
         </p>
 
         <div class="card">
-          <div class="status" data-i18n="status.badge">Experimental proof of concept in progress</div>
+          <div class="status" data-i18n="status.badge">Architecture en cours de développement et de validation</div>
 
           <div class="timeline">
             <div class="timeline-item">
-              <div class="timeline-phase">Phase 0–1</div>
-              <div data-i18n="status.phase1">Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.</div>
+              <div class="timeline-phase" data-i18n="status.phaseTitle1">Fondations</div>
+              <div data-i18n="status.phase1">Fondations physiques, serveur bare metal, cluster OKD, accès WireGuard et premières contraintes de sécurité.</div>
             </div>
 
             <div class="timeline-item">
-              <div class="timeline-phase">Phase 2</div>
-              <div data-i18n="status.phase2">GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>SophIA-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.</div>
+              <div class="timeline-phase" data-i18n="status.phaseTitle2">Structuration</div>
+              <div data-i18n="status.phase2">Couche GitOps, segmentation par namespaces, Forgejo, structuration des trois piliers : <em>SophIA-brain</em>, <em>Guesdon-Brain</em> et <em>projects</em>.</div>
             </div>
 
             <div class="timeline-item">
-              <div class="timeline-phase">Phase 3</div>
-              <div data-i18n="status.phase3">AI routing layer, local inference, development workspaces, centralized tooling and improved execution workflows.</div>
+              <div class="timeline-phase" data-i18n="status.phaseTitle3">Capacités IA</div>
+              <div data-i18n="status.phase3">Couche de routage IA, inférence locale, environnements de développement, outillage centralisé et amélioration des workflows d’exécution.</div>
             </div>
 
             <div class="timeline-item">
-              <div class="timeline-phase">Phase 4+</div>
-              <div data-i18n="status.phase4">Memory reinforcement, semantic validation, DLP filtering, observability and progressive industrialization.</div>
+              <div class="timeline-phase" data-i18n="status.phaseTitle4">Consolidation</div>
+              <div data-i18n="status.phase4">Renforcement mémoire, validation sémantique, filtrage DLP, observabilité et montée progressive en robustesse.</div>
             </div>
           </div>
         </div>
@@ -733,33 +809,29 @@ SophIA-git (Forgejo) centralizes:
         <article class="card">
           <h3 data-i18n="docs.title">Documentation</h3>
           <ul>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/vision.md" target="_blank" rel="noreferrer" data-i18n="docs.vision">Vision</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/problem-space.md" target="_blank" rel="noreferrer" data-i18n="docs.problemSpace">Problem Space</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/architecture.md" target="_blank" rel="noreferrer" data-i18n="docs.architecture">Architecture</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/security.md" target="_blank" rel="noreferrer" data-i18n="docs.security">Security</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/roadmap.md" target="_blank" rel="noreferrer" data-i18n="docs.roadmap">Roadmap</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/vision.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.vision">Vision</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/problem-space.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.problemSpace">Espace de problème</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/architecture.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.architecture">Architecture</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/security.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.security">Sécurité</a></li>
+            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/roadmap.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.roadmap">Feuille de route</a></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3 data-i18n="author.title">Author</h3>
+          <h3 data-i18n="author.title">Auteur</h3>
           <p data-i18n="author.p1">
-            SophIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?
+            SophIA est initiée par Damien Guesdon comme une réponse à une question très concrète : comment permettre aux organisations de tirer parti de l’IA sans perdre le contrôle de leurs systèmes, de leurs données et de leur modèle opérationnel ?
           </p>
           <p data-i18n="author.p2">
-            The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering, sovereign AI architecture and secure orchestration.
+            Le projet combine plus de 20 ans d’expérience en infrastructure, réseau, systèmes critiques et direction technique avec une spécialisation actuelle en ingénierie IA, conception de plateformes et architecture souveraine.
           </p>
           <p data-i18n="author.p3">
-            Damien Guesdon is also the author of <em>SophIA — Assistant suprême ?</em>, a book exploring the real nature of artificial intelligence, the limits of generative models, and the architectural foundations required to build sovereign, secure and auditable AI systems.
+            Pour les décideurs, SophIA illustre une approche concrète de l’IA d’entreprise gouvernée. Pour les recruteurs, le projet reflète un profil capable de relier stratégie, architecture, sécurité, exécution et vision plateforme.
           </p>
 
           <div class="author-actions">
-            <a class="btn btn-primary" href="https://damienguesdon.github.io/" target="_blank" rel="noreferrer" data-i18n="author.cv">
-              View CV
-            </a>
-            <a class="btn btn-secondary" href="https://kisai-dg-slu.github.io/" target="_blank" rel="noreferrer" data-i18n="author.dashboard">
-              AI Training Dashboard
-            </a>
+            <a class="btn btn-primary" href="https://damienguesdon.github.io/" target="_blank" rel="noopener noreferrer" data-i18n="author.cv">Voir le CV</a>
+            <a class="btn btn-secondary" href="https://kisai-dg-slu.github.io/" target="_blank" rel="noopener noreferrer" data-i18n="author.dashboard">Dashboard de formation IA</a>
           </div>
         </article>
       </div>
@@ -768,18 +840,14 @@ SophIA-git (Forgejo) centralizes:
     <section class="section cta">
       <div class="container">
         <div class="cta-card">
-          <h2 data-i18n="cta.title">Explore SophIA</h2>
+          <h2 data-i18n="cta.title">Explorer ce que peut être une IA d’entreprise maîtrisée</h2>
           <p class="section-intro" style="margin-inline:auto;" data-i18n="cta.text">
-            The project is still under active construction, but its documentation, concepts and public repository are already available.
+            SophIA n’est pas présentée comme un produit fini, mais comme une approche architecturale concrète pour les organisations qui souhaitent passer de l’expérimentation IA à des systèmes maîtrisés et industrialisables.
           </p>
 
           <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
-            <a class="btn btn-primary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noreferrer" data-i18n="cta.github">
-              View GitHub Repository
-            </a>
-            <a class="btn btn-secondary" href="./docs/SophIA_prior_art.pdf" data-i18n="cta.priorArt">
-              Prior Art Description
-            </a>
+            <a class="btn btn-primary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="cta.github">Voir le dépôt GitHub</a>
+            <a class="btn btn-secondary" href="./docs/SophIA_prior_art.pdf" data-i18n="cta.priorArt">Description d’antériorité</a>
           </div>
         </div>
       </div>
@@ -788,23 +856,19 @@ SophIA-git (Forgejo) centralizes:
     <section class="section book-section" id="book">
       <div class="container">
         <div class="card">
-          <h2 data-i18n="book.title">The Book Behind the Vision</h2>
+          <h2 data-i18n="book.title">Le livre derrière la vision</h2>
           <p class="section-intro" data-i18n="book.p1">
-            <strong>SophIA — Assistant suprême ?</strong> is Damien Guesdon’s book on the real nature of artificial intelligence, the limits of large language models, and the engineering principles required to build sovereign AI systems.
+            <strong>SophIA — Assistant suprême ?</strong> est le livre de Damien Guesdon sur la nature réelle de l’intelligence artificielle, les limites des grands modèles de langage et les principes d’ingénierie nécessaires pour construire des systèmes d’IA souverains.
           </p>
           <p class="section-intro book-note" data-i18n="book.note">
-            Currently available in French only.
+            Actuellement disponible uniquement en français.
           </p>
           <p class="section-intro" data-i18n="book.p2">
-            It explores hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SophIA.
+            Il aborde les hallucinations, le model collapse, les fuites de données, les prompt injections, l’orchestration, le RAG, l’exécution sécurisée, le Zero Trust et la vision architecturale qui a conduit à SophIA.
           </p>
           <div class="book-actions" style="justify-content:center;">
-            <a class="btn btn-primary" href="https://amzn.eu/d/03hTLyKs" target="_blank" rel="noreferrer" data-i18n="book.kindle">
-              Buy Kindle Edition
-            </a>
-            <a class="btn btn-secondary" href="https://amzn.eu/d/04ht4nMs" target="_blank" rel="noreferrer" data-i18n="book.paperback">
-              Buy Paperback Edition
-            </a>
+            <a class="btn btn-primary" href="https://amzn.eu/d/03hTLyKs" target="_blank" rel="noopener noreferrer" data-i18n="book.kindle">Acheter la version Kindle</a>
+            <a class="btn btn-secondary" href="https://amzn.eu/d/04ht4nMs" target="_blank" rel="noopener noreferrer" data-i18n="book.paperback">Acheter la version brochée</a>
           </div>
         </div>
       </div>
@@ -817,7 +881,7 @@ SophIA-git (Forgejo) centralizes:
       <div>
         <a href="mailto:contact@kisai.fr">contact@kisai.fr</a>
         &nbsp;•&nbsp;
-        <a href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noreferrer" data-i18n="footer.github">GitHub</a>
+        <a href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">GitHub</a>
       </div>
     </div>
   </footer>
@@ -826,11 +890,12 @@ SophIA-git (Forgejo) centralizes:
     const translations = {
       fr: {
         meta: {
-          title: "SophIA — Architecture IA souveraine",
-          description: "SophIA est une architecture ouverte pour construire des systèmes d’IA souverains, sécurisés et auditables."
+          title: "SophIA — IA d’entreprise maîtrisée",
+          description: "SophIA est une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance, contrôle et discipline opérationnelle."
         },
         nav: {
           problem: "Problématique",
+          usecases: "Cas d’usage",
           architecture: "Architecture",
           status: "Avancement",
           documentation: "Documentation",
@@ -838,40 +903,73 @@ SophIA-git (Forgejo) centralizes:
           github: "GitHub"
         },
         hero: {
-          eyebrow: "Architecture ouverte • Infrastructure IA souveraine",
-          titleLine: "Sovereign Orchestrator Platform for Holistic Intelligence Architecture.",
-          subtitle: "Une architecture ouverte pour construire des systèmes d’IA souverains, sécurisés et auditables.",
-          description: "SophIA explore comment des systèmes d’intelligence artificielle peuvent être déployés dans des infrastructures contrôlées à l’aide de technologies ouvertes, de modèles locaux et de pipelines d’information sécurisés.",
+          eyebrow: "IA d’entreprise maîtrisée",
+          h1: "SophIA aide les organisations à déployer l’IA sans perdre le contrôle.",
+          titleLine: "Une architecture souveraine pour des systèmes d’IA sécurisés, auditables et exploitables.",
+          description: "SophIA s’adresse aux organisations qui veulent aller au-delà des démos et des assistants isolés. Le système structure la mémoire, les outils, l’accès à la connaissance et les environnements d’exécution afin de rendre l’IA gouvernable, sécurisée et exploitable avec une vraie discipline opérationnelle.",
+          note: "SophIA est actuellement développée comme une approche architecturale en cours de structuration, et non comme un produit fini.",
+          viewUseCases: "Voir les cas d’usage",
           viewArchitecture: "Voir l’architecture",
           githubRepo: "Dépôt GitHub",
-          priorArt: "Antériorité"
+          meta1: "Gouvernance IA",
+          meta2: "Sécurité & contrôle",
+          meta3: "RAG & assistants internes",
+          meta4: "Vision plateforme"
         },
         problem: {
-          title: "L’infrastructure IA fait face à des défis structurels",
-          intro: "L’adoption de l’intelligence artificielle soulève plusieurs risques structurels : dépendance aux plateformes propriétaires, fuite d’information, ingestion de connaissances peu fiable, gouvernance faible et gestion du contexte instable.",
-          pill1: "Manque de souveraineté",
-          pill2: "Fuite de données",
-          pill3: "Hallucinations",
-          pill4: "Effondrement des modèles",
-          pill5: "Perte de contexte"
+          title: "Pourquoi les organisations ont du mal à utiliser l’IA de manière maîtrisée",
+          intro: "La difficulté n’est pas d’avoir accès à l’IA. La difficulté est de l’utiliser sans perdre en gouvernance, en sécurité et en cohérence. Les connaissances sont dispersées, les données sensibles peuvent fuiter, les outils restent mal intégrés et les POC prometteurs ne se transforment pas en systèmes réellement exploitables.",
+          pill1: "Usages non maîtrisés",
+          pill2: "Exposition des données",
+          pill3: "Gouvernance insuffisante",
+          pill4: "Accès fragile à la connaissance",
+          pill5: "Écart entre POC et production"
         },
         cards: {
-          orchestration: {
-            title: "Orchestration",
-            text: "SophIA traite l’IA comme une infrastructure : projets, tâches, espaces de travail, contexte et mémoire sont structurés explicitement plutôt qu’improvisés autour d’une interface de chat."
+          control: {
+            title: "Maîtrise",
+            text: "SophIA donne aux organisations un cadre pour contrôler l’accès de l’IA à la connaissance, aux outils et aux informations externes, au lieu de laisser se développer des usages opaques et improvisés."
           },
-          security: {
-            title: "Sécurité",
-            text: "L’architecture intègre les principes Zero Trust, une acquisition externe contrôlée, une validation sémantique et une séparation forte entre services internes et flux d’informations externes."
+          trust: {
+            title: "Confiance",
+            text: "Le système est conçu pour réduire les risques grâce à l’isolation, à la validation, au filtrage et à une gestion explicite du contexte, afin que les résultats de l’IA puissent être gouvernés."
           },
-          opensource: {
-            title: "Open Source",
-            text: "SophIA ne cherche pas à remplacer les outils existants. Elle assemble des composants open source dans une architecture cohérente, auditable et reproductible."
+          deployment: {
+            title: "Déploiement",
+            text: "SophIA n’est pas une simple interface de chat. C’est une approche plateforme pour passer de l’expérimentation à des assistants internes, des automatisations encadrées et des services IA réellement exploitables."
+          }
+        },
+        usecases: {
+          title: "Ce que SophIA permet",
+          intro: "SophIA est pensée pour des cas d’usage concrets où la gouvernance, la sécurité et le contrôle opérationnel comptent autant que la puissance des modèles.",
+          case1: {
+            title: "Assistants IA internes",
+            text: "Déployer des assistants connectés à la connaissance, aux processus et aux outils internes sans exposer l’organisation à des flux de données non maîtrisés."
+          },
+          case2: {
+            title: "Systèmes RAG sécurisés",
+            text: "Construire des systèmes de recherche augmentée sur la documentation, les procédures et les savoirs internes avec une ingestion et une validation contrôlées."
+          },
+          case3: {
+            title: "Workflows IA gouvernés",
+            text: "Structurer des workflows agentiques ou semi-automatisés avec des limites explicites, une exécution isolée et un comportement auditable."
+          },
+          case4: {
+            title: "Copilotes produit et support",
+            text: "Outiller les équipes support, opérations ou produit avec des assistants contextuels capables de raisonner sur des sources internes de confiance."
+          },
+          case5: {
+            title: "Plateformes IA privées",
+            text: "Créer une plateforme IA dédiée pour les organisations qui ne peuvent pas dépendre uniquement de SaaS publics pour des raisons de confidentialité, de conformité ou de souveraineté."
+          },
+          case6: {
+            title: "Adoption de l’IA avec garde-fous",
+            text: "Donner de la liberté aux équipes d’innovation tout en fournissant à la direction des garde-fous d’architecture, de gouvernance et de sécurité dès le départ."
           }
         },
         architecture: {
           title: "Vue d’ensemble de l’architecture",
-          intro: "SophIA suit une architecture Hub & Spoke : une couche centrale d’orchestration coordonne la mémoire, l’inférence, l’outillage, l’acquisition de connaissances externes et des environnements d’exécution isolés."
+          intro: "SophIA suit une architecture de plateforme conçue pour répondre à un besoin simple : utiliser l’IA avec plus de capacité qu’un simple chatbot, mais avec plus de contrôle qu’un assistant SaaS générique."
         },
         concepts: {
           title: "Concepts clés",
@@ -889,16 +987,20 @@ SophIA-git (Forgejo) centralizes:
         },
         tech: {
           title: "Technologies clés",
-          intro: "La preuve de concept actuelle repose sur une pile open source pragmatique."
+          intro: "La base actuelle repose sur une pile open source pragmatique, choisie pour sa reproductibilité, sa maîtrise et sa compatibilité avec des environnements contrôlés."
         },
         status: {
           title: "État du projet",
-          intro: "SophIA est un projet d’architecture expérimental. L’infrastructure de preuve de concept est déployée, la documentation est en cours de publication et le modèle de plateforme se stabilise progressivement.",
-          badge: "Preuve de concept expérimentale en cours",
+          intro: "SophIA est en cours de développement actif en tant que cadre architectural. Les fondations, les concepts et les principes de conception sont déjà définis et validés, tandis que le système est progressivement enrichi et consolidé.",
+          badge: "Architecture en cours de développement et de validation",
+          phaseTitle1: "Fondations",
+          phaseTitle2: "Structuration",
+          phaseTitle3: "Capacités IA",
+          phaseTitle4: "Consolidation",
           phase1: "Fondations physiques, serveur bare metal, cluster OKD, accès WireGuard et premières contraintes de sécurité.",
           phase2: "Couche GitOps, segmentation par namespaces, Forgejo, structuration des trois piliers : <em>SophIA-brain</em>, <em>Guesdon-Brain</em> et <em>projects</em>.",
-          phase3: "Couche de routage IA, inférence locale, espaces de développement, outillage centralisé et amélioration des workflows d’exécution.",
-          phase4: "Renforcement mémoire, validation sémantique, filtrage DLP, observabilité et industrialisation progressive."
+          phase3: "Couche de routage IA, inférence locale, environnements de développement, outillage centralisé et amélioration des workflows d’exécution.",
+          phase4: "Renforcement mémoire, validation sémantique, filtrage DLP, observabilité et montée progressive en robustesse."
         },
         docs: {
           title: "Documentation",
@@ -910,15 +1012,15 @@ SophIA-git (Forgejo) centralizes:
         },
         author: {
           title: "Auteur",
-          p1: "SophIA est initiée par Damien Guesdon comme une exploration architecturale : comment permettre aux organisations d’utiliser l’intelligence artificielle sans perdre le contrôle de leurs systèmes d’information ?",
-          p2: "Le projet s’appuie sur plus de 20 ans d’expérience en infrastructure, réseau et systèmes, prolongés par une spécialisation actuelle en ingénierie IA, architecture IA souveraine et orchestration sécurisée.",
-          p3: "Damien Guesdon est également l’auteur de <em>SophIA — Assistant suprême ?</em>, un livre qui explore la nature réelle de l’intelligence artificielle, les limites des modèles génératifs et les fondations architecturales nécessaires pour construire des systèmes d’IA souverains, sécurisés et auditables.",
+          p1: "SophIA est initiée par Damien Guesdon comme une réponse à une question très concrète : comment permettre aux organisations de tirer parti de l’IA sans perdre le contrôle de leurs systèmes, de leurs données et de leur modèle opérationnel ?",
+          p2: "Le projet combine plus de 20 ans d’expérience en infrastructure, réseau, systèmes critiques et direction technique avec une spécialisation actuelle en ingénierie IA, conception de plateformes et architecture souveraine.",
+          p3: "Pour les décideurs, SophIA illustre une approche concrète de l’IA d’entreprise gouvernée. Pour les recruteurs, le projet reflète un profil capable de relier stratégie, architecture, sécurité, exécution et vision plateforme.",
           cv: "Voir le CV",
           dashboard: "Dashboard de formation IA"
         },
         cta: {
-          title: "Explorer SophIA",
-          text: "Le projet est encore en construction active, mais sa documentation, ses concepts et son dépôt public sont déjà disponibles.",
+          title: "Explorer ce que peut être une IA d’entreprise maîtrisée",
+          text: "SophIA n’est pas présentée comme un produit fini, mais comme une approche architecturale concrète pour les organisations qui souhaitent passer de l’expérimentation IA à des systèmes maîtrisés et industrialisables.",
           github: "Voir le dépôt GitHub",
           priorArt: "Description d’antériorité"
         },
@@ -938,11 +1040,12 @@ SophIA-git (Forgejo) centralizes:
 
       en: {
         meta: {
-          title: "SophIA — Sovereign AI Architecture",
-          description: "SophIA is an open architecture for building sovereign, secure and auditable AI systems."
+          title: "SophIA — Controlled enterprise AI",
+          description: "SophIA is an architectural approach for deploying AI systems in organizations with security, governance, control and operational discipline."
         },
         nav: {
           problem: "Problem",
+          usecases: "Use cases",
           architecture: "Architecture",
           status: "Status",
           documentation: "Documentation",
@@ -950,97 +1053,134 @@ SophIA-git (Forgejo) centralizes:
           github: "GitHub"
         },
         hero: {
-          eyebrow: "Open architecture • Sovereign AI infrastructure",
-          titleLine: "Sovereign Orchestrator Platform for Holistic Intelligence Architecture.",
-          subtitle: "An open architecture for building sovereign, secure and auditable AI systems.",
-          description: "SophIA explores how artificial intelligence systems can be deployed in controlled infrastructures using open technologies, local models and secure information pipelines.",
-          viewArchitecture: "View Architecture",
+          eyebrow: "Controlled enterprise AI",
+          h1: "SophIA helps organizations deploy AI without losing control.",
+          titleLine: "A sovereign architecture for secure, auditable and production-ready AI systems.",
+          description: "SophIA is designed for organizations that want to move beyond demos and isolated assistants. The system structures memory, tools, knowledge access and execution environments so AI can be governed, secured and deployed with real operational discipline.",
+          note: "SophIA is currently being developed as an architectural approach in active structuring, rather than as a finished product.",
+          viewUseCases: "See use cases",
+          viewArchitecture: "View architecture",
           githubRepo: "GitHub Repository",
-          priorArt: "Prior Art"
+          meta1: "AI governance",
+          meta2: "Security & control",
+          meta3: "RAG & internal assistants",
+          meta4: "Platform mindset"
         },
         problem: {
-          title: "AI infrastructure faces structural challenges",
-          intro: "Artificial intelligence adoption raises several structural risks: dependency on proprietary platforms, information leakage, unreliable knowledge ingestion, weak governance and unstable context management.",
-          pill1: "Lack of sovereignty",
-          pill2: "Data Leakage",
-          pill3: "Hallucinations",
-          pill4: "Model Collapse",
-          pill5: "Context Loss"
+          title: "Why organizations struggle to use AI safely",
+          intro: "The difficulty is not getting access to AI. The difficulty is using it without losing governance, security and consistency. Knowledge is scattered, sensitive data can leak, tools remain poorly integrated, and promising pilots do not become truly operational systems.",
+          pill1: "Uncontrolled usage",
+          pill2: "Data exposure",
+          pill3: "Weak governance",
+          pill4: "Fragile knowledge access",
+          pill5: "Pilot-to-production gap"
         },
         cards: {
-          orchestration: {
-            title: "Orchestration",
-            text: "SophIA treats AI as infrastructure: projects, tasks, workspaces, context and memory are structured explicitly rather than improvised around a chat interface."
+          control: {
+            title: "Control",
+            text: "SophIA gives organizations a framework to control how AI accesses knowledge, tools and external information instead of allowing opaque and improvised usage to spread."
           },
-          security: {
-            title: "Security",
-            text: "The architecture integrates Zero Trust principles, controlled external acquisition, semantic validation and strong separation between internal services and external information flows."
+          trust: {
+            title: "Trust",
+            text: "The system is designed to reduce risk through isolation, validation, filtering and explicit context management, so AI outputs can be governed rather than simply hoped for."
           },
-          opensource: {
-            title: "Open Source",
-            text: "SophIA does not try to replace existing tools. It assembles open-source components into a coherent, auditable and reproducible architecture."
+          deployment: {
+            title: "Deployment",
+            text: "SophIA is not just a chat interface. It is a platform approach for moving from experimentation to internal assistants, governed automations and truly operational AI services."
+          }
+        },
+        usecases: {
+          title: "What SophIA enables",
+          intro: "SophIA is designed for concrete use cases where governance, security and operational control matter as much as model capability.",
+          case1: {
+            title: "Internal AI assistants",
+            text: "Deploy assistants connected to internal knowledge, processes and tools without exposing the organization to uncontrolled data flows."
+          },
+          case2: {
+            title: "Secure RAG systems",
+            text: "Build retrieval systems over internal documentation, procedures and technical knowledge with controlled ingestion and validation."
+          },
+          case3: {
+            title: "Governed AI workflows",
+            text: "Structure agentic or semi-automated workflows with explicit boundaries, isolated execution and auditable behavior."
+          },
+          case4: {
+            title: "Product and support copilots",
+            text: "Support support teams, operations teams or product organizations with contextual assistants able to reason across trusted internal sources."
+          },
+          case5: {
+            title: "Private AI platforms",
+            text: "Create a dedicated AI platform for organizations that cannot rely entirely on public SaaS due to confidentiality, compliance or sovereignty constraints."
+          },
+          case6: {
+            title: "AI adoption with guardrails",
+            text: "Give innovation teams room to move while providing leadership with architecture, governance and security guardrails from the start."
           }
         },
         architecture: {
-          title: "Architecture Overview",
-          intro: "SophIA follows a Hub & Spoke architecture: a central orchestration layer coordinates memory, inference, tooling, external knowledge acquisition and isolated execution environments."
+          title: "Architecture overview",
+          intro: "SophIA follows a platform architecture designed to answer a simple need: use AI with more capability than a standalone chatbot, but with more control than a generic SaaS assistant can provide."
         },
         concepts: {
-          title: "Core Concepts",
-          item1: "<strong>Project Model</strong> — everything is structured as a project",
+          title: "Core concepts",
+          item1: "<strong>Project model</strong> — everything is structured as a project",
           item2: "<strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated",
-          item3: "<strong>Context Management</strong> — context is built explicitly",
-          item4: "<strong>Workspace Management</strong> — execution environments are isolated and reproducible"
+          item3: "<strong>Context management</strong> — context is built explicitly",
+          item4: "<strong>Workspace management</strong> — execution environments are isolated and reproducible"
         },
         mechanisms: {
-          title: "Distinctive Mechanisms",
+          title: "Distinctive mechanisms",
           item1: "<strong>Paranoid Airlock</strong> — isolated web acquisition pipeline",
           item2: "<strong>Search Fog</strong> — decoy queries to reduce correlation",
           item3: "<strong>Semantic Court</strong> — validation before knowledge ingestion",
           item4: "<strong>DLP</strong> — filtering of sensitive outgoing information"
         },
         tech: {
-          title: "Key Technologies",
-          intro: "The current proof of concept is based on a pragmatic open-source stack."
+          title: "Key technologies",
+          intro: "The current base relies on a pragmatic open-source stack chosen for reproducibility, control and compatibility with managed environments."
         },
         status: {
-          title: "Project Status",
-          intro: "SophIA is an experimental architecture project. The proof of concept infrastructure is deployed, the documentation is being published, and the platform model is progressively being stabilized.",
-          badge: "Experimental proof of concept in progress",
+          title: "Project status",
+          intro: "SophIA is in active development as an architectural framework. Its foundations, concepts and design principles are already defined and validated, while the system is progressively extended and consolidated.",
+          badge: "Architecture in active development and validation",
+          phaseTitle1: "Foundations",
+          phaseTitle2: "Structuring",
+          phaseTitle3: "AI capabilities",
+          phaseTitle4: "Consolidation",
           phase1: "Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.",
           phase2: "GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>SophIA-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.",
-          phase3: "AI routing layer, local inference, development workspaces, centralized tooling and improved execution workflows.",
-          phase4: "Memory reinforcement, semantic validation, DLP filtering, observability and progressive industrialization."
+          phase3: "AI routing layer, local inference, development environments, centralized tooling and improved execution workflows.",
+          phase4: "Memory reinforcement, semantic validation, DLP filtering, observability and progressive strengthening."
         },
         docs: {
           title: "Documentation",
           vision: "Vision",
-          problemSpace: "Problem Space",
+          problemSpace: "Problem space",
           architecture: "Architecture",
           security: "Security",
           roadmap: "Roadmap"
         },
         author: {
           title: "Author",
-          p1: "SophIA is initiated by Damien Guesdon as an architectural exploration: how can organizations use artificial intelligence without losing control over their information systems?",
-          p2: "The project builds on 20+ years of experience in infrastructure, networking and systems, extended by a current specialization in AI engineering, sovereign AI architecture and secure orchestration.",
-          p3: "Damien Guesdon is also the author of <em>SophIA — Assistant suprême ?</em>, a book exploring the real nature of artificial intelligence, the limits of generative models, and the architectural foundations required to build sovereign, secure and auditable AI systems.",
+          p1: "SophIA is initiated by Damien Guesdon as a response to a very concrete question: how can organizations benefit from AI without losing control over their systems, their data and their operating model?",
+          p2: "The project combines more than 20 years of experience in infrastructure, networking, critical systems and technical leadership with a current specialization in AI engineering, platform design and sovereign architecture.",
+          p3: "For decision-makers, SophIA demonstrates a practical approach to governed enterprise AI. For recruiters, the project reflects a profile able to connect strategy, architecture, security, execution and platform thinking.",
           cv: "View CV",
-          dashboard: "AI Training Dashboard"
+          dashboard: "AI training dashboard"
         },
         cta: {
-          title: "Explore SophIA",
-          text: "The project is still under active construction, but its documentation, concepts and public repository are already available.",
-          github: "View GitHub Repository",
-          priorArt: "Prior Art Description"
+          title: "Explore what controlled enterprise AI can look like",
+          text: "SophIA is not presented as a finished product, but as a concrete architectural approach for organizations that want to move from AI experimentation to controlled and scalable systems.",
+          github: "View GitHub repository",
+          priorArt: "Prior art description"
         },
         book: {
-          title: "The Book Behind the Vision",
+          title: "The book behind the vision",
           p1: "<strong>SophIA — Assistant suprême ?</strong> is Damien Guesdon’s book on the real nature of artificial intelligence, the limits of large language models, and the engineering principles required to build sovereign AI systems.",
           note: "Currently available in French only.",
-          p2: "It explores hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SophIA.",
-          kindle: "Buy Kindle Edition",
-          paperback: "Buy Paperback Edition"
+          p2: "It covers hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SophIA.",
+          kindle: "Buy Kindle edition",
+          paperback: "Buy paperback edition"
         },
         footer: {
           copy: "© 2026 SophIA / Damien Guesdon",
@@ -1082,16 +1222,41 @@ SophIA-git (Forgejo) centralizes:
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
 
-      localStorage.setItem('SophIA-lang', lang);
+      localStorage.setItem('sophia-lang', lang);
     }
 
     function detectInitialLanguage() {
-      const saved = localStorage.getItem('SophIA-lang');
+      const saved = localStorage.getItem('sophia-lang');
       if (saved && translations[saved]) return saved;
 
       const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
       if (browserLang.startsWith('fr')) return 'fr';
       return 'en';
+    }
+
+    function buildIllustrationPlaceholder(message) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'illustration-placeholder';
+      wrapper.innerHTML = `
+        <strong>Illustration à prévoir</strong>
+        <p style="margin:.6rem 0 0;">${message}</p>
+      `;
+      return wrapper;
+    }
+
+    function handleIllustrationError(imgEl, frameId, message) {
+      const frame = document.getElementById(frameId);
+      if (!frame) return;
+      frame.innerHTML = '';
+      frame.appendChild(buildIllustrationPlaceholder(message));
+    }
+
+    function setIllustration(frameId, imgId, src, alt = '') {
+      const frame = document.getElementById(frameId);
+      const img = document.getElementById(imgId);
+      if (!frame || !img) return;
+      img.src = src;
+      img.alt = alt;
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -1103,6 +1268,16 @@ SophIA-git (Forgejo) centralizes:
           applyLanguage(btn.dataset.lang);
         });
       });
+
+      // Handlers prêts pour illustrer / remplacer les visuels dynamiquement
+      window.SophIAIllustrations = {
+        setHero(src, alt = 'Illustration de présentation de SophIA') {
+          setIllustration('hero-illustration-frame', 'hero-illustration', src, alt);
+        },
+        setArchitecture(src, alt = 'Illustration de l’architecture SophIA') {
+          setIllustration('architecture-illustration-frame', 'architecture-illustration', src, alt);
+        }
+      };
     });
   </script>
 </body>
