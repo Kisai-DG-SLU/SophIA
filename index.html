@@ -14,6 +14,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sophia.kisai.fr" />
   <meta property="og:image" content="./images/sophia-og.png" />
+  <meta property="og:site_name" content="SophIA" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SophIA — IA d’entreprise maîtrisée" />
+  <meta name="twitter:description" content="Une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance et contrôle." />
+  <meta name="twitter:image" content="./images/sophia-og.png" />
 
   <link rel="icon" href="./images/sophia-favicon.png" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
@@ -289,18 +295,32 @@
       background:
         radial-gradient(circle at top left, rgba(92,164,255,.18), transparent 28%),
         linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      display: grid;
-      place-items: center;
-      padding: 1.2rem;
+      display: block;
+      padding: 0;
       overflow: hidden;
       position: relative;
+      cursor: zoom-in;
     }
 
     .illustration-frame img {
       width: 100%;
       height: 100%;
+      display: block;
+      object-position: center;
+    }
+
+    /* Hero : visuel immersif qui remplit bien le cadre */
+    #hero-illustration {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Architecture : on évite de couper un schéma */
+    #architecture-illustration {
       object-fit: contain;
-      border-radius: 12px;
+      object-position: center;
+      background: rgba(255,255,255,.02);
+      padding: .75rem;
     }
 
     .illustration-placeholder {
@@ -308,6 +328,10 @@
       color: var(--muted);
       max-width: 32ch;
       font-size: .95rem;
+      display: grid;
+      place-items: center;
+      min-height: inherit;
+      padding: 1.2rem;
     }
 
     .section {
@@ -499,6 +523,54 @@
       margin-top: -.4rem;
     }
 
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 8, 18, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(92vw, 1600px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-size: 1.7rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,.14);
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .grid-3,
@@ -564,7 +636,7 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow" data-i18n="hero.eyebrow">IA d’entreprise maîtrisée</div>
-          <h1 data-i18n="hero.h1">SophIA : IA sans perte de contrôl.</h1>
+          <h1 data-i18n="hero.h1">SophIA : IA sans perte de contrôle.</h1>
           <p class="lead">
             <strong data-i18n="hero.titleLine">Une architecture souveraine pour des systèmes d’IA sécurisés, auditables et exploitables.</strong>
           </p>
@@ -886,6 +958,12 @@ models    Qdrant      MCP tools      web intake    workspaces
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="image-lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Fermer l’image">×</button>
+    <img id="lightbox-image" src="" alt="" />
+  </div>
+
   <script>
     const translations = {
       fr: {
@@ -1054,7 +1132,7 @@ models    Qdrant      MCP tools      web intake    workspaces
         },
         hero: {
           eyebrow: "Controlled enterprise AI",
-          h1: "SophIA : AI without control loss.",
+          h1: "SophIA: AI without losing control.",
           titleLine: "A sovereign architecture for secure, auditable and production-ready AI systems.",
           description: "SophIA is designed for organizations that want to move beyond demos and isolated assistants. The system structures memory, tools, knowledge access and execution environments so AI can be governed, secured and deployed with real operational discipline.",
           note: "SophIA is currently being developed as an architectural approach in active structuring, rather than as a finished product.",
@@ -1208,6 +1286,12 @@ models    Qdrant      MCP tools      web intake    workspaces
       const ogDescription = document.querySelector('meta[property="og:description"]');
       if (ogDescription) ogDescription.setAttribute('content', dict.meta.description);
 
+      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twitterTitle) twitterTitle.setAttribute('content', dict.meta.title);
+
+      const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+      if (twitterDescription) twitterDescription.setAttribute('content', dict.meta.description);
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         const value = getNestedValue(dict, key);
@@ -1238,8 +1322,10 @@ models    Qdrant      MCP tools      web intake    workspaces
       const wrapper = document.createElement('div');
       wrapper.className = 'illustration-placeholder';
       wrapper.innerHTML = `
-        <strong>Illustration à prévoir</strong>
-        <p style="margin:.6rem 0 0;">${message}</p>
+        <div>
+          <strong>Illustration à prévoir</strong>
+          <p style="margin:.6rem 0 0;">${message}</p>
+        </div>
       `;
       return wrapper;
     }
@@ -1253,10 +1339,56 @@ models    Qdrant      MCP tools      web intake    workspaces
 
     function setIllustration(frameId, imgId, src, alt = '') {
       const frame = document.getElementById(frameId);
-      const img = document.getElementById(imgId);
-      if (!frame || !img) return;
+      if (!frame) return;
+
+      let img = document.getElementById(imgId);
+
+      if (!img) {
+        frame.innerHTML = '';
+        img = document.createElement('img');
+        img.id = imgId;
+        frame.appendChild(img);
+      }
+
       img.src = src;
       img.alt = alt;
+    }
+
+    function openLightbox(src, alt = '') {
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      if (!lightbox || !lightboxImg) return;
+
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      if (!lightbox || !lightboxImg) return;
+
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+      lightboxImg.alt = '';
+      document.body.style.overflow = '';
+    }
+
+    function bindIllustrationZoom(imgId) {
+      const img = document.getElementById(imgId);
+      if (!img) return;
+
+      img.style.cursor = 'zoom-in';
+      img.onclick = null;
+      img.addEventListener('click', () => {
+        if (img.src) {
+          openLightbox(img.src, img.alt || '');
+        }
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -1269,13 +1401,38 @@ models    Qdrant      MCP tools      web intake    workspaces
         });
       });
 
-      // Handlers prêts pour illustrer / remplacer les visuels dynamiquement
+      bindIllustrationZoom('hero-illustration');
+      bindIllustrationZoom('architecture-illustration');
+
+      const lightbox = document.getElementById('image-lightbox');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeLightbox);
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+
       window.SophIAIllustrations = {
         setHero(src, alt = 'Illustration de présentation de SophIA') {
           setIllustration('hero-illustration-frame', 'hero-illustration', src, alt);
+          bindIllustrationZoom('hero-illustration');
         },
         setArchitecture(src, alt = 'Illustration de l’architecture SophIA') {
           setIllustration('architecture-illustration-frame', 'architecture-illustration', src, alt);
+          bindIllustrationZoom('architecture-illustration');
         }
       };
     });
