@@ -1,0 +1,23 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'fr' }}" data-theme="light">
+<head>
+{% include head.html %}
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}" />
+  <meta name="robots" content="{{ page.robots | default: 'index, follow' }}" />
+  <meta name="author" content="Damien Guesdon" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+</head>
+<body>
+{% include nav.html %}
+{{ content }}
+{% include footer.html %}
+</body>
+</html>
