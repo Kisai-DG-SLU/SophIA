@@ -1,11 +1,6 @@
 title: SophIA
-description: Architecture IA souveraine et open-source
+description: Architecture IA souveraine
+url: https://sophia-ia.org
 baseurl: ""
-url: "https://sophia-ia.org"
-markdown: kramdown
-plugins: []
-exclude:
-  - README.md
-  - LICENSE
-  - CNAME
-  - .git
+plugins:
+  - jekyll-sitemap
