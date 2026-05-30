@@ -10,127 +10,312 @@
       </div>
     </div>
   </footer>
-  <script>
-    const translations = {
-      fr: {
-        meta: { title: "SophIA — L'architecture IA souveraine & open-source" },
-        nav: { problem: "Le Piège", solution: "Le Bunker", architecture: "Ingénierie", posture: "Ma Posture", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },
-        hero: { 
-          eyebrow: "L'IA est devenue une infrastructure", 
-          h1: "L'IA ne doit pas vous coûter votre Souveraineté.", 
-          titleLine: "SophIA n'est pas un produit sur étagère. C'est une architecture d'orchestration open-source, multi-agents et bunkerisée.", 
-          description: "C'est le plan d'ingénierie que je propose aux entreprises pour déployer l'Intelligence Artificielle en interne, sans compromettre leur propriété intellectuelle, ni s'enfermer dans un 'vendor lock-in' américain.", 
-          note: "Méthodologie ouverte, pensée pour la production de niveau industriel et le déploiement sur infrastructure critique.", 
-          viewArchitecture: "Découvrir l'architecture", 
-          contact: "Internaliser cette solution", 
-          meta1: "Blueprint Open-Source", meta2: "Souveraineté des Données", meta3: "No Vendor Lock-in", meta4: "Inférence Locale & Routage" 
-        },
-        problem: { 
-          title: "L'explosion du 'Shadow AI'", 
-          p1: "Quand l'IA générative est arrivée, nous avons assisté exactement à ce qui s'était passé au début du Cloud, mais en pire. Aujourd'hui, les entreprises subissent un phénomène critique : les collaborateurs utilisent massivement ChatGPT ou Copilot dans leur coin pour gagner du temps.", 
-          p2: "Le résultat ? Ils injectent la propriété intellectuelle de l'entreprise, des brevets en cours aux données financières, directement sur des serveurs étrangers.", 
-          quote: "\"Le vrai problème des entreprises aujourd'hui n'est pas de posséder une IA, c'est d'avoir une gouvernance de l'IA.\"",
-          cardTitle: "Le dilemme du dirigeant",
-          cardP1: "D'un côté, vous savez que vous devez intégrer l'IA pour rester compétitif et décupler la productivité de vos équipes. De l'autre, vous savez que vos données et vos process sont votre plus grande richesse.",
-          cardP2: "Or, la majorité des solutions du marché (les plateformes 'clés en main') vous demandent d'envoyer cette richesse sur leurs serveurs pour fonctionner. C'est signer un chèque en blanc sur votre autonomie stratégique."
-        },
-        solution: {
-          title: "La Plateforme comme Infrastructure Stratégique",
-          intro: "C'est pour résoudre ce dilemme de l'intérieur que j'ai conçu l'architecture SophIA de A à Z. Je voulais prouver qu'il était possible d'industrialiser l'IA sans s'enfermer dans le modèle propriétaire des GAFAM."
-        },
-        cards: { 
-          control: { title: "1. Sécurité Absolue", text: "SophIA est un 'bunker' cognitif. Vos données ne quittent jamais l'entreprise. Je mets en place une IA qui a la même puissance que les leaders du marché, mais qui tourne chez vous. Elle connaît vos règles, mais elle est physiquement incapable de les fuiter à l'extérieur." }, 
-          trust: { title: "2. Indépendance Totale", text: "Le système est basé sur des standards ouverts (OKD, LiteLLM, Hermes). Vous n'êtes lié à aucun modèle d'IA unique. Si demain un nouveau modèle open-source émerge (comme chez Mistral), il suffit de remplacer la brique technique. L'agnosticisme est total." }, 
-          deployment: { title: "3. ROI & Coût Maîtrisé", text: "Vous êtes propriétaire de votre infrastructure. Vous ne payez pas une taxe arbitraire à chaque fois qu'un de vos employés pose une question à l'IA ou à chaque révision tarifaire d'un fournisseur cloud externe." } 
-        },
-        posture: {
-          title: "De l'Ingénierie au Leadership",
-          p1: "Je ne suis pas un prestataire qui vend un logiciel fermé. Mon approche est radicalement différente : <strong>je fournis la recette, et je guide les équipes pour la cuisiner.</strong>",
-          p2: "J'ai audité, architecturé et assemblé les briques open-source les plus critiques du marché sur mon propre matériel de type Datacenter. Je sais exactement comment fonctionne le moteur sous le capot.",
-          p3: "Aujourd'hui, ma valeur ajoutée est de définir la stratégie d'IA souveraine de votre entreprise, de garantir la sécurité, et de diriger les équipes d'ingénierie internes pour passer de l'expérimentation à la mise en production à grande échelle.",
-          btn: "Découvrir mon profil",
-          h2: "Internaliser la compétence.",
-          intro: "Que vous soyez un leader français de l'IA construisant une plateforme produit (comme Mistral AI), ou une entreprise majeure souhaitant déployer sa propre plateforme interne, mon objectif est d'intégrer vos équipes pour piloter cette vision technique.",
-          li1: "<strong>Head of AI Platform / VP Engineering</strong>",
-          li2: "Gouvernance de la donnée et des accès (RBAC)",
-          li3: "Déploiement RAG souverain et Orchestration multi-agents",
-          li4: "Conduite du changement et fédération des équipes"
-        },
-        cta: { title: "Construisons votre infrastructure souveraine.", text: "Si la vision d'une intelligence artificielle puissante, gouvernable et totalement indépendante des GAFAM résonne avec votre stratégie d'entreprise, discutons de la manière dont je peux diriger ce projet en interne.", contact: "Contactez-moi (contact@kisai.fr)" },
-        footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
-      },
-      en: {
-        meta: { title: "SophIA — Sovereign & Open-Source AI Architecture" },
-        nav: { problem: "The Trap", solution: "The Bunker", architecture: "Engineering", posture: "My Posture", author: "The Architect", book: "The Book", contact: "Contact", github: "Code (GitHub)" },
-        hero: { 
-          eyebrow: "AI is the new infrastructure", 
-          h1: "Artificial Intelligence shouldn't cost you your Sovereignty.", 
-          titleLine: "SophIA is not an off-the-shelf product. It's an open-source, multi-agent, and bunkerized AI orchestration architecture.", 
-          description: "It's the engineering blueprint I propose to companies to deploy AI internally, without compromising their intellectual property or getting locked into American vendor ecosystems.", 
-          note: "Open methodology, designed for industrial-grade production and deployment on critical infrastructure.", 
-          viewArchitecture: "Discover the architecture", 
-          contact: "Internalize this solution", 
-          meta1: "Open-Source Blueprint", meta2: "Data Sovereignty", meta3: "No Vendor Lock-in", meta4: "Local Inference & Routing" 
-        },
-        problem: { 
-          title: "The 'Shadow AI' Explosion", 
-          p1: "When generative AI arrived, we witnessed exactly what happened at the dawn of the Cloud, but worse. Today, companies suffer from a critical phenomenon: employees massively use ChatGPT or Copilot on their own to save time.", 
-          p2: "The result? They inject the company's intellectual property, from pending patents to financial data, directly onto foreign servers.", 
-          quote: "\"The real problem for companies today is not having an AI, it's having AI governance.\"",
-          cardTitle: "The Leader's Dilemma",
-          cardP1: "On one hand, you know you must integrate AI to stay competitive and multiply your teams' productivity. On the other, you know your data and processes are your greatest asset.",
-          cardP2: "Yet, most market solutions ('turnkey' platforms) require you to send this wealth to their servers to function. It's signing a blank check on your strategic autonomy."
-        },
-        solution: {
-          title: "The Platform as Strategic Infrastructure",
-          intro: "To solve this dilemma from the inside, I designed the SophIA architecture from scratch. I wanted to prove it was possible to industrialize AI without locking into the proprietary model of Big Tech."
-        },
-        cards: { 
-          control: { title: "1. Absolute Security", text: "SophIA is a cognitive 'bunker'. Your data never leaves the company. I set up an AI that has the same power as market leaders, but runs at your premises. It knows your rules, but is physically incapable of leaking them outside." }, 
-          trust: { title: "2. Total Independence", text: "The system is based on open standards (OKD, LiteLLM, Hermes). You are not tied to any single AI model. If tomorrow a new open-source model emerges (like Mistral), you just replace the technical brick. Agnosticism is total." }, 
-          deployment: { title: "3. ROI & Cost Control", text: "You own your infrastructure. You don't pay an arbitrary tax every time an employee asks the AI a question, or at every pricing revision from an external cloud provider." } 
-        },
-        posture: {
-          title: "From Engineering to Leadership",
-          p1: "I am not a vendor selling closed software. My approach is radically different: <strong>I provide the recipe, and I guide the teams to cook it.</strong>",
-          p2: "I have audited, architected, and assembled the most critical open-source bricks on the market on my own Datacenter-grade hardware. I know exactly how the engine works under the hood.",
-          p3: "Today, my added value is to define your company's sovereign AI strategy, guarantee security, and lead internal engineering teams to move from experimentation to large-scale production.",
-          btn: "Discover my profile",
-          h2: "Internalizing the expertise.",
-          intro: "Whether you are a French AI leader building a product platform (like Mistral AI), or a major enterprise wanting to deploy its own internal platform, my goal is to join your teams to steer this technical vision.",
-          li1: "<strong>Head of AI Platform / VP Engineering</strong>",
-          li2: "Data and access governance (RBAC)",
-          li3: "Sovereign RAG deployment and multi-agent orchestration",
-          li4: "Change management and team federation"
-        },
-        cta: { title: "Let's build your sovereign infrastructure.", text: "If the vision of powerful, governable, and completely independent artificial intelligence resonates with your business strategy, let's discuss how I can lead this project internally.", contact: "Contact me (contact@kisai.fr)" },
-        footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
-      }
-    };
-
-    function getNestedValue(obj, path) { return path.split('.').reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : null, obj); }
-    function applyLanguage(lang) {
-      const dict = translations[lang] || translations.en;
-      document.documentElement.lang = lang; document.title = dict.meta.title;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const value = getNestedValue(dict, el.getAttribute('data-i18n'));
-        if (value !== null) el.innerHTML = value;
-      });
-      document.querySelectorAll('.lang-switch .lang-btn').forEach(btn => {
-        const isActive = btn.dataset.lang === lang;
-        btn.classList.toggle('active', isActive); btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
-      localStorage.setItem('sophia-lang', lang);
+<script>
+  const translations = {
+    fr: {
+      arch: {
+                eyebrow: "Vision & Direction Technique",
+                h1: "De l'infrastructure critique à la gouvernance de l'IA.",
+                lead: "Je m'appelle Damien Guesdon. On ne sécurise pas une Intelligence Artificielle si l'on ne comprend pas le réseau sur lequel elle tourne. Mon approche de l'IA n'est pas algorithmique, elle est fondamentalement architecturale.",
+      
+                visionTitle: "Guider, structurer, fédérer.",
+                visionIntro: "Je ne suis pas un développeur freelance qui exécute \"à la place\" de vos équipes. Je suis un leader technique. Ma mission en tant que VP Engineering ou Head of AI Platform est de définir une gouvernance stricte et de guider vos ingénieurs vers le déploiement d'une infrastructure maîtrisée.",
+                leadTitle1: "Aligner l'Ingénierie sur la Stratégie",
+                lead1_1: "Face à l'IA, les organisations oscillent souvent entre l'enthousiasme aveugle et la méfiance absolue. Mon rôle est de réconcilier ces deux mondes.",
+                lead1_2: "Il s'agit de démystifier l'outil auprès du Board (Comex/Codir) en prouvant que l'IA n'est pas une \"boîte noire magique\", mais un processus d'ingénierie prédictible, contrôlable, et soumis à des règles du jeu inviolables.",
+                leadTitle2: "Transmettre la Vision aux Équipes",
+                lead2_1: "Une architecture, aussi brillante soit-elle sur le papier, échoue si elle n'est pas adoptée et comprise par les équipes internes.",
+                lead2_2: "Mon approche repose sur la transmission de la vision architecturale (infrastructure on-premise, RAG souverain, orchestration agentique). J'accompagne les développeurs et les ingénieurs réseau pour qu'ils s'approprient la méthodologie SophIA et la déploient de manière autonome.",
+      
+                storyTitle: "L'évolution d'une conviction",
+                storyIntro: "L'architecture SophIA n'est pas née d'une impulsion, mais d'une confrontation directe avec la réalité du terrain et les limites structurelles des modèles SaaS.",
+                act1Title: "Le mur de verre opérationnel",
+                act1Text1: "Quand l'IA générative grand public a explosé, j'y ai d'abord vu un moyen technique à explorer (low-code, vibe coding). En me plongeant sérieusement dans l'ingénierie IA, j'ai commencé à obtenir de bons résultats.",
+                act1Text2: "Mais très vite en production, je me suis heurté à un mur opérationnel : hallucinations systématiques, coûts dérapants, hors-sujets, et surtout, un risque permanent de fuite de données. À chaque correction superficielle (prompt engineering de base), les défauts structurels finissaient par rejaillir.",
+                act2Title: "L'impasse de la dépendance Cloud",
+                act2Text1: "En parallèle, l'actualité sécuritaire m'a conforté dans cette impasse : l'ombre du Cloud Act, les dysfonctionnements des fournisseurs et les revues tarifaires arbitraires.",
+                act2Text2: "Aujourd'hui, les géants américains déploient des plateformes agentiques \"clés en main\". L'entreprise y dépose ses données en échange d'une IA sur-mesure. De mon point de vue de directeur technique, c'est le piège ultime : un aller simple vers une ultra-dépendance et un <em>vendor lock-in</em> irréversible. L'objectif n'était pas de créer une autarcie isolée, mais de bâtir une véritable <strong>autonomie stratégique</strong>.",
+                act4Title: "L'Anti-Boîte Noire",
+                act4Text1: "La réalité est que SophIA n'a pas réinventé la roue. Je n'ai pas codé un nouveau LLM secret. L'architecture est une ingénierie d'intégration : un assemblage réfléchi et éprouvé de briques open-source.",
+                act4Text2: "Ma valeur ajoutée en tant qu'Architecte n'est pas d'avoir un algorithme révolutionnaire, c'est d'avoir essuyé les plâtres. C'est d'avoir pensé l'architecture de sécurité globale, mis en place les verrous cognitifs (HITL, RBAC) et réussi à faire dialoguer ces composants pour créer un système souverain, stable et prêt pour l'industrie.",
+      
+                journeyTitle: "Parcours & Expertise",
+                journeyIntro: "Un background résolument ancré dans les infrastructures critiques (Bare-metal, Réseau, BGP), aujourd'hui complété par une maîtrise des écosystèmes d'Intelligence Artificielle.",
+                date1: "2026",
+                role1: "Ingénierie IA & Architecture",
+                desc1: "Validation d'un <a href='#' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>cursus spécialisé</a> en Ingénierie IA. Conception de l'architecture souveraine multi-agents SophIA. Rédaction et publication de l'essai technique <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA : Assistant suprême ?\"</em></a>.",
+                date2: "Plus de 20 Ans d'expérience",
+                role2: "Direction Technique & Expert Infrastructures Critiques",
+                desc2: "Pilotage de la stratégie IT et gestion d'infrastructures haut niveau. Maîtrise des protocoles de routage complexes (BGP), des routeurs opérateurs (Cisco ASR), de l'orchestration (OKD) et des serveurs bare-metal. Cette expertise garantit aujourd'hui la robustesse et la sécurité absolue des architectures IA que je conçois.",
+      
+                contactBtn: "Discuter d'une collaboration →",
+                
+                ecoTitle: "Un Écosystème d'Artisans",
+                ecoIntro: "L'indépendance technologique ne se construit pas en vase clos. Je me positionne en fédérateur d'une communauté grandissante d'experts qui militent pour une IA ouverte, souveraine et robuste.",
+                eco1Title: "La Veille Stratégique : Renaud Dekode",
+                eco1Desc: "Dans un marché inondé par le bruit marketing, la communauté <a href='#' target='_blank'>Renaud Dekode</a> est un point d'ancrage vital pour le discernement technologique et l'échange entre professionnels de l'IA.",
+                eco2Title: "Les outils compagnons : Loky & Gungnir",
+                eco2Desc: "Je ne suis pas le seul 'artisan' à forger des solutions concrètes. Des projets comme <a href='#' target='_blank'>Loky</a> (par Omniatek) ou <a href='#' target='_blank'>Gungnir</a> (par Scarlet Wolf) répondent parfaitement à certains besoins spécifiques de l'écosystème open-source. Les soutenir, c'est soutenir notre filière."
+              },
+      eng: {
+                eyebrow: "Cartographie Fonctionnelle",
+                h1: "L'Ingénierie de SophIA.",
+                lead: "SophIA n'est pas un bloc monolithique. C'est une architecture <strong>agnostique et modulaire</strong> organisée en 5 piliers distincts. Chaque composant technique est une proposition open-source, substituable selon l'écosystème et la politique de votre DSI.",
+                cta: "Consulter les spécifications techniques (GitHub)",
+                
+                infraTitle: "1. Fondations : Matériel & Orchestration",
+                infraIntro: "La première couche garantit l'isolation physique et logique des processus. Le cloud public n'est envisagé que comme ressource de débordement, l'autonomie reposant sur le matériel.",
+                hardwareTitle: "Le socle matériel (Compute)",
+                hardwareDesc: "L'implémentation de référence s'appuie sur une infrastructure bare-metal (type Dell R630 / GPU A2). Cette base est transposable sur n'importe quel hyperviseur ou cloud privé répondant aux exigences de souveraineté de l'entreprise.",
+                k8sTitle: "L'Orchestration (Kubernetes / OKD)",
+                k8sDesc: "L'intégralité du système est conteneurisée. J'utilise OKD (OpenShift) pour sa robustesse réseau, remplaçable par un K8s standard. Les processus d'inférence, de base de données et de bac à sable sont enfermés dans des <em>namespaces</em> étanches.",
+                
+                brainTitle: "2. Le Cerveau : Inférence, Routage & Orchestration",
+                brainIntro: "L'architecture découple strictement l'intelligence logique (qui décide) du moteur d'inférence (qui calcule) pour éliminer tout risque de \"vendor lock-in\" et maximiser l'efficacité.",
+                hermesTitle: "Orchestration (ex: Hermes)",
+                hermesDesc: "L'interface principale. C'est la couche cognitive qui reçoit la demande, l'analyse et décide du plan d'action à mener. Elle peut être remplacée par un autre orchestrateur open-source au gré des évolutions technologiques.",
+                routerTitle: "Routage Dynamique (LiteLLM)",
+                routerDesc: "Un point d'entrée d'API unique pour tous les modèles. Le routeur bascule dynamiquement la charge : la donnée critique est orientée vers l'inférence locale souveraine, tandis que les requêtes nécessitant une force de frappe massive peuvent déborder sur le Cloud (après anonymisation).",
+                inferenceTitle: "Inférence Locale Spécialisée",
+                inferenceDesc: "L'architecture ne repose pas sur un modèle monolithique lourd, mais sur une approche modulaire « à la carte ». Le système orchestre une flotte de petits modèles spécialisés (SLM) dédiés à des tâches précises : <strong>développement, revue de code, ingestion RAG, ou encore traitement audio (TTS/STT)</strong>. Ce parc capacitaire est extensible à l'infini, avec pour seule restriction physique les limites de performance du serveur (RAM/vRAM).",
+      
+                memoryTitle: "3. La Mémoire : Ingestion & RAG 5D",
+                memoryIntro: "Pour prévenir les hallucinations probabilistes, l'architecture s'appuie sur un pipeline d'ingestion (chunking, embedding) et un Retrieval-Augmented Generation poussé à l'extrême.",
+                ragPillars: "La topologie de la connaissance",
+                rag1: "<strong>Vectoriel (Qdrant) :</strong> Similarité sémantique pure.",
+                rag2: "<strong>Relationnel (PostgreSQL) :</strong> Métadonnées et journalisation.",
+                rag3: "<strong>Versionning (Forgejo/Git) :</strong> \"Source of Truth\" validée et certifiée.",
+                rag4: "<strong>Structure (Obsidian) :</strong> Organisation et chunking conceptuel.",
+                rag5: "<strong>Graphe :</strong> Interdépendances logiques du métier.",
+                memoryOrgTitle: "Structuration par Projets",
+                memoryOrgDesc: "La donnée est gérée via un système multi-utilisateurs et d'ownership. Chaque exécution est isolée par \"Projet\", garantissant que le contexte d'une équipe n'interfère pas de manière inopportune avec celui d'une autre.",
+      
+                pantheonTitle: "4. Fonctions Intégrées : Le Panthéon & l'Automatisation",
+                pantheonIntro: "SophIA sépare strictement l'orchestration cognitive (les Agents) de l'automatisation de processus (les Workflows).",
+                agentsTitle: "Le Panthéon Agentique",
+                agentsDesc: "Des agents spécialisés possédant des droits de namespace limités :",
+                agent1: "<strong>Hephaïstos :</strong> Développement assisté exécuté uniquement dans une sandbox stérile pour créer de nouveaux outils.",
+                agent2: "<strong>Ouranos :</strong> En charge du déploiement et de l'exposition des outils validés.",
+                agent3: "<strong>Athena :</strong> Maintenance de la plateforme. <em>Sécurité absolue : un script externe déterministe impose systématiquement un HITL sur ses actions, indépendamment de la décision du modèle.</em>",
+                agent4: "<strong>Dionysos :</strong> Supervision de l'ensemble de l'architecture et des agents.",
+                n8nTitle: "Automatisation Déterministe (n8n)",
+                n8nDesc: "L'automatisation pure des processus de l'entreprise ne relève pas de la probabilité d'un modèle IA. Elle est gérée par une brique déterministe stricte (n8n), qui peut être déclenchée par un agent, mais qui exécute des workflows immuables et codés en dur.",
+      
+                toolsTitle: "5. Outils, Skills & Intégration SI",
+                toolsIntro: "Un écosystème capacitaire modulaire, extensible à la demande via des intégrations natives, des protocoles standards (MCP) ou des projets open-source existants. L'interfaçage est audité et sur-mesure.",
+                skillsTitle: "Hygiène de la Donnée",
+                skill1: "<strong>Ghost Search :</strong> Exécution de recherches fantômes simultanées pour masquer les intentions réelles et éviter le pistage web.",
+                skill2: "<strong>Sas Paranoïaque :</strong> Isolation de l'acquisition web dans des pods éphémères jetables.",
+                skill3: "<strong>Tribunal Sémantique :</strong> Évaluation du niveau de confiance de la donnée brute avant toute ingestion dans le RAG.",
+                skill4: "<strong>Filtre Anti-Fuite (DLP) :</strong> Détection, anonymisation ou blocage des données critiques (clés API, données financières) et remontée d'alerte <em>avant</em> toute transmission à un modèle distant.",
+                
+                siTitle: "Supervision Proactive & SOC",
+                siDesc1: "Au-delà de l'adaptation applicative permise par le RAG, l'architecture s'interface directement avec le Système d'Information via le standard MCP. Il est possible de connecter le SOC (Security Operations Center) ou les outils de supervision existants.",
+                siDesc2: "Cette intégration permet une remontée d'alertes proactive et l'application de corrections automatisées. Qu'il s'agisse de développer un outil dédié ou de s'interfacer avec une API existante, chaque intégration est soumise à un audit rigoureux et à une analyse des risques propre à la situation de l'entreprise.",
+      
+                roadmapTitle: "6. Roadmap d'Industrialisation (18 mois)",
+                roadmapIntro: "Un déploiement critique ne s'improvise pas. Engager un CAPEX matériel avant d'avoir prouvé la viabilité d'un modèle est une hérésie financière. Voici la méthodologie de déploiement sécurisée pour un Comex.",
+                rdmDate1: "Mois 0 à 3",
+                rdmTitle1: "Preuve de Concept (POC) sur SNO",
+                rdmDesc1: "Déploiement initial sur un nœud unique (Single Node OpenShift) ou matériel existant. Validation technique de l'orchestration locale et du RAG avant tout investissement matériel majeur.",
+                rdmDate2: "Mois 3 à 6",
+                rdmTitle2: "Scale Matériel & Fiabilisation Cluster",
+                rdmDesc2: "Validation du budget CAPEX suite au POC. Achat du bare-metal définitif, racking, déploiement du véritable cluster haute-disponibilité et fiabilisation réseau.",
+                rdmDate3: "Mois 6 à 9",
+                rdmTitle3: "Le MVP (Minimum Viable Product)",
+                rdmDesc3: "Bascule progressive des fonctionnalités aux utilisateurs pilotes. Les agents autonomes et les tableaux de bord sont opérationnels, avec des cas d'usage métiers définis.",
+                rdmDate4: "Mois 9 à 18",
+                rdmTitle4: "Intégration Totale",
+                rdmDesc4: "L'IA devient une infrastructure. Interfaçage avec le SI (SOC, MCP), automatisation complète, application du filtre DLP et des règles de sécurité strictes sur l'ensemble du périmètre.",
+                rdmDate5: "Post 18 mois",
+                rdmTitle5: "Amélioration Continue (Run & Build)",
+                rdmDesc5: "Ajout de nouveaux workflows, création de nouveaux 'skills', et mise à jour itérative de la flotte de modèles locaux spécialisés (SLM).",
+      
+                roleTitle: "Fédérer et piloter l'implémentation.",
+                roleText: "Le déploiement d'une architecture modulaire aussi complète exige une direction technique forte. L'objectif n'est pas d'empiler des briques open-source, mais d'aligner cette ingénierie avec la sécurité et les enjeux métiers de votre DSI.",
+                roleBtn: "Découvrir la posture de l'Architecte →"
+              },
+      book: {
+                eyebrow: "Essai & Vulgarisation technique",
+                title: "SophIA — Assistant suprême ?",
+                desc1: "Entre la promesse marketing d'une IA toute-puissante et la réalité de la mise en production, il y a un gouffre. Cet essai démystifie l'intelligence artificielle pour les décideurs et les équipes techniques.",
+                desc2: "À travers un format hybride richement illustré, le livre explore les limites structurelles des grands modèles de langage et pose les bases d'une souveraineté technologique maîtrisée. L'ingénierie y est expliquée par des métaphores concrètes, loin du brouillard commercial habituel.",
+                note: "Actuellement disponible uniquement en français.",
+                btnKindle: "Acheter la version Kindle (Amazon)",
+                btnPaper: "Acheter la version Brochée (Amazon)",
+                t1Title: "1. Démystifier la machine à deviner",
+                t1Desc: "Du mythe du robot pensant au moteur probabiliste. Comprendre le rôle des tokens, des probabilités, et pourquoi l'IA n'a aucune véritable \"conscience\" de ce qu'elle écrit.",
+                t2Title: "2. Le mirage du \"Vibe Coding\"",
+                t2Desc: "La fausse promesse de l'application magique codée depuis son canapé, face à la réalité foudroyante de la dette technique et du besoin d'architecture.",
+                t3Title: "3. Cadrer la machine (Le cahier de coloriage)",
+                t3Desc: "Empêcher les hallucinations systémiques grâce à l'approche Model-Driven et canaliser l'IA avec la topologie RAG (Retrieval-Augmented Generation).",
+                t4Title: "4. Bâtir le Bunker Numérique",
+                t4Desc: "Protéger le système de l'empoisonnement (Model Collapse) et du \"stagiaire maladroit\" avec l'architecture souveraine, agnostique et bunkerisée SophIA."
+              },
+      contact: {
+                title: "Gouverner l'IA avant qu'elle ne vous gouverne.",
+                intro: "L'intégration de l'intelligence artificielle n'est plus une question de faisabilité technique. C'est aujourd'hui un enjeu de direction stratégique, de sécurité des données et de souveraineté.",
+                subintro: "Mon rôle est d'accompagner les organisations pour qu'elles maîtrisent cette infrastructure critique, sans céder leur propriété intellectuelle.",
+                cardTitle: "Cadre d'intervention",
+                scope1: "Direction technique et structuration de pôles IA (Head of AI / VP Eng).",
+                scope2: "Conception et audit d'architectures souveraines (RAG sécurisé, on-premise, OKD).",
+                scope3: "Échanges stratégiques avec les acteurs de l'écosystème open-source.",
+                emailBtn: "Envoyer un email (contact@kisai.fr)",
+                linkedinBtn: "Consulter le CV & Profil LinkedIn"
+              },
+    },
+    en: {
+      arch: {
+                eyebrow: "Vision & Technical Direction",
+                h1: "From critical infrastructure to AI governance.",
+                lead: "My name is Damien Guesdon. You cannot secure an Artificial Intelligence if you don't understand the network it runs on. My approach to AI is not algorithmic; it is fundamentally architectural.",
+      
+                visionTitle: "Guiding, structuring, federating.",
+                visionIntro: "I am not a freelance developer who executes \"instead of\" your teams. I am a technical leader. My mission as VP Engineering or Head of AI Platform is to define strict governance and guide your engineers towards deploying a controlled infrastructure.",
+                leadTitle1: "Aligning Engineering with Strategy",
+                lead1_1: "Faced with AI, organizations often oscillate between blind enthusiasm and absolute distrust. My role is to reconcile these two worlds.",
+                lead1_2: "This involves demystifying the tool for the Board (Comex/Codir) by proving that AI is not a \"magic black box\", but a predictable, controllable engineering process subject to unbreakable rules.",
+                leadTitle2: "Transmitting the Vision to Teams",
+                lead2_1: "An architecture, no matter how brilliant on paper, fails if it is not adopted and understood by internal teams.",
+                lead2_2: "My approach is based on transmitting the architectural vision (on-premise infrastructure, sovereign RAG, agentic orchestration). I support developers and network engineers so they can master the SophIA methodology and deploy it autonomously.",
+      
+                storyTitle: "The evolution of a conviction",
+                storyIntro: "The SophIA architecture was not born of an impulse, but of a direct confrontation with the reality on the ground and the structural limits of SaaS models.",
+                act1Title: "The operational glass wall",
+                act1Text1: "When mainstream generative AI exploded, I initially saw it as a technical avenue to explore (low-code, vibe coding). As I dove seriously into AI engineering, I started getting good results.",
+                act1Text2: "But very quickly in production, I hit an operational wall: systematic hallucinations, spiraling costs, off-topic answers, and above all, a permanent risk of data leakage. With every superficial correction (basic prompt engineering), structural flaws eventually resurfaced.",
+                act2Title: "The dead end of Cloud dependency",
+                act2Text1: "In parallel, security news reinforced this dead end: the shadow of the Cloud Act, provider outages, and arbitrary pricing reviews.",
+                act2Text2: "Today, American tech giants are deploying \"turnkey\" agentic platforms. The company deposits its data in exchange for a custom AI. From my point of view as a technical director, it's the ultimate trap: a one-way ticket to ultra-dependency and irreversible <em>vendor lock-in</em>. The goal was not to create an isolated autarky, but to build true <strong>strategic autonomy</strong>.",
+                act4Title: "The Anti-Black Box",
+                act4Text1: "The reality is that SophIA did not reinvent the wheel. I didn't code a secret new LLM. The architecture is integration engineering: a thoughtful and proven assembly of open-source bricks.",
+                act4Text2: "My added value as an Architect is not having a revolutionary algorithm, it's having cleared the path. It's having designed the overall security architecture, set up the cognitive locks (HITL, RBAC), and successfully made these components talk to each other to create a sovereign, stable system ready for the industry.",
+      
+                journeyTitle: "Background & Expertise",
+                journeyIntro: "A background firmly rooted in critical infrastructures (Bare-metal, Network, BGP), today complemented by a mastery of Artificial Intelligence ecosystems.",
+                date1: "2026",
+                role1: "AI Engineering & Architecture",
+                desc1: "Validation of a <a href='#' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>specialized curriculum</a> in AI Engineering. Design of the SophIA multi-agent sovereign architecture. Writing and publishing of the technical essay <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA: Supreme Assistant?\"</em></a>.",
+                date2: "Over 20 Years of experience",
+                role2: "Technical Direction & Critical Infrastructure Expert",
+                desc2: "Steering IT strategy and managing high-level infrastructures. Mastery of complex routing protocols (BGP), carrier routers (Cisco ASR), orchestration (OKD), and bare-metal servers. This expertise now guarantees the robustness and absolute security of the AI architectures I design.",
+      
+                contactBtn: "Discuss a collaboration →",
+                
+                ecoTitle: "An Ecosystem of Artisans",
+                ecoIntro: "Technological independence is not built in a vacuum. I position myself as a federator of a growing community of experts campaigning for an open, sovereign, and robust AI.",
+                eco1Title: "Strategic Watch: Renaud Dekode",
+                eco1Desc: "In a market flooded by marketing noise, the <a href='#' target='_blank'>Renaud Dekode</a> community is a vital anchor for technological discernment and exchange between AI professionals.",
+                eco2Title: "Companion tools: Loky & Gungnir",
+                eco2Desc: "I am not the only 'artisan' forging concrete solutions. Projects like <a href='#' target='_blank'>Loky</a> (by Omniatek) or <a href='#' target='_blank'>Gungnir</a> (by Scarlet Wolf) respond perfectly to certain specific needs of the open-source ecosystem. Supporting them means supporting our industry."
+              },
+      eng: {
+                eyebrow: "Functional Mapping",
+                h1: "The Engineering of SophIA.",
+                lead: "SophIA is not a monolithic block. It is an <strong>agnostic and modular</strong> architecture organized into 5 distinct pillars. Each technical component is an open-source proposal, replaceable according to your IT department's ecosystem and policy.",
+                cta: "Consult the technical specifications (GitHub)",
+                
+                infraTitle: "1. Foundations: Hardware & Orchestration",
+                infraIntro: "The first layer guarantees physical and logical isolation of processes. The public cloud is only considered as an overflow resource, autonomy relying on hardware.",
+                hardwareTitle: "Hardware Foundation (Compute)",
+                hardwareDesc: "The reference implementation relies on a bare-metal infrastructure (e.g., Dell R630 / A2 GPU). This base can be transposed to any hypervisor or private cloud meeting the company's sovereignty requirements.",
+                k8sTitle: "Orchestration (Kubernetes / OKD)",
+                k8sDesc: "The entire system is containerized. I use OKD (OpenShift) for its network robustness, replaceable by a standard K8s. Inference processes, databases, and sandboxes are locked in watertight <em>namespaces</em>.",
+                
+                brainTitle: "2. The Brain: Inference, Routing & Orchestration",
+                brainIntro: "The architecture strictly decouples the logical intelligence (that decides) from the inference engine (that computes) to eliminate any risk of 'vendor lock-in' and maximize efficiency.",
+                hermesTitle: "Primary Orchestration (e.g., Hermes)",
+                hermesDesc: "The main interface. This is the cognitive layer that receives the request, analyzes it, and decides on the action plan. It can be replaced by another open-source orchestrator as technology evolves.",
+                routerTitle: "Dynamic Routing (LiteLLM)",
+                routerDesc: "A single API entry point for all models. The router dynamically shifts the load: critical data is directed to sovereign local inference, while queries requiring massive striking power can overflow to the Cloud (after anonymization).",
+                inferenceTitle: "Specialized Local Inference",
+                inferenceDesc: "The architecture does not rely on a heavy monolithic model, but on a modular 'à la carte' approach. The system orchestrates a fleet of small, specialized models (SLM) dedicated to specific tasks: <strong>development, code review, RAG ingestion, or audio processing (TTS/STT)</strong>. This capability is infinitely extensible, limited only by the physical performance boundaries of the server (RAM/vRAM).",
+      
+                memoryTitle: "3. Memory: Ingestion & 5D RAG",
+                memoryIntro: "To prevent probabilistic hallucinations, the architecture relies on an ingestion pipeline (chunking, embedding) and an extreme Retrieval-Augmented Generation approach.",
+                ragPillars: "Knowledge Topology",
+                rag1: "<strong>Vector (Qdrant):</strong> Pure semantic similarity.",
+                rag2: "<strong>Relational (PostgreSQL):</strong> Metadata and logging.",
+                rag3: "<strong>Versioning (Forgejo/Git):</strong> Validated and certified 'Source of Truth'.",
+                rag4: "<strong>Structure (Obsidian):</strong> Organization and conceptual chunking.",
+                rag5: "<strong>Graph:</strong> Logical business interdependencies.",
+                memoryOrgTitle: "Project Structuring",
+                memoryOrgDesc: "Data is managed via a multi-user and ownership system. Each execution is isolated by 'Project', ensuring that one team's context does not inappropriately interfere with another's.",
+      
+                pantheonTitle: "4. Integrated Functions: The Pantheon & Automation",
+                pantheonIntro: "SophIA strictly separates cognitive orchestration (Agents) from process automation (Workflows).",
+                agentsTitle: "The Agentic Pantheon",
+                agentsDesc: "Specialized agents possessing limited namespace rights:",
+                agent1: "<strong>Hephaïstos:</strong> Assisted development executed only in a sterile sandbox to create new tools.",
+                agent2: "<strong>Ouranos:</strong> In charge of deployment and exposure of validated tools.",
+                agent3: "<strong>Athena:</strong> Platform maintenance. <em>Absolute security: a deterministic external script systematically imposes a HITL on its actions, regardless of the model's decision.</em>",
+                agent4: "<strong>Dionysos:</strong> Supervision of the entire architecture and agents.",
+                n8nTitle: "Deterministic Automation (n8n)",
+                n8nDesc: "Pure automation of company processes is not a matter of an AI model's probability. It is managed by a strict deterministic brick (n8n), which can be triggered by an agent, but executes immutable, hard-coded workflows.",
+      
+                toolsTitle: "5. Tools, Skills & IS Integration",
+                toolsIntro: "A modular capability ecosystem, extensible on demand via native integrations, standard protocols (MCP), or existing open-source projects. Interfacing is audited and customized.",
+                skillsTitle: "Data Hygiene",
+                skill1: "<strong>Ghost Search:</strong> Execution of simultaneous phantom searches to hide real intentions and avoid web tracking.",
+                skill2: "<strong>Paranoid Airlock:</strong> Isolation of web acquisition in disposable ephemeral pods.",
+                skill3: "<strong>Semantic Tribunal:</strong> Evaluation of the trust level of raw data before any ingestion into the RAG.",
+                skill4: "<strong>Data Leak Prevention (DLP) Filter:</strong> Detection, anonymization, or blocking of critical data (API keys, financial data) and alert generation <em>before</em> any transmission to a remote model.",
+                
+                siTitle: "Proactive Supervision & SOC",
+                siDesc1: "Beyond the applicative adaptation allowed by the RAG, the architecture interfaces directly with the Information System via the MCP standard. It is possible to connect the SOC (Security Operations Center) or existing supervision tools.",
+                siDesc2: "This integration allows for proactive alert escalation and the application of automated corrections. Whether developing a dedicated tool or interfacing with an existing API, each integration is subject to a rigorous audit and risk analysis specific to the company's situation.",
+      
+                roadmapTitle: "6. Industrialization Roadmap (18 months)",
+                roadmapIntro: "A critical deployment is not improvised. Committing hardware CAPEX before proving a model's viability is a financial heresy. Here is the secure deployment methodology for an Executive Board.",
+                rdmDate1: "Months 0 to 3",
+                rdmTitle1: "Proof of Concept (POC) on SNO",
+                rdmDesc1: "Initial deployment on a Single Node OpenShift or existing hardware. Technical validation of local orchestration and RAG before any major hardware investment.",
+                rdmDate2: "Months 3 to 6",
+                rdmTitle2: "Hardware Scale & Cluster Reliability",
+                rdmDesc2: "CAPEX budget validation following the POC. Purchase of final bare-metal, racking, deployment of the true high-availability cluster, and network stabilization.",
+                rdmDate3: "Months 6 to 9",
+                rdmTitle3: "The MVP (Minimum Viable Product)",
+                rdmDesc3: "Progressive rollout of features to pilot users. Autonomous agents and dashboards are operational, with defined business use cases.",
+                rdmDate4: "Months 9 to 18",
+                rdmTitle4: "Full Integration",
+                rdmDesc4: "AI becomes an infrastructure. Interfacing with the IS (SOC, MCP), complete automation, application of the DLP filter, and strict security rules across the entire scope.",
+                rdmDate5: "Post 18 months",
+                rdmTitle5: "Continuous Improvement (Run & Build)",
+                rdmDesc5: "Addition of new workflows, creation of new 'skills', and iterative updating of the fleet of specialized local models (SLM).",
+      
+                roleTitle: "Federating and steering the implementation.",
+                roleText: "Deploying such a comprehensive modular architecture requires strong technical direction. The goal is not to pile up open-source bricks, but to align this engineering with the security and business stakes of your IT department.",
+                roleBtn: "Discover the Architect's posture →"
+              },
+      book: {
+                eyebrow: "Essay & Technical Popularization",
+                title: "SophIA — Supreme Assistant?",
+                desc1: "Between the marketing promise of an all-powerful AI and the reality of production deployment, there is a chasm. This essay demystifies artificial intelligence for decision-makers and technical teams.",
+                desc2: "Through a richly illustrated hybrid format, the book explores the structural limits of large language models and lays the foundation for controlled technological sovereignty. Engineering is explained through concrete metaphors, far from the usual commercial fog.",
+                note: "Currently available only in French.",
+                btnKindle: "Buy the Kindle Edition (Amazon)",
+                btnPaper: "Buy the Paperback Edition (Amazon)",
+                t1Title: "1. Demystifying the guessing machine",
+                t1Desc: "From the myth of the thinking robot to the probabilistic engine. Understanding the role of tokens, probabilities, and why AI has no real \"awareness\" of what it writes.",
+                t2Title: "2. The \"Vibe Coding\" Mirage",
+                t2Desc: "The false promise of the magic application coded from your sofa, faced with the crushing reality of technical debt and the need for architecture.",
+                t3Title: "3. Framing the machine (The coloring book)",
+                t3Desc: "Preventing systemic hallucinations through the Model-Driven approach and channeling the AI with RAG (Retrieval-Augmented Generation) topology.",
+                t4Title: "4. Building the Digital Bunker",
+                t4Desc: "Protecting the system from poisoning (Model Collapse) and the \"clumsy intern\" with the sovereign, agnostic, and bunkerized SophIA architecture."
+              },
+      contact: {
+                title: "Govern AI before it governs you.",
+                intro: "Integrating artificial intelligence is no longer a question of technical feasibility. Today, it is a matter of strategic direction, data security, and sovereignty.",
+                subintro: "My role is to support organizations in mastering this critical infrastructure without surrendering their intellectual property.",
+                cardTitle: "Scope of Discussion",
+                scope1: "Technical leadership and structuring AI departments (Head of AI / VP Eng).",
+                scope2: "Design and audit of sovereign architectures (Secure RAG, on-premise, OKD).",
+                scope3: "Strategic exchanges with actors in the open-source ecosystem.",
+                emailBtn: "Send an email (contact@kisai.fr)",
+                linkedinBtn: "View CV & LinkedIn Profile"
+              }
     }
-    function applyTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('sophia-theme', theme);
-      const toggleBtn = document.getElementById('theme-toggle'); if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      applyLanguage(localStorage.getItem('sophia-lang') || (navigator.language.startsWith('fr') ? 'fr' : 'en'));
-      document.querySelectorAll('.lang-switch .lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
-      applyTheme(localStorage.getItem('sophia-theme') || 'light');
-      document.getElementById('theme-toggle')?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
-    });
-  </script>
+  };
+;;
+</script>
