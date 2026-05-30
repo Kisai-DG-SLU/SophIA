@@ -1,25 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SophIA — IA d’entreprise maîtrisée</title>
-  <meta name="description" content="SophIA est une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance, contrôle et discipline opérationnelle." />
+  <title>SophIA — L'architecture IA souveraine & open-source</title>
+  <meta name="description" content="SophIA n'est pas un produit SaaS, c'est une méthodologie d'orchestration IA bunkerisée pour reprendre le contrôle de votre souveraineté technologique." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Damien Guesdon" />
-  <meta name="keywords" content="IA souveraine, architecture IA, RAG, gouvernance IA, sécurité IA, plateforme IA, Kubernetes, OKD, entreprise" />
-
-  <meta property="og:title" content="SophIA — IA d’entreprise maîtrisée" />
-  <meta property="og:description" content="Une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance et contrôle." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sophia.kisai.fr" />
-  <meta property="og:image" content="./images/sophia-og.png" />
-  <meta property="og:site_name" content="SophIA" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SophIA — IA d’entreprise maîtrisée" />
-  <meta name="twitter:description" content="Une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance et contrôle." />
-  <meta name="twitter:image" content="./images/sophia-og.png" />
 
   <link rel="icon" type="image/png" sizes="16x16" href="./images/sophia-icon-16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./images/sophia-icon-32.png" />
@@ -27,632 +14,168 @@
   <link rel="icon" type="image/png" sizes="192x192" href="./images/sophia-icon-192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="./images/sophia-icon-512.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "SophIA",
-    "alternateName": "Sovereign Orchestrator Platform for Holistic Intelligence Architecture",
-    "url": "https://sophia.kisai.fr",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Linux / Kubernetes",
-    "description": "SophIA is an architectural approach for deploying controlled, secure and auditable AI systems in organizations.",
-    "author": {
-      "@type": "Person",
-      "name": "Damien Guesdon"
-    },
-    "codeRepository": "https://github.com/Kisai-DG-SLU/SophIA-platform"
-  }
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* VARIABLES (Design statutaire) */
     :root {
-      --bg: #07111f;
-      --bg-2: #0d1a2d;
-      --panel: rgba(255,255,255,0.05);
-      --panel-border: rgba(255,255,255,0.08);
-      --text: #e8eef8;
-      --muted: #9db0c9;
-      --primary: #8fc2ff;
-      --primary-2: #b9d8ff;
-      --accent: #5ca4ff;
-      --success: #8de0b8;
-      --warning: #ffd36b;
-
-      --neon-red: #ff3b3b;
-      --neon-green: #00ff9c;
+      --bg-light: #FAFAFA;
+      --bg-alt: #F0F4F8; 
+      --surface: #FFFFFF;
+      --text-main: #0A192F;
+      --text-muted: #4A5568;
+      --border: #E2E8F0;
+      
+      --bg-dark: #0A192F;
+      --text-dark: #FAFAFA;
+      --text-dark-muted: #A0AEC0;
+      --border-dark: rgba(255, 255, 255, 0.1);
+      
+      --accent-gold: #D4AF37; 
+      --accent-emerald: #2A9D8F; 
+      --success: #2A9D8F;
+      --warning: #E07A5F;
 
       --header-height: 88px;
-      --max: 1180px;
-      --radius: 20px;
-      --shadow: 0 20px 50px rgba(0,0,0,.28);
-      --reading-width: 760px;
+      --max: 1100px; 
+      --radius: 2px; 
+      --shadow: 0 4px 20px rgba(10, 25, 47, 0.05); 
+      
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Lora', serif;
+      --font-ui: 'Inter', sans-serif; 
+    }
+
+    [data-theme="dark"] {
+      --bg-light: #060F1E; 
+      --bg-alt: #0A192F; 
+      --surface: #112240; 
+      --text-main: #E2E8F0;
+      --text-muted: #8892B0;
+      --border: #233554;
+      --accent-emerald: #4FD1C5; 
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: var(--header-height);
-    }
-
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
     body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(92,164,255,0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(143,194,255,0.10), transparent 24%),
-        linear-gradient(180deg, var(--bg) 0%, #091625 100%);
-      line-height: 1.6;
+      margin: 0; font-family: var(--font-body); color: var(--text-main);
+      background: var(--bg-light); line-height: 1.7; transition: background 0.3s ease, color 0.3s ease;
     }
 
-    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); font-weight: 700; transition: color 0.3s ease; }
+    a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
     img { display: block; max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
 
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
+    /* Navigation */
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(7,17,31,.72);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px);
+      background: rgba(10, 25, 47, 0.95); border-bottom: 1px solid var(--border-dark); color: var(--text-dark);
     }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
-
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--font-ui); }
+    .brand { display: flex; align-items: center; gap: .85rem; font-weight: 600; letter-spacing: .02em; }
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(143,194,255,.25), rgba(92,164,255,.12));
-      border: 1px solid rgba(255,255,255,.08);
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
+      width: 42px; height: 42px; border-radius: var(--radius); overflow: hidden;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark);
+      display: grid; place-items: center; flex-shrink: 0;
     }
+    .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; color: var(--text-dark-muted); font-size: .9rem; flex-wrap: wrap; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-dark); }
+    .nav-links a.active { border-bottom: 2px solid var(--accent-gold); padding-bottom: 2px; }
 
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      color: var(--muted);
-      font-size: .95rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      margin-left: .75rem;
-    }
-
+    /* Controls */
+    .controls-wrapper { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.75rem; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
     .lang-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      cursor: pointer;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
-      font-size: 1.1rem;
-      line-height: 1;
-      padding: 0;
+      display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid transparent; background: transparent; color: var(--text-dark); cursor: pointer; transition: all .2s ease;
+      font-size: 1.1rem; padding: 0; filter: grayscale(80%);
     }
+    .lang-btn:hover { filter: grayscale(0%); background: rgba(255,255,255,0.1); }
+    .lang-btn.active { filter: grayscale(0%); border-color: var(--border-dark); background: rgba(255,255,255,0.05); }
 
-    .lang-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.18);
-    }
-
-    .lang-btn.active {
-      background: rgba(143,194,255,.16);
-      border-color: rgba(143,194,255,.42);
-      box-shadow: 0 0 0 4px rgba(143,194,255,.10);
-    }
-
+    /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.08);
-      font-weight: 600;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 1.5rem;
+      border-radius: var(--radius); font-weight: 500; font-family: var(--font-ui); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;
+      transition: all .2s ease; border: 1px solid transparent; cursor: pointer;
     }
-
     .btn:hover { transform: translateY(-1px); }
+    .hero .btn-primary, .cta-card .btn-primary, .topbar .btn-secondary { background: var(--accent-gold); color: #0A192F; }
+    .hero .btn-primary:hover, .cta-card .btn-primary:hover, .topbar .btn-secondary:hover { background: #b8972e; }
+    .hero .btn-secondary, .cta-card .btn-secondary { background: transparent; color: var(--accent-gold); border-color: var(--accent-gold); }
+    .hero .btn-secondary:hover, .cta-card .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+    .btn-primary { background: var(--text-main); color: var(--bg-light); border: 1px solid var(--text-main); }
+    .btn-primary:hover { background: transparent; color: var(--text-main); }
+    .btn-secondary { background: transparent; color: var(--text-main); border-color: var(--text-main); }
+    .btn-secondary:hover { background: var(--text-main); color: var(--bg-light); }
 
-    .btn-primary {
-      color: #07111f;
-      background: linear-gradient(180deg, var(--primary), var(--primary-2));
-      border-color: transparent;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 5rem 0 3.5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
+    /* Hero */
+    .hero { padding: 6rem 0 5rem; background: var(--bg-dark); color: var(--text-dark); border-bottom: 1px solid var(--accent-gold); }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .38rem .75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(143,194,255,.18);
-      background: rgba(143,194,255,.08);
-      color: var(--primary-2);
-      font-size: .85rem;
-      margin-bottom: 1rem;
+      display: inline-flex; align-items: center; gap: .5rem; padding: .2rem 0; font-family: var(--font-ui); font-size: 0.85rem;
+      color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; font-weight: 600;
     }
-
-    h1 {
-      margin: 0 0 1rem;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      line-height: 1.02;
-      letter-spacing: -.045em;
-    }
-
-    h2 {
-      margin: 0 0 .9rem;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      line-height: 1.08;
-      letter-spacing: -.03em;
-    }
-
-    h3 {
-      margin: 0 0 .6rem;
-      font-size: 1.05rem;
-      letter-spacing: -.02em;
-    }
-
-    .lead {
-      margin: 0 0 1.2rem;
-      max-width: 68ch;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .hero-note {
-      margin: 0 0 1.4rem;
-      color: var(--warning);
-      font-size: .97rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .85rem;
-      margin: 1.6rem 0 1.6rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .hero-meta span {
-      padding: .35rem .7rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.05);
-    }
-
-    .hero-card, .card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card { padding: 1.2rem; }
-
-    .illustration-frame {
-      min-height: 420px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.06);
-      background:
-        radial-gradient(circle at top left, rgba(92,164,255,.18), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-      cursor: zoom-in;
-    }
-
-    .illustration-frame img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-position: center;
-    }
-
-    .architecture-visual-card {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .architecture-frame {
-      min-height: 420px;
-      border: 0;
-      border-radius: var(--radius);
-      background: transparent;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .hero h1 { margin: 0 0 1.2rem; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; color: var(--text-dark); }
+    h2 { margin: 0 0 1rem; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; }
+    h3 { margin: 0 0 .8rem; font-size: 1.2rem; }
+    .lead { margin: 0 0 1.5rem; max-width: 65ch; color: var(--text-dark-muted); font-size: 1.1rem; }
+    .hero-note { margin: 0 0 2rem; color: var(--warning); font-size: 0.95rem; font-style: italic; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .8rem; font-family: var(--font-ui); font-size: .85rem; }
+    .hero-meta span { padding: .4rem .8rem; border-radius: var(--radius); background: rgba(255,255,255,.05); border: 1px solid var(--border-dark); color: var(--text-dark-muted); }
     
-    /* Hero : visuel immersif qui remplit bien le cadre */
-    #hero-illustration {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
+    .illustration-frame {
+      min-height: 420px; border-radius: var(--radius); border: 1px solid var(--border-dark);
+      background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative; cursor: zoom-in;
     }
+    .illustration-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-    #architecture-illustration {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
-      background: transparent;
-    }
+    /* Sections */
+    .section { padding: 5rem 0; scroll-margin-top: var(--header-height); transition: background-color 0.3s ease; }
+    section:nth-of-type(even) { background-color: var(--bg-alt); }
+    .section-intro { margin: 0 0 2.5rem; max-width: 75ch; color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s ease;}
 
-    .illustration-placeholder {
-      text-align: center;
-      color: var(--muted);
-      max-width: 32ch;
-      font-size: .95rem;
-      display: grid;
-      place-items: center;
-      min-height: inherit;
-      padding: 1.2rem;
-    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: start;}
 
-    .section {
-      padding: 2.8rem 0;
-      scroll-margin-top: var(--header-height);
-    }
-
-    .section-intro {
-      margin: 0 0 1.4rem;
-      max-width: 74ch;
-      color: var(--muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .card { padding: 1.25rem; }
-
-    .value-grid .card {
-      border: 1px solid rgba(143,194,255,.18);
-    }
-
-    .usecase-grid .card {
-      border: 1px solid var(--neon-green);
-      box-shadow:
-        0 0 6px rgba(0,255,156,0.4),
-        0 0 16px rgba(0,255,156,0.16),
-        var(--shadow);
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-      font-size: .98rem;
-    }
-
-    .card p + p {
-      margin-top: .85rem;
-    }
-
-    .card ul {
-      margin: .65rem 0 0;
-      padding-left: 1.1rem;
-    }
-
-    .problem-list {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: .75rem;
-      margin-top: 1.1rem;
-    }
-
-    .problem-pill {
-      text-align: center;
-      padding: .95rem 1rem;
-      border-radius: 16px;
-      background: rgba(255,0,0,0.05);
-      border: 1px solid var(--neon-red);
-      font-weight: 600;
-      box-shadow:
-        0 0 6px rgba(255,59,59,0.45),
-        0 0 16px rgba(255,59,59,0.18);
-    }
-
-    .architecture-card pre {
-      margin: 0;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      color: var(--primary-2);
-      font-size: .95rem;
-      line-height: 1.5;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-    }
-
-    .stack span {
-      padding: .55rem .8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.05);
-      color: var(--text);
-      font-weight: 600;
-      font-size: .95rem;
-    }
-
-    .timeline {
-      display: grid;
-      gap: .9rem;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding: 1rem 0;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-
-    .timeline-item:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .timeline-phase {
-      font-weight: 700;
-      color: var(--primary-2);
-      font-size: .95rem;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      color: var(--success);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .status::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--success);
-      box-shadow: 0 0 0 6px rgba(141,224,184,.12);
-    }
-
-    .cta {
-      text-align: center;
-      padding-bottom: 4.5rem;
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow); transition: all 0.3s ease; height: 100%;}
+    .value-grid .card, .usecase-grid .card { border-top: 3px solid var(--text-main); } 
+    .card p, .card li { color: var(--text-muted); font-size: 1rem; transition: color 0.3s ease; margin-bottom: 1rem;}
+    .card ul { margin: 1rem 0 0; padding-left: 1.2rem; }
+    
+    .quote-block {
+      border-left: 4px solid var(--accent-emerald);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--text-main);
+      font-size: 1.1rem;
     }
 
     .cta-card {
-      background: linear-gradient(180deg, rgba(143,194,255,.09), rgba(255,255,255,.035));
-      border: 1px solid rgba(143,194,255,.18);
-      border-radius: 28px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
+      background: var(--bg-dark) !important; color: var(--text-dark) !important; border: none !important; border-radius: var(--radius); padding: 4rem 2rem; box-shadow: 0 10px 30px rgba(10, 25, 47, 0.15); text-align: center;
     }
+    .cta-card p, .cta-card h2 { color: var(--text-dark) !important; }
 
-    .footer {
-      border-top: 1px solid rgba(255,255,255,.06);
-      padding: 1.6rem 0 2.4rem;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: .9rem;
-    }
-
-    .footer-brand img {
-      height: 42px;
-      width: auto;
-      max-width: none;
-      display: block;
-      flex-shrink: 0;
-      opacity: 1;
-    }
-
-    .author-actions,
-    .book-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .85rem;
-      margin-top: 1.2rem;
-    }
-
-    .book-section .card {
-      text-align: center;
-    }
-
-    .book-section p {
-      max-width: var(--reading-width);
-      margin-inline: auto;
-    }
-
-    .book-note {
-      font-style: italic;
-      margin-top: -.4rem;
-    }
-
-    /* Lightbox */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(2, 8, 18, 0.88);
-      backdrop-filter: blur(8px);
-      padding: 2rem;
-    }
-
-    .lightbox.open {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: min(92vw, 1600px);
-      max-height: 88vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      border-radius: 18px;
-      box-shadow: 0 30px 80px rgba(0,0,0,.45);
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 48px;
-      height: 48px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      color: #fff;
-      font-size: 1.7rem;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .lightbox-close:hover {
-      background: rgba(255,255,255,.14);
-    }
+    .footer { background: var(--bg-dark); color: var(--text-dark-muted); border-top: 1px solid var(--border-dark); padding: 2.5rem 0; font-family: var(--font-ui); font-size: .9rem; }
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: .9rem; color: var(--text-dark); font-weight: 500; }
+    .footer a:hover { color: var(--text-dark); }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2,
-      .problem-list {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: .45rem;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-        padding: .7rem 0;
-      }
-
-      .nav-links {
-        width: 100%;
-        flex-wrap: wrap;
-      }
-
-      .lang-switch {
-        margin-left: 0;
-      }
-
-      .illustration-frame {
-        min-height: 280px;
-      }
-
-      .footer-grid {
-        align-items: flex-start;
-      }
+      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .nav { flex-wrap: wrap; padding: 1rem 0; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+      .controls-wrapper { margin-left: 0; }
     }
   </style>
 </head>
@@ -660,349 +183,175 @@
   <header class="topbar">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="SophIA home">
-        <span class="brand-mark">
-          <img src="./images/sophia-icon-512.png" alt="SophIA icon" />
-        </span>
+        <span class="brand-mark"><img src="./images/sophia-icon-512.png" alt="SophIA icon" /></span>
         <span>SophIA</span>
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#problem" data-i18n="nav.problem">Problématique</a>
-        <a href="#use-cases" data-i18n="nav.usecases">Cas d’usage</a>
-        <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
-        <a href="#avancement" data-i18n="nav.status">Avancement</a>
-        <a href="#documentation" data-i18n="nav.documentation">Documentation</a>
-        <a href="#book" data-i18n="nav.book">Livre</a>
-        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
+        <a href="#problem" data-i18n="nav.problem">Le Piège</a>
+        <a href="#solution" data-i18n="nav.solution">Le Bunker</a>
+        <a href="ingenierie.html" data-i18n="nav.architecture">Ingénierie</a>
+        <a href="#posture" data-i18n="nav.posture">Ma Posture</a>
+        <a href="architecte.html" data-i18n="nav.author">L'Architecte</a>
+        <a href="livre.html" data-i18n="nav.book">Le Livre</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">Code (GitHub)</a>
 
-        <div class="lang-switch" aria-label="Language selector">
-          <button class="lang-btn" id="lang-fr" type="button" data-lang="fr" aria-label="Choisir le français" title="Français">🇫🇷</button>
-          <button class="lang-btn" id="lang-en" type="button" data-lang="en" aria-label="Choose English" title="English">🇬🇧</button>
+        <div class="controls-wrapper">
+          <button class="lang-btn" id="theme-toggle" type="button" aria-label="Toggle theme">🌙</button>
+          <div class="lang-switch" aria-label="Language selector">
+            <button class="lang-btn" id="lang-fr" type="button" data-lang="fr">🇫🇷</button>
+            <button class="lang-btn" id="lang-en" type="button" data-lang="en">🇬🇧</button>
+          </div>
         </div>
       </nav>
     </div>
   </header>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow" data-i18n="hero.eyebrow">IA d’entreprise maîtrisée</div>
-          <h1 data-i18n="hero.h1">SophIA : IA sans perte de contrôle.</h1>
+          <div class="eyebrow" data-i18n="hero.eyebrow">L'IA est devenue une infrastructure</div>
+          <h1 data-i18n="hero.h1">L'IA ne doit pas vous coûter votre Souveraineté.</h1>
           <p class="lead">
-            <strong data-i18n="hero.titleLine">Une architecture souveraine pour des systèmes d’IA sécurisés, auditables et exploitables.</strong>
+            <strong data-i18n="hero.titleLine">SophIA n'est pas un produit sur étagère. C'est une architecture d'orchestration open-source, multi-agents et bunkerisée.</strong>
           </p>
           <p class="lead" data-i18n="hero.description">
-            SophIA s’adresse aux organisations qui veulent aller au-delà des démos et des assistants isolés. Le système structure la mémoire, les outils, l’accès à la connaissance et les environnements d’exécution afin de rendre l’IA gouvernable, sécurisée et exploitable avec une vraie discipline opérationnelle.
+            C'est le plan d'ingénierie que je propose aux entreprises pour déployer l'Intelligence Artificielle en interne, sans compromettre leur propriété intellectuelle, ni s'enfermer dans un "vendor lock-in" américain.
           </p>
           <p class="hero-note" data-i18n="hero.note">
-            SophIA est actuellement développée comme une approche architecturale en cours de structuration, et non comme un produit fini.
+            Méthodologie ouverte, pensée pour la production de niveau industriel et le déploiement sur infrastructure critique.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#use-cases" data-i18n="hero.viewUseCases">Voir les cas d’usage</a>
-            <a class="btn btn-secondary" href="#architecture" data-i18n="hero.viewArchitecture">Voir l’architecture</a>
-            <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="hero.githubRepo">Dépôt GitHub</a>
+            <a class="btn btn-primary" href="#solution" data-i18n="hero.viewArchitecture">Découvrir l'architecture</a>
+            <a class="btn btn-secondary" href="contact.html" data-i18n="hero.contact">Internaliser cette solution</a>
           </div>
 
           <div class="hero-meta">
-            <span data-i18n="hero.meta1">Gouvernance IA</span>
-            <span data-i18n="hero.meta2">Sécurité & contrôle</span>
-            <span data-i18n="hero.meta3">RAG & assistants internes</span>
-            <span data-i18n="hero.meta4">Vision plateforme</span>
+            <span data-i18n="hero.meta1">Blueprint Open-Source</span>
+            <span data-i18n="hero.meta2">Souveraineté des Données</span>
+            <span data-i18n="hero.meta3">No Vendor Lock-in</span>
+            <span data-i18n="hero.meta4">Inférence Locale & Routage</span>
           </div>
         </div>
-
         <div class="hero-card">
           <div class="illustration-frame" id="hero-illustration-frame">
-            <img
-              id="hero-illustration"
-              src="./images/hero-sophia-overview.png"
-              alt="Illustration de présentation de SophIA"
-              onerror="handleIllustrationError(this, 'hero-illustration-frame', 'Vue d’ensemble visuelle de SophIA à insérer ici')"
-            />
+            <img id="hero-illustration" src="./images/hero-sophia-overview.png" alt="Illustration SophIA" onerror="this.outerHTML='<div style=\'padding:2rem; text-align:center; color:#A0AEC0;\'>Schéma conceptuel SophIA à insérer</div>'" />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- LE PIÈGE : L'explosion du Shadow AI -->
     <section class="section" id="problem">
       <div class="container">
-        <h2 data-i18n="problem.title">Pourquoi les organisations ont du mal à utiliser l’IA de manière maîtrisée</h2>
-        <p class="section-intro" data-i18n="problem.intro">
-          La difficulté n’est pas d’avoir accès à l’IA. La difficulté est de l’utiliser sans perdre en gouvernance, en sécurité et en cohérence. Les connaissances sont dispersées, les données sensibles peuvent fuiter, les outils restent mal intégrés et les POC prometteurs ne se transforment pas en systèmes réellement exploitables.
-        </p>
-
-        <div class="problem-list">
-          <div class="problem-pill" data-i18n="problem.pill1">Usages non maîtrisés</div>
-          <div class="problem-pill" data-i18n="problem.pill2">Exposition des données</div>
-          <div class="problem-pill" data-i18n="problem.pill3">Gouvernance insuffisante</div>
-          <div class="problem-pill" data-i18n="problem.pill4">Accès fragile à la connaissance</div>
-          <div class="problem-pill" data-i18n="problem.pill5">Écart entre POC et production</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container grid-3 value-grid">
-        <article class="card">
-          <h3 data-i18n="cards.control.title">Maîtrise</h3>
-          <p data-i18n="cards.control.text">SophIA donne aux organisations un cadre pour contrôler l’accès de l’IA à la connaissance, aux outils et aux informations externes, au lieu de laisser se développer des usages opaques et improvisés.</p>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="cards.trust.title">Confiance</h3>
-          <p data-i18n="cards.trust.text">Le système est conçu pour réduire les risques grâce à l’isolation, à la validation, au filtrage et à une gestion explicite du contexte, afin que les résultats de l’IA puissent être gouvernés.</p>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="cards.deployment.title">Déploiement</h3>
-          <p data-i18n="cards.deployment.text">SophIA n’est pas une simple interface de chat. C’est une approche plateforme pour passer de l’expérimentation à des assistants internes, des automatisations encadrées et des services IA réellement exploitables.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="use-cases">
-      <div class="container">
-        <h2 data-i18n="usecases.title">Ce que SophIA permet</h2>
-        <p class="section-intro" data-i18n="usecases.intro">
-          SophIA est pensée pour des cas d’usage concrets où la gouvernance, la sécurité et le contrôle opérationnel comptent autant que la puissance des modèles.
-        </p>
-
-        <div class="grid-3 usecase-grid">
-          <article class="card">
-            <h3 data-i18n="usecases.case1.title">Assistants IA internes</h3>
-            <p data-i18n="usecases.case1.text">Déployer des assistants connectés à la connaissance, aux processus et aux outils internes sans exposer l’organisation à des flux de données non maîtrisés.</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="usecases.case2.title">Systèmes RAG sécurisés</h3>
-            <p data-i18n="usecases.case2.text">Construire des systèmes de recherche augmentée sur la documentation, les procédures et les savoirs internes avec une ingestion et une validation contrôlées.</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="usecases.case3.title">Workflows IA gouvernés</h3>
-            <p data-i18n="usecases.case3.text">Structurer des workflows agentiques ou semi-automatisés avec des limites explicites, une exécution isolée et un comportement auditable.</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="usecases.case4.title">Copilotes produit et support</h3>
-            <p data-i18n="usecases.case4.text">Outiller les équipes support, opérations ou produit avec des assistants contextuels capables de raisonner sur des sources internes de confiance.</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="usecases.case5.title">Plateformes IA privées</h3>
-            <p data-i18n="usecases.case5.text">Créer une plateforme IA dédiée pour les organisations qui ne peuvent pas dépendre uniquement de SaaS publics pour des raisons de confidentialité, de conformité ou de souveraineté.</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="usecases.case6.title">Adoption de l’IA avec garde-fous</h3>
-            <p data-i18n="usecases.case6.text">Donner de la liberté aux équipes d’innovation tout en fournissant à la direction des garde-fous d’architecture, de gouvernance et de sécurité dès le départ.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="architecture">
-      <div class="container">
-        <h2 data-i18n="architecture.title">Vue d’ensemble de l’architecture</h2>
-        <p class="section-intro" data-i18n="architecture.intro">
-          SophIA suit une architecture de plateforme conçue pour répondre à un besoin simple : utiliser l’IA avec plus de capacité qu’un simple chatbot, mais avec plus de contrôle qu’un assistant SaaS générique.
-        </p>
-
-        <div class="grid-2" style="margin-bottom:1rem;">
-          <div class="card architecture-card">
-<pre>                   Users / IDE / API
-                            │
-                            ▼
-                     WireGuard Access
-                            │
-                            ▼
-              +----------------------------+
-              |        SophIA-core         |
-              |  Orchestrator / LiteLLM    |
-              +-------------+--------------+
-                            │
-   ┌──────────┼───────────┬──────────────┬──────────────┐
-   ▼          ▼           ▼              ▼              ▼
-SophIA-   SophIA-     SophIA-        SophIA-       SophIA-
-inference memory      skills         dmz           sandbox
-models    Qdrant      MCP tools      web intake    workspaces
-              │                         │
-              ▼                         ▼
-         knowledge               semantic validation
-              │                         │
-              └──────────────┬──────────┘
-                             ▼
-                      persistent memory</pre>
-          </div>
-
-          <div class="card architecture-visual-card">
-            <div class="illustration-frame architecture-frame" id="architecture-illustration-frame">
-              <img
-                id="architecture-illustration"
-                src="./images/architecture-overview.png"
-                alt="Illustration de l’architecture SophIA"
-                onerror="handleIllustrationError(this, 'architecture-illustration-frame', 'Schéma illustré de l’architecture SophIA à insérer ici')"
-              />
+        <h2 data-i18n="problem.title">L'explosion du "Shadow AI"</h2>
+        <div class="grid-2">
+          <div>
+            <p class="section-intro" data-i18n="problem.p1">
+              Quand l'IA générative est arrivée, nous avons assisté exactement à ce qui s'était passé au début du Cloud, mais en pire. Aujourd'hui, les entreprises subissent un phénomène critique : les collaborateurs utilisent massivement ChatGPT ou Copilot dans leur coin pour gagner du temps.
+            </p>
+            <p class="section-intro" data-i18n="problem.p2">
+              Le résultat ? Ils injectent la propriété intellectuelle de l'entreprise, des brevets en cours aux données financières, directement sur des serveurs étrangers.
+            </p>
+            <div class="quote-block" data-i18n="problem.quote">
+              "Le vrai problème des entreprises aujourd'hui n'est pas de posséder une IA, c'est d'avoir une gouvernance de l'IA."
             </div>
+          </div>
+          <article class="card">
+            <h3 data-i18n="problem.cardTitle">Le dilemme du dirigeant</h3>
+            <p data-i18n="problem.cardP1">
+              D'un côté, vous savez que vous devez intégrer l'IA pour rester compétitif et décupler la productivité de vos équipes. De l'autre, vous savez que vos données et vos process sont votre plus grande richesse.
+            </p>
+            <p data-i18n="problem.cardP2">
+              Or, la majorité des solutions du marché (les plateformes "clés en main") vous demandent d'envoyer cette richesse sur leurs serveurs pour fonctionner. C'est signer un chèque en blanc sur votre autonomie stratégique.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LE BUNKER : La solution SophIA -->
+    <section class="section" id="solution">
+      <div class="container">
+        <h2 data-i18n="solution.title">La Plateforme comme Infrastructure Stratégique</h2>
+        <p class="section-intro" data-i18n="solution.intro">
+          C'est pour résoudre ce dilemme de l'intérieur que j'ai conçu l'architecture SophIA de A à Z. Je voulais prouver qu'il était possible d'industrialiser l'IA sans s'enfermer dans le modèle propriétaire des GAFAM. 
+        </p>
+        
+        <div class="grid-3 value-grid">
+          <article class="card">
+            <h3 data-i18n="cards.control.title">1. Sécurité Absolue</h3>
+            <p data-i18n="cards.control.text">SophIA est un "bunker" cognitif. Vos données ne quittent jamais l'entreprise. Je mets en place une IA qui a la même puissance que les leaders du marché, mais qui tourne chez vous. Elle connaît vos règles, mais elle est physiquement incapable de les fuiter à l'extérieur.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cards.trust.title">2. Indépendance Totale</h3>
+            <p data-i18n="cards.trust.text">Le système est basé sur des standards ouverts (OKD, LiteLLM, Hermes). Vous n'êtes lié à aucun modèle d'IA unique. Si demain un nouveau modèle open-source émerge (comme chez Mistral), il suffit de remplacer la brique technique. L'agnosticisme est total.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cards.deployment.title">3. ROI & Coût Maîtrisé</h3>
+            <p data-i18n="cards.deployment.text">Vous êtes propriétaire de votre infrastructure. Vous ne payez pas une taxe arbitraire à chaque fois qu'un de vos employés pose une question à l'IA ou à chaque révision tarifaire d'un fournisseur cloud externe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MA POSTURE : Leader, pas faiseur aveugle -->
+    <section class="section" id="posture">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <article class="card">
+            <h3 data-i18n="posture.title">De l'Ingénierie au Leadership</h3>
+            <p data-i18n="posture.p1">
+              Je ne suis pas un prestataire qui vend un logiciel fermé. Mon approche est radicalement différente : <strong>je fournis la recette, et je guide les équipes pour la cuisiner.</strong>
+            </p>
+            <p data-i18n="posture.p2">
+              J'ai audité, architecturé et assemblé les briques open-source les plus critiques du marché sur mon propre matériel de type Datacenter. Je sais exactement comment fonctionne le moteur sous le capot. 
+            </p>
+            <p data-i18n="posture.p3">
+              Aujourd'hui, ma valeur ajoutée est de définir la stratégie d'IA souveraine de votre entreprise, de garantir la sécurité, et de diriger les équipes d'ingénierie internes pour passer de l'expérimentation à la mise en production à grande échelle.
+            </p>
+            <a href="architecte.html" class="btn btn-secondary" style="margin-top: 1rem;" data-i18n="posture.btn">Découvrir mon profil</a>
+          </article>
+          <div>
+            <h2 data-i18n="posture.h2">Internaliser la compétence.</h2>
+            <p class="section-intro" data-i18n="posture.intro">
+              Que vous soyez un leader français de l'IA construisant une plateforme produit (comme Mistral AI), ou une entreprise majeure souhaitant déployer sa propre plateforme interne, mon objectif est d'intégrer vos équipes pour piloter cette vision technique.
+            </p>
+            <ul style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+              <li data-i18n="posture.li1"><strong>Head of AI Platform / VP Engineering</strong></li>
+              <li data-i18n="posture.li2">Gouvernance de la donnée et des accès (RBAC)</li>
+              <li data-i18n="posture.li3">Déploiement RAG souverain et Orchestration multi-agents</li>
+              <li data-i18n="posture.li4">Conduite du changement et fédération des équipes</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container grid-2">
-        <article class="card">
-          <h3 data-i18n="concepts.title">Concepts clés</h3>
-          <ul>
-            <li data-i18n="concepts.item1"><strong>Modèle par projet</strong> — tout est structuré comme un projet</li>
-            <li data-i18n="concepts.item2"><strong>Brain / Repo / Workspace</strong> — mémoire, production et exécution sont séparées</li>
-            <li data-i18n="concepts.item3"><strong>Gestion du contexte</strong> — le contexte est construit explicitement</li>
-            <li data-i18n="concepts.item4"><strong>Gestion des workspaces</strong> — les environnements d’exécution sont isolés et reproductibles</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="mechanisms.title">Mécanismes distinctifs</h3>
-          <ul>
-            <li data-i18n="mechanisms.item1"><strong>Sas paranoïaque</strong> — pipeline isolé d’acquisition web</li>
-            <li data-i18n="mechanisms.item2"><strong>Brouillard de recherche</strong> — requêtes leurres pour réduire la corrélation</li>
-            <li data-i18n="mechanisms.item3"><strong>Tribunal sémantique</strong> — validation avant ingestion des connaissances</li>
-            <li data-i18n="mechanisms.item4"><strong>DLP</strong> — filtrage des informations sensibles en sortie</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 data-i18n="tech.title">Technologies clés</h2>
-        <p class="section-intro" data-i18n="tech.intro">
-          La base actuelle repose sur une pile open source pragmatique, choisie pour sa reproductibilité, sa maîtrise et sa compatibilité avec des environnements contrôlés.
-        </p>
-        <div class="stack">
-          <span>LiteLLM</span>
-          <span>Ollama</span>
-          <span>llama.cpp</span>
-          <span>Qdrant</span>
-          <span>Forgejo</span>
-          <span>OKD</span>
-          <span>Kubernetes</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="avancement">
-      <div class="container">
-        <h2 data-i18n="status.title">État du projet</h2>
-        <p class="section-intro" data-i18n="status.intro">
-          SophIA est en cours de développement actif en tant que cadre architectural. Les fondations, les concepts et les principes de conception sont déjà définis et validés, tandis que le système est progressivement enrichi et consolidé.
-        </p>
-
-        <div class="card">
-          <div class="status" data-i18n="status.badge">Architecture en cours de développement et de validation</div>
-
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-phase" data-i18n="status.phaseTitle1">Fondations</div>
-              <div data-i18n="status.phase1">Fondations physiques, serveur bare metal, cluster OKD, accès WireGuard et premières contraintes de sécurité.</div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-phase" data-i18n="status.phaseTitle2">Structuration</div>
-              <div data-i18n="status.phase2">Couche GitOps, segmentation par namespaces, Forgejo, structuration des trois piliers : <em>SophIA-brain</em>, <em>Structure-Brain</em> et <em>projects</em>.</div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-phase" data-i18n="status.phaseTitle3">Capacités IA</div>
-              <div data-i18n="status.phase3">Couche de routage IA, inférence locale, environnements de développement, outillage centralisé et amélioration des workflows d’exécution.</div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-phase" data-i18n="status.phaseTitle4">Consolidation</div>
-              <div data-i18n="status.phase4">Renforcement mémoire, validation sémantique, filtrage DLP, observabilité et montée progressive en robustesse.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="documentation">
-      <div class="container grid-2">
-        <article class="card">
-          <h3 data-i18n="docs.title">Documentation</h3>
-          <ul>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/vision.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.vision">Vision</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/problem-space.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.problemSpace">Espace de problème</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/architecture.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.architecture">Architecture</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/security.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.security">Sécurité</a></li>
-            <li><a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/roadmap.md" target="_blank" rel="noopener noreferrer" data-i18n="docs.roadmap">Feuille de route</a></li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="author.title">Auteur</h3>
-          <p data-i18n="author.p1">
-            SophIA est initiée par Damien Guesdon comme une réponse à une question très concrète : comment permettre aux organisations de tirer parti de l’IA sans perdre le contrôle de leurs systèmes, de leurs données et de leur modèle opérationnel ?
-          </p>
-          <p data-i18n="author.p2">
-            Le projet combine plus de 20 ans d’expérience en infrastructure, réseau, systèmes critiques et direction technique avec une spécialisation actuelle en ingénierie IA, conception de plateformes et architecture souveraine.
-          </p>
-          <p data-i18n="author.p3">
-            Pour les décideurs, SophIA illustre une approche concrète de l’IA d’entreprise gouvernée. Pour les recruteurs, le projet reflète un profil capable de relier stratégie, architecture, sécurité, exécution et vision plateforme.
-          </p>
-
-          <div class="author-actions">
-            <a class="btn btn-primary" href="https://damienguesdon.github.io/" target="_blank" rel="noopener noreferrer" data-i18n="author.cv">Voir le CV</a>
-            <a class="btn btn-secondary" href="https://kisai-dg-slu.github.io/" target="_blank" rel="noopener noreferrer" data-i18n="author.dashboard">Dashboard de formation IA</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
+    <!-- CTA -->
     <section class="section cta">
       <div class="container">
         <div class="cta-card">
-          <h2 data-i18n="cta.title">Explorer ce que peut être une IA d’entreprise maîtrisée</h2>
-          <p class="section-intro" style="margin-inline:auto;" data-i18n="cta.text">
-            SophIA n’est pas présentée comme un produit fini, mais comme une approche architecturale concrète pour les organisations qui souhaitent passer de l’expérimentation IA à des systèmes maîtrisés et industrialisables.
+          <h2 data-i18n="cta.title">Construisons votre infrastructure souveraine.</h2>
+          <p class="section-intro" style="margin-inline:auto; max-width: 80ch;" data-i18n="cta.text">
+            Si la vision d'une intelligence artificielle puissante, gouvernable et totalement indépendante des GAFAM résonne avec votre stratégie d'entreprise, discutons de la manière dont je peux diriger ce projet en interne.
           </p>
-
           <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
-            <a class="btn btn-primary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="cta.github">Voir le dépôt GitHub</a>
-            <a class="btn btn-secondary" href="./docs/SOPHIA_prior_art.pdf" data-i18n="cta.priorArt">Description d’antériorité</a>
+            <a class="btn btn-primary" href="contact.html" data-i18n="cta.contact">Contactez-moi (contact@kisai.fr)</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section book-section" id="book">
-      <div class="container">
-        <div class="card">
-          <h2 data-i18n="book.title">Le livre derrière la vision</h2>
-          <p class="section-intro" data-i18n="book.p1">
-            <strong>SophIA — Assistant suprême ?</strong> est le livre de Damien Guesdon sur la nature réelle de l’intelligence artificielle, les limites des grands modèles de langage et les principes d’ingénierie nécessaires pour construire des systèmes d’IA souverains.
-          </p>
-          <p class="section-intro book-note" data-i18n="book.note">
-            Actuellement disponible uniquement en français.
-          </p>
-          <p class="section-intro" data-i18n="book.p2">
-            Il aborde les hallucinations, le model collapse, les fuites de données, les prompt injections, l’orchestration, le RAG, l’exécution sécurisée, le Zero Trust et la vision architecturale qui a conduit à SophIA.
-          </p>
-          <div class="book-actions" style="justify-content:center;">
-            <a class="btn btn-primary" href="https://amzn.eu/d/03hTLyKs" target="_blank" rel="noopener noreferrer" data-i18n="book.kindle">Acheter la version Kindle</a>
-            <a class="btn btn-secondary" href="https://amzn.eu/d/04ht4nMs" target="_blank" rel="noopener noreferrer" data-i18n="book.paperback">Acheter la version brochée</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="./images/sophia-logo-dark.png" alt="SophIA logo" />
         <span data-i18n="footer.copy">© 2026 SophIA / Damien Guesdon</span>
       </div>
       <div>
@@ -1013,483 +362,128 @@ models    Qdrant      MCP tools      web intake    workspaces
     </div>
   </footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="image-lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Fermer l’image">×</button>
-    <img id="lightbox-image" src="" alt="" />
-  </div>
-
   <script>
     const translations = {
       fr: {
-        meta: {
-          title: "SophIA — IA d’entreprise maîtrisée",
-          description: "SophIA est une approche architecturale pour déployer des systèmes d’IA en entreprise avec sécurité, gouvernance, contrôle et discipline opérationnelle."
+        meta: { title: "SophIA — L'architecture IA souveraine & open-source" },
+        nav: { problem: "Le Piège", solution: "Le Bunker", architecture: "Ingénierie", posture: "Ma Posture", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },
+        hero: { 
+          eyebrow: "L'IA est devenue une infrastructure", 
+          h1: "L'IA ne doit pas vous coûter votre Souveraineté.", 
+          titleLine: "SophIA n'est pas un produit sur étagère. C'est une architecture d'orchestration open-source, multi-agents et bunkerisée.", 
+          description: "C'est le plan d'ingénierie que je propose aux entreprises pour déployer l'Intelligence Artificielle en interne, sans compromettre leur propriété intellectuelle, ni s'enfermer dans un 'vendor lock-in' américain.", 
+          note: "Méthodologie ouverte, pensée pour la production de niveau industriel et le déploiement sur infrastructure critique.", 
+          viewArchitecture: "Découvrir l'architecture", 
+          contact: "Internaliser cette solution", 
+          meta1: "Blueprint Open-Source", meta2: "Souveraineté des Données", meta3: "No Vendor Lock-in", meta4: "Inférence Locale & Routage" 
         },
-        nav: {
-          problem: "Problématique",
-          usecases: "Cas d’usage",
-          architecture: "Architecture",
-          status: "Avancement",
-          documentation: "Documentation",
-          book: "Livre",
-          github: "GitHub"
+        problem: { 
+          title: "L'explosion du 'Shadow AI'", 
+          p1: "Quand l'IA générative est arrivée, nous avons assisté exactement à ce qui s'était passé au début du Cloud, mais en pire. Aujourd'hui, les entreprises subissent un phénomène critique : les collaborateurs utilisent massivement ChatGPT ou Copilot dans leur coin pour gagner du temps.", 
+          p2: "Le résultat ? Ils injectent la propriété intellectuelle de l'entreprise, des brevets en cours aux données financières, directement sur des serveurs étrangers.", 
+          quote: "\"Le vrai problème des entreprises aujourd'hui n'est pas de posséder une IA, c'est d'avoir une gouvernance de l'IA.\"",
+          cardTitle: "Le dilemme du dirigeant",
+          cardP1: "D'un côté, vous savez que vous devez intégrer l'IA pour rester compétitif et décupler la productivité de vos équipes. De l'autre, vous savez que vos données et vos process sont votre plus grande richesse.",
+          cardP2: "Or, la majorité des solutions du marché (les plateformes 'clés en main') vous demandent d'envoyer cette richesse sur leurs serveurs pour fonctionner. C'est signer un chèque en blanc sur votre autonomie stratégique."
         },
-        hero: {
-          eyebrow: "IA d’entreprise maîtrisée",
-          h1: "SophIA : IA sans perte de contrôle.",
-          titleLine: "Une architecture souveraine pour des systèmes d’IA sécurisés, auditables et exploitables.",
-          description: "SophIA s’adresse aux organisations qui veulent aller au-delà des démos et des assistants isolés. Le système structure la mémoire, les outils, l’accès à la connaissance et les environnements d’exécution afin de rendre l’IA gouvernable, sécurisée et exploitable avec une vraie discipline opérationnelle.",
-          note: "SophIA est actuellement développée comme une approche architecturale en cours de structuration, et non comme un produit fini.",
-          viewUseCases: "Voir les cas d’usage",
-          viewArchitecture: "Voir l’architecture",
-          githubRepo: "Dépôt GitHub",
-          meta1: "Gouvernance IA",
-          meta2: "Sécurité & contrôle",
-          meta3: "RAG & assistants internes",
-          meta4: "Vision plateforme"
+        solution: {
+          title: "La Plateforme comme Infrastructure Stratégique",
+          intro: "C'est pour résoudre ce dilemme de l'intérieur que j'ai conçu l'architecture SophIA de A à Z. Je voulais prouver qu'il était possible d'industrialiser l'IA sans s'enfermer dans le modèle propriétaire des GAFAM."
         },
-        problem: {
-          title: "Pourquoi les organisations ont du mal à utiliser l’IA de manière maîtrisée",
-          intro: "La difficulté n’est pas d’avoir accès à l’IA. La difficulté est de l’utiliser sans perdre en gouvernance, en sécurité et en cohérence. Les connaissances sont dispersées, les données sensibles peuvent fuiter, les outils restent mal intégrés et les POC prometteurs ne se transforment pas en systèmes réellement exploitables.",
-          pill1: "Usages non maîtrisés",
-          pill2: "Exposition des données",
-          pill3: "Gouvernance insuffisante",
-          pill4: "Accès fragile à la connaissance",
-          pill5: "Écart entre POC et production"
+        cards: { 
+          control: { title: "1. Sécurité Absolue", text: "SophIA est un 'bunker' cognitif. Vos données ne quittent jamais l'entreprise. Je mets en place une IA qui a la même puissance que les leaders du marché, mais qui tourne chez vous. Elle connaît vos règles, mais elle est physiquement incapable de les fuiter à l'extérieur." }, 
+          trust: { title: "2. Indépendance Totale", text: "Le système est basé sur des standards ouverts (OKD, LiteLLM, Hermes). Vous n'êtes lié à aucun modèle d'IA unique. Si demain un nouveau modèle open-source émerge (comme chez Mistral), il suffit de remplacer la brique technique. L'agnosticisme est total." }, 
+          deployment: { title: "3. ROI & Coût Maîtrisé", text: "Vous êtes propriétaire de votre infrastructure. Vous ne payez pas une taxe arbitraire à chaque fois qu'un de vos employés pose une question à l'IA ou à chaque révision tarifaire d'un fournisseur cloud externe." } 
         },
-        cards: {
-          control: {
-            title: "Maîtrise",
-            text: "SophIA donne aux organisations un cadre pour contrôler l’accès de l’IA à la connaissance, aux outils et aux informations externes, au lieu de laisser se développer des usages opaques et improvisés."
-          },
-          trust: {
-            title: "Confiance",
-            text: "Le système est conçu pour réduire les risques grâce à l’isolation, à la validation, au filtrage et à une gestion explicite du contexte, afin que les résultats de l’IA puissent être gouvernés."
-          },
-          deployment: {
-            title: "Déploiement",
-            text: "SophIA n’est pas une simple interface de chat. C’est une approche plateforme pour passer de l’expérimentation à des assistants internes, des automatisations encadrées et des services IA réellement exploitables."
-          }
+        posture: {
+          title: "De l'Ingénierie au Leadership",
+          p1: "Je ne suis pas un prestataire qui vend un logiciel fermé. Mon approche est radicalement différente : <strong>je fournis la recette, et je guide les équipes pour la cuisiner.</strong>",
+          p2: "J'ai audité, architecturé et assemblé les briques open-source les plus critiques du marché sur mon propre matériel de type Datacenter. Je sais exactement comment fonctionne le moteur sous le capot.",
+          p3: "Aujourd'hui, ma valeur ajoutée est de définir la stratégie d'IA souveraine de votre entreprise, de garantir la sécurité, et de diriger les équipes d'ingénierie internes pour passer de l'expérimentation à la mise en production à grande échelle.",
+          btn: "Découvrir mon profil",
+          h2: "Internaliser la compétence.",
+          intro: "Que vous soyez un leader français de l'IA construisant une plateforme produit (comme Mistral AI), ou une entreprise majeure souhaitant déployer sa propre plateforme interne, mon objectif est d'intégrer vos équipes pour piloter cette vision technique.",
+          li1: "<strong>Head of AI Platform / VP Engineering</strong>",
+          li2: "Gouvernance de la donnée et des accès (RBAC)",
+          li3: "Déploiement RAG souverain et Orchestration multi-agents",
+          li4: "Conduite du changement et fédération des équipes"
         },
-        usecases: {
-          title: "Ce que SophIA permet",
-          intro: "SophIA est pensée pour des cas d’usage concrets où la gouvernance, la sécurité et le contrôle opérationnel comptent autant que la puissance des modèles.",
-          case1: {
-            title: "Assistants IA internes",
-            text: "Déployer des assistants connectés à la connaissance, aux processus et aux outils internes sans exposer l’organisation à des flux de données non maîtrisés."
-          },
-          case2: {
-            title: "Systèmes RAG sécurisés",
-            text: "Construire des systèmes de recherche augmentée sur la documentation, les procédures et les savoirs internes avec une ingestion et une validation contrôlées."
-          },
-          case3: {
-            title: "Workflows IA gouvernés",
-            text: "Structurer des workflows agentiques ou semi-automatisés avec des limites explicites, une exécution isolée et un comportement auditable."
-          },
-          case4: {
-            title: "Copilotes produit et support",
-            text: "Outiller les équipes support, opérations ou produit avec des assistants contextuels capables de raisonner sur des sources internes de confiance."
-          },
-          case5: {
-            title: "Plateformes IA privées",
-            text: "Créer une plateforme IA dédiée pour les organisations qui ne peuvent pas dépendre uniquement de SaaS publics pour des raisons de confidentialité, de conformité ou de souveraineté."
-          },
-          case6: {
-            title: "Adoption de l’IA avec garde-fous",
-            text: "Donner de la liberté aux équipes d’innovation tout en fournissant à la direction des garde-fous d’architecture, de gouvernance et de sécurité dès le départ."
-          }
-        },
-        architecture: {
-          title: "Vue d’ensemble de l’architecture",
-          intro: "SophIA suit une architecture de plateforme conçue pour répondre à un besoin simple : utiliser l’IA avec plus de capacité qu’un simple chatbot, mais avec plus de contrôle qu’un assistant SaaS générique."
-        },
-        concepts: {
-          title: "Concepts clés",
-          item1: "<strong>Modèle par projet</strong> — tout est structuré comme un projet",
-          item2: "<strong>Brain / Repo / Workspace</strong> — mémoire, production et exécution sont séparées",
-          item3: "<strong>Gestion du contexte</strong> — le contexte est construit explicitement",
-          item4: "<strong>Gestion des workspaces</strong> — les environnements d’exécution sont isolés et reproductibles"
-        },
-        mechanisms: {
-          title: "Mécanismes distinctifs",
-          item1: "<strong>Sas paranoïaque</strong> — pipeline isolé d’acquisition web",
-          item2: "<strong>Brouillard de recherche</strong> — requêtes leurres pour réduire la corrélation",
-          item3: "<strong>Tribunal sémantique</strong> — validation avant ingestion des connaissances",
-          item4: "<strong>DLP</strong> — filtrage des informations sensibles en sortie"
-        },
-        tech: {
-          title: "Technologies clés",
-          intro: "La base actuelle repose sur une pile open source pragmatique, choisie pour sa reproductibilité, sa maîtrise et sa compatibilité avec des environnements contrôlés."
-        },
-        status: {
-          title: "État du projet",
-          intro: "SophIA est en cours de développement actif en tant que cadre architectural. Les fondations, les concepts et les principes de conception sont déjà définis et validés, tandis que le système est progressivement enrichi et consolidé.",
-          badge: "Architecture en cours de développement et de validation",
-          phaseTitle1: "Fondations",
-          phaseTitle2: "Structuration",
-          phaseTitle3: "Capacités IA",
-          phaseTitle4: "Consolidation",
-          phase1: "Fondations physiques, serveur bare metal, cluster OKD, accès WireGuard et premières contraintes de sécurité.",
-          phase2: "Couche GitOps, segmentation par namespaces, Forgejo, structuration des trois piliers : <em>SophIA-brain</em>, <em>Guesdon-Brain</em> et <em>projects</em>.",
-          phase3: "Couche de routage IA, inférence locale, environnements de développement, outillage centralisé et amélioration des workflows d’exécution.",
-          phase4: "Renforcement mémoire, validation sémantique, filtrage DLP, observabilité et montée progressive en robustesse."
-        },
-        docs: {
-          title: "Documentation",
-          vision: "Vision",
-          problemSpace: "Espace de problème",
-          architecture: "Architecture",
-          security: "Sécurité",
-          roadmap: "Feuille de route"
-        },
-        author: {
-          title: "Auteur",
-          p1: "SophIA est initiée par Damien Guesdon comme une réponse à une question très concrète : comment permettre aux organisations de tirer parti de l’IA sans perdre le contrôle de leurs systèmes, de leurs données et de leur modèle opérationnel ?",
-          p2: "Le projet combine plus de 20 ans d’expérience en infrastructure, réseau, systèmes critiques et direction technique avec une spécialisation actuelle en ingénierie IA, conception de plateformes et architecture souveraine.",
-          p3: "Pour les décideurs, SophIA illustre une approche concrète de l’IA d’entreprise gouvernée. Pour les recruteurs, le projet reflète un profil capable de relier stratégie, architecture, sécurité, exécution et vision plateforme.",
-          cv: "Voir le CV",
-          dashboard: "Dashboard de formation IA"
-        },
-        cta: {
-          title: "Explorer ce que peut être une IA d’entreprise maîtrisée",
-          text: "SophIA n’est pas présentée comme un produit fini, mais comme une approche architecturale concrète pour les organisations qui souhaitent passer de l’expérimentation IA à des systèmes maîtrisés et industrialisables.",
-          github: "Voir le dépôt GitHub",
-          priorArt: "Description d’antériorité"
-        },
-        book: {
-          title: "Le livre derrière la vision",
-          p1: "<strong>SophIA — Assistant suprême ?</strong> est le livre de Damien Guesdon sur la nature réelle de l’intelligence artificielle, les limites des grands modèles de langage et les principes d’ingénierie nécessaires pour construire des systèmes d’IA souverains.",
-          note: "Actuellement disponible uniquement en français.",
-          p2: "Il aborde les hallucinations, le model collapse, les fuites de données, les prompt injections, l’orchestration, le RAG, l’exécution sécurisée, le Zero Trust et la vision architecturale qui a conduit à SophIA.",
-          kindle: "Acheter la version Kindle",
-          paperback: "Acheter la version brochée"
-        },
-        footer: {
-          copy: "© 2026 SophIA / Damien Guesdon",
-          github: "GitHub"
-        }
+        cta: { title: "Construisons votre infrastructure souveraine.", text: "Si la vision d'une intelligence artificielle puissante, gouvernable et totalement indépendante des GAFAM résonne avec votre stratégie d'entreprise, discutons de la manière dont je peux diriger ce projet en interne.", contact: "Contactez-moi (contact@kisai.fr)" },
+        footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
       },
-
       en: {
-        meta: {
-          title: "SophIA — Controlled enterprise AI",
-          description: "SophIA is an architectural approach for deploying AI systems in organizations with security, governance, control and operational discipline."
+        meta: { title: "SophIA — Sovereign & Open-Source AI Architecture" },
+        nav: { problem: "The Trap", solution: "The Bunker", architecture: "Engineering", posture: "My Posture", author: "The Architect", book: "The Book", contact: "Contact", github: "Code (GitHub)" },
+        hero: { 
+          eyebrow: "AI is the new infrastructure", 
+          h1: "Artificial Intelligence shouldn't cost you your Sovereignty.", 
+          titleLine: "SophIA is not an off-the-shelf product. It's an open-source, multi-agent, and bunkerized AI orchestration architecture.", 
+          description: "It's the engineering blueprint I propose to companies to deploy AI internally, without compromising their intellectual property or getting locked into American vendor ecosystems.", 
+          note: "Open methodology, designed for industrial-grade production and deployment on critical infrastructure.", 
+          viewArchitecture: "Discover the architecture", 
+          contact: "Internalize this solution", 
+          meta1: "Open-Source Blueprint", meta2: "Data Sovereignty", meta3: "No Vendor Lock-in", meta4: "Local Inference & Routing" 
         },
-        nav: {
-          problem: "Problem",
-          usecases: "Use cases",
-          architecture: "Architecture",
-          status: "Status",
-          documentation: "Documentation",
-          book: "Book",
-          github: "GitHub"
+        problem: { 
+          title: "The 'Shadow AI' Explosion", 
+          p1: "When generative AI arrived, we witnessed exactly what happened at the dawn of the Cloud, but worse. Today, companies suffer from a critical phenomenon: employees massively use ChatGPT or Copilot on their own to save time.", 
+          p2: "The result? They inject the company's intellectual property, from pending patents to financial data, directly onto foreign servers.", 
+          quote: "\"The real problem for companies today is not having an AI, it's having AI governance.\"",
+          cardTitle: "The Leader's Dilemma",
+          cardP1: "On one hand, you know you must integrate AI to stay competitive and multiply your teams' productivity. On the other, you know your data and processes are your greatest asset.",
+          cardP2: "Yet, most market solutions ('turnkey' platforms) require you to send this wealth to their servers to function. It's signing a blank check on your strategic autonomy."
         },
-        hero: {
-          eyebrow: "Controlled enterprise AI",
-          h1: "SophIA: AI without losing control.",
-          titleLine: "A sovereign architecture for secure, auditable and production-ready AI systems.",
-          description: "SophIA is designed for organizations that want to move beyond demos and isolated assistants. The system structures memory, tools, knowledge access and execution environments so AI can be governed, secured and deployed with real operational discipline.",
-          note: "SophIA is currently being developed as an architectural approach in active structuring, rather than as a finished product.",
-          viewUseCases: "See use cases",
-          viewArchitecture: "View architecture",
-          githubRepo: "GitHub Repository",
-          meta1: "AI governance",
-          meta2: "Security & control",
-          meta3: "RAG & internal assistants",
-          meta4: "Platform mindset"
+        solution: {
+          title: "The Platform as Strategic Infrastructure",
+          intro: "To solve this dilemma from the inside, I designed the SophIA architecture from scratch. I wanted to prove it was possible to industrialize AI without locking into the proprietary model of Big Tech."
         },
-        problem: {
-          title: "Why organizations struggle to use AI safely",
-          intro: "The difficulty is not getting access to AI. The difficulty is using it without losing governance, security and consistency. Knowledge is scattered, sensitive data can leak, tools remain poorly integrated, and promising pilots do not become truly operational systems.",
-          pill1: "Uncontrolled usage",
-          pill2: "Data exposure",
-          pill3: "Weak governance",
-          pill4: "Fragile knowledge access",
-          pill5: "Pilot-to-production gap"
+        cards: { 
+          control: { title: "1. Absolute Security", text: "SophIA is a cognitive 'bunker'. Your data never leaves the company. I set up an AI that has the same power as market leaders, but runs at your premises. It knows your rules, but is physically incapable of leaking them outside." }, 
+          trust: { title: "2. Total Independence", text: "The system is based on open standards (OKD, LiteLLM, Hermes). You are not tied to any single AI model. If tomorrow a new open-source model emerges (like Mistral), you just replace the technical brick. Agnosticism is total." }, 
+          deployment: { title: "3. ROI & Cost Control", text: "You own your infrastructure. You don't pay an arbitrary tax every time an employee asks the AI a question, or at every pricing revision from an external cloud provider." } 
         },
-        cards: {
-          control: {
-            title: "Control",
-            text: "SophIA gives organizations a framework to control how AI accesses knowledge, tools and external information instead of allowing opaque and improvised usage to spread."
-          },
-          trust: {
-            title: "Trust",
-            text: "The system is designed to reduce risk through isolation, validation, filtering and explicit context management, so AI outputs can be governed rather than simply hoped for."
-          },
-          deployment: {
-            title: "Deployment",
-            text: "SophIA is not just a chat interface. It is a platform approach for moving from experimentation to internal assistants, governed automations and truly operational AI services."
-          }
+        posture: {
+          title: "From Engineering to Leadership",
+          p1: "I am not a vendor selling closed software. My approach is radically different: <strong>I provide the recipe, and I guide the teams to cook it.</strong>",
+          p2: "I have audited, architected, and assembled the most critical open-source bricks on the market on my own Datacenter-grade hardware. I know exactly how the engine works under the hood.",
+          p3: "Today, my added value is to define your company's sovereign AI strategy, guarantee security, and lead internal engineering teams to move from experimentation to large-scale production.",
+          btn: "Discover my profile",
+          h2: "Internalizing the expertise.",
+          intro: "Whether you are a French AI leader building a product platform (like Mistral AI), or a major enterprise wanting to deploy its own internal platform, my goal is to join your teams to steer this technical vision.",
+          li1: "<strong>Head of AI Platform / VP Engineering</strong>",
+          li2: "Data and access governance (RBAC)",
+          li3: "Sovereign RAG deployment and multi-agent orchestration",
+          li4: "Change management and team federation"
         },
-        usecases: {
-          title: "What SophIA enables",
-          intro: "SophIA is designed for concrete use cases where governance, security and operational control matter as much as model capability.",
-          case1: {
-            title: "Internal AI assistants",
-            text: "Deploy assistants connected to internal knowledge, processes and tools without exposing the organization to uncontrolled data flows."
-          },
-          case2: {
-            title: "Secure RAG systems",
-            text: "Build retrieval systems over internal documentation, procedures and technical knowledge with controlled ingestion and validation."
-          },
-          case3: {
-            title: "Governed AI workflows",
-            text: "Structure agentic or semi-automated workflows with explicit boundaries, isolated execution and auditable behavior."
-          },
-          case4: {
-            title: "Product and support copilots",
-            text: "Support support teams, operations teams or product organizations with contextual assistants able to reason across trusted internal sources."
-          },
-          case5: {
-            title: "Private AI platforms",
-            text: "Create a dedicated AI platform for organizations that cannot rely entirely on public SaaS due to confidentiality, compliance or sovereignty constraints."
-          },
-          case6: {
-            title: "AI adoption with guardrails",
-            text: "Give innovation teams room to move while providing leadership with architecture, governance and security guardrails from the start."
-          }
-        },
-        architecture: {
-          title: "Architecture overview",
-          intro: "SophIA follows a platform architecture designed to answer a simple need: use AI with more capability than a standalone chatbot, but with more control than a generic SaaS assistant can provide."
-        },
-        concepts: {
-          title: "Core concepts",
-          item1: "<strong>Project model</strong> — everything is structured as a project",
-          item2: "<strong>Brain / Repo / Workspace</strong> — memory, production and execution are separated",
-          item3: "<strong>Context management</strong> — context is built explicitly",
-          item4: "<strong>Workspace management</strong> — execution environments are isolated and reproducible"
-        },
-        mechanisms: {
-          title: "Distinctive mechanisms",
-          item1: "<strong>Paranoid Airlock</strong> — isolated web acquisition pipeline",
-          item2: "<strong>Search Fog</strong> — decoy queries to reduce correlation",
-          item3: "<strong>Semantic Court</strong> — validation before knowledge ingestion",
-          item4: "<strong>DLP</strong> — filtering of sensitive outgoing information"
-        },
-        tech: {
-          title: "Key technologies",
-          intro: "The current base relies on a pragmatic open-source stack chosen for reproducibility, control and compatibility with managed environments."
-        },
-        status: {
-          title: "Project status",
-          intro: "SophIA is in active development as an architectural framework. Its foundations, concepts and design principles are already defined and validated, while the system is progressively extended and consolidated.",
-          badge: "Architecture in active development and validation",
-          phaseTitle1: "Foundations",
-          phaseTitle2: "Structuring",
-          phaseTitle3: "AI capabilities",
-          phaseTitle4: "Consolidation",
-          phase1: "Physical foundations, bare-metal server, OKD cluster, WireGuard access and first security constraints.",
-          phase2: "GitOps layer, namespace segmentation, Forgejo, structuring of the three pillars: <em>SophIA-brain</em>, <em>Guesdon-Brain</em> and <em>projects</em>.",
-          phase3: "AI routing layer, local inference, development environments, centralized tooling and improved execution workflows.",
-          phase4: "Memory reinforcement, semantic validation, DLP filtering, observability and progressive strengthening."
-        },
-        docs: {
-          title: "Documentation",
-          vision: "Vision",
-          problemSpace: "Problem space",
-          architecture: "Architecture",
-          security: "Security",
-          roadmap: "Roadmap"
-        },
-        author: {
-          title: "Author",
-          p1: "SophIA is initiated by Damien Guesdon as a response to a very concrete question: how can organizations benefit from AI without losing control over their systems, their data and their operating model?",
-          p2: "The project combines more than 20 years of experience in infrastructure, networking, critical systems and technical leadership with a current specialization in AI engineering, platform design and sovereign architecture.",
-          p3: "For decision-makers, SophIA demonstrates a practical approach to governed enterprise AI. For recruiters, the project reflects a profile able to connect strategy, architecture, security, execution and platform thinking.",
-          cv: "View CV",
-          dashboard: "AI training dashboard"
-        },
-        cta: {
-          title: "Explore what controlled enterprise AI can look like",
-          text: "SophIA is not presented as a finished product, but as a concrete architectural approach for organizations that want to move from AI experimentation to controlled and scalable systems.",
-          github: "View GitHub repository",
-          priorArt: "Prior art description"
-        },
-        book: {
-          title: "The book behind the vision",
-          p1: "<strong>SophIA — Assistant suprême ?</strong> is Damien Guesdon’s book on the real nature of artificial intelligence, the limits of large language models, and the engineering principles required to build sovereign AI systems.",
-          note: "Currently available in French only.",
-          p2: "It covers hallucinations, model collapse, data leakage, prompt injection, orchestration, RAG, secure execution, Zero Trust and the architectural vision that led to SophIA.",
-          kindle: "Buy Kindle edition",
-          paperback: "Buy paperback edition"
-        },
-        footer: {
-          copy: "© 2026 SophIA / Damien Guesdon",
-          github: "GitHub"
-        }
+        cta: { title: "Let's build your sovereign infrastructure.", text: "If the vision of powerful, governable, and completely independent artificial intelligence resonates with your business strategy, let's discuss how I can lead this project internally.", contact: "Contact me (contact@kisai.fr)" },
+        footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
       }
     };
 
-    function getNestedValue(obj, path) {
-      return path.split('.').reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : null, obj);
-    }
-
+    function getNestedValue(obj, path) { return path.split('.').reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : null, obj); }
     function applyLanguage(lang) {
       const dict = translations[lang] || translations.en;
-
-      document.documentElement.lang = lang;
-      document.title = dict.meta.title;
-
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) metaDescription.setAttribute('content', dict.meta.description);
-
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.setAttribute('content', dict.meta.title);
-
-      const ogDescription = document.querySelector('meta[property="og:description"]');
-      if (ogDescription) ogDescription.setAttribute('content', dict.meta.description);
-
-      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-      if (twitterTitle) twitterTitle.setAttribute('content', dict.meta.title);
-
-      const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-      if (twitterDescription) twitterDescription.setAttribute('content', dict.meta.description);
-
+      document.documentElement.lang = lang; document.title = dict.meta.title;
       document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const value = getNestedValue(dict, key);
-        if (value !== null) {
-          el.innerHTML = value;
-        }
+        const value = getNestedValue(dict, el.getAttribute('data-i18n'));
+        if (value !== null) el.innerHTML = value;
       });
-
-      document.querySelectorAll('.lang-btn').forEach(btn => {
+      document.querySelectorAll('.lang-switch .lang-btn').forEach(btn => {
         const isActive = btn.dataset.lang === lang;
-        btn.classList.toggle('active', isActive);
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        btn.classList.toggle('active', isActive); btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
-
       localStorage.setItem('sophia-lang', lang);
     }
-
-    function detectInitialLanguage() {
-      const saved = localStorage.getItem('sophia-lang');
-      if (saved && translations[saved]) return saved;
-
-      const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-      if (browserLang.startsWith('fr')) return 'fr';
-      return 'en';
-    }
-
-    function buildIllustrationPlaceholder(message) {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'illustration-placeholder';
-      wrapper.innerHTML = `
-        <div>
-          <strong>Illustration à prévoir</strong>
-          <p style="margin:.6rem 0 0;">${message}</p>
-        </div>
-      `;
-      return wrapper;
-    }
-
-    function handleIllustrationError(imgEl, frameId, message) {
-      const frame = document.getElementById(frameId);
-      if (!frame) return;
-      frame.innerHTML = '';
-      frame.appendChild(buildIllustrationPlaceholder(message));
-    }
-
-    function setIllustration(frameId, imgId, src, alt = '') {
-      const frame = document.getElementById(frameId);
-      if (!frame) return;
-
-      let img = document.getElementById(imgId);
-
-      if (!img) {
-        frame.innerHTML = '';
-        img = document.createElement('img');
-        img.id = imgId;
-        frame.appendChild(img);
-      }
-
-      img.src = src;
-      img.alt = alt;
-    }
-
-    function openLightbox(src, alt = '') {
-      const lightbox = document.getElementById('image-lightbox');
-      const lightboxImg = document.getElementById('lightbox-image');
-      if (!lightbox || !lightboxImg) return;
-
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById('image-lightbox');
-      const lightboxImg = document.getElementById('lightbox-image');
-      if (!lightbox || !lightboxImg) return;
-
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImg.src = '';
-      lightboxImg.alt = '';
-      document.body.style.overflow = '';
-    }
-
-    function bindIllustrationZoom(imgId) {
-      const img = document.getElementById(imgId);
-      if (!img) return;
-
-      img.style.cursor = 'zoom-in';
-      img.onclick = null;
-      img.addEventListener('click', () => {
-        if (img.src) {
-          openLightbox(img.src, img.alt || '');
-        }
-      });
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('sophia-theme', theme);
+      const toggleBtn = document.getElementById('theme-toggle'); if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const initialLang = detectInitialLanguage();
-      applyLanguage(initialLang);
-
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          applyLanguage(btn.dataset.lang);
-        });
-      });
-
-      bindIllustrationZoom('hero-illustration');
-      bindIllustrationZoom('architecture-illustration');
-
-      const lightbox = document.getElementById('image-lightbox');
-      const closeBtn = document.getElementById('lightbox-close');
-
-      if (closeBtn) {
-        closeBtn.addEventListener('click', closeLightbox);
-      }
-
-      if (lightbox) {
-        lightbox.addEventListener('click', (e) => {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-      }
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeLightbox();
-        }
-      });
-
-      window.SophIAIllustrations = {
-        setHero(src, alt = 'Illustration de présentation de SophIA') {
-          setIllustration('hero-illustration-frame', 'hero-illustration', src, alt);
-          bindIllustrationZoom('hero-illustration');
-        },
-        setArchitecture(src, alt = 'Illustration de l’architecture SophIA') {
-          setIllustration('architecture-illustration-frame', 'architecture-illustration', src, alt);
-          bindIllustrationZoom('architecture-illustration');
-        }
-      };
+      applyLanguage(localStorage.getItem('sophia-lang') || (navigator.language.startsWith('fr') ? 'fr' : 'en'));
+      document.querySelectorAll('.lang-switch .lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+      applyTheme(localStorage.getItem('sophia-theme') || 'light');
+      document.getElementById('theme-toggle')?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
     });
   </script>
 </body>

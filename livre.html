@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Livre — SophIA / Damien Guesdon</title>
+  <meta name="description" content="Découvrez 'SophIA : Assistant suprême ?', le livre de Damien Guesdon sur la nature de l'IA, ses limites et la souveraineté numérique." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Damien Guesdon" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/sophia-icon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/sophia-icon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="./images/sophia-icon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./images/sophia-icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./images/sophia-icon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* VARIABLES */
+    :root {
+      --bg-light: #FAFAFA;
+      --bg-alt: #F0F4F8; 
+      --surface: #FFFFFF;
+      --text-main: #0A192F;
+      --text-muted: #4A5568;
+      --border: #E2E8F0;
+      
+      --bg-dark: #0A192F;
+      --text-dark: #FAFAFA;
+      --text-dark-muted: #A0AEC0;
+      --border-dark: rgba(255, 255, 255, 0.1);
+      
+      --accent-gold: #D4AF37; 
+      --accent-emerald: #2A9D8F; 
+      --warning: #E07A5F;
+
+      --header-height: 88px;
+      --max: 1100px; 
+      --radius: 2px; 
+      --shadow: 0 4px 20px rgba(10, 25, 47, 0.05); 
+      
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Lora', serif;
+      --font-ui: 'Inter', sans-serif; 
+    }
+
+    [data-theme="dark"] {
+      --bg-light: #060F1E; 
+      --bg-alt: #0A192F; 
+      --surface: #112240; 
+      --text-main: #E2E8F0;
+      --text-muted: #8892B0;
+      --border: #233554;
+      --accent-emerald: #4FD1C5; 
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+    body {
+      margin: 0; font-family: var(--font-body); color: var(--text-main);
+      background: var(--bg-light); line-height: 1.7; transition: background 0.3s ease, color 0.3s ease;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); font-weight: 700; transition: color 0.3s ease; }
+    a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+
+    /* Navigation */
+    .topbar {
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px);
+      background: rgba(10, 25, 47, 0.95); border-bottom: 1px solid var(--border-dark); color: var(--text-dark);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--font-ui); }
+    .brand { display: flex; align-items: center; gap: .85rem; font-weight: 600; letter-spacing: .02em; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: var(--radius); overflow: hidden;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); display: grid; place-items: center; flex-shrink: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; color: var(--text-dark-muted); font-size: .9rem; flex-wrap: wrap; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-dark); }
+    .nav-links a.active { border-bottom: 2px solid var(--accent-gold); padding-bottom: 2px; }
+
+    /* Controls */
+    .controls-wrapper { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.75rem; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
+    .lang-btn {
+      display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid transparent; background: transparent; color: var(--text-dark); cursor: pointer; transition: all .2s ease;
+      font-size: 1.1rem; padding: 0; filter: grayscale(80%);
+    }
+    .lang-btn:hover { filter: grayscale(0%); background: rgba(255,255,255,0.1); }
+    .lang-btn.active { filter: grayscale(0%); border-color: var(--border-dark); background: rgba(255,255,255,0.05); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 2rem;
+      border-radius: var(--radius); font-weight: 600; font-family: var(--font-ui); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;
+      transition: all .2s ease; border: 1px solid transparent; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--text-main); color: var(--bg-light); border: 1px solid var(--text-main); }
+    .btn-primary:hover { background: transparent; color: var(--text-main); }
+    .btn-secondary { background: transparent; color: var(--text-main); border-color: var(--text-main); }
+    .btn-secondary:hover { background: var(--text-main); color: var(--bg-light); }
+
+    /* Book Hero */
+    .book-hero { padding: 6rem 0; flex: 1; display: flex; align-items: center; }
+    .book-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+    
+    .book-cover-container {
+      position: relative; perspective: 1000px; display: flex; justify-content: center;
+    }
+    
+    .book-cover {
+      width: 100%; max-width: 380px; border-radius: 4px 12px 12px 4px;
+      box-shadow: 
+        -5px 0 10px rgba(0,0,0,0.05),
+        25px 25px 40px rgba(0,0,0,0.15),
+        inset 5px 0 15px rgba(255,255,255,0.3);
+      border-left: 3px solid rgba(0,0,0,0.2);
+      transition: transform 0.5s ease;
+      background: var(--surface);
+      min-height: 500px; display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); text-align: center;
+    }
+    
+    .book-cover:hover { transform: rotateY(-5deg) scale(1.02); }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem; padding: .2rem 0; font-family: var(--font-ui); font-size: 0.85rem;
+      color: var(--accent-emerald); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; font-weight: 600;
+    }
+
+    .book-content h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin: 0 0 1.5rem; }
+    .book-content .lead { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .book-note { font-style: italic; font-size: 0.95rem; color: var(--warning); margin-bottom: 2rem; }
+    
+    .action-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+    /* Chapters/Themes Section */
+    .themes-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 3rem;
+      padding-top: 3rem; border-top: 1px solid var(--border);
+    }
+    .theme-item { padding-left: 1rem; border-left: 2px solid var(--border); transition: border-color 0.3s ease; }
+    .theme-item:hover { border-color: var(--accent-gold); }
+    .theme-item h4 { margin: 0 0 0.5rem 0; font-size: 1.15rem; font-family: var(--font-heading); color: var(--text-main); }
+    .theme-item p { margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Footer */
+    .footer { background: var(--bg-dark); color: var(--text-dark-muted); border-top: 1px solid var(--border-dark); padding: 2.5rem 0; font-family: var(--font-ui); font-size: .9rem; margin-top: auto;}
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: .9rem; color: var(--text-dark); font-weight: 500; }
+    .footer a:hover { color: var(--text-dark); }
+
+    @media (max-width: 980px) {
+      .book-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .themes-grid { grid-template-columns: 1fr; text-align: left; }
+      .action-group { justify-content: center; }
+      .book-cover { max-width: 300px; margin: 0 auto; }
+      .nav { flex-wrap: wrap; padding: 1rem 0; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+      .controls-wrapper { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="SophIA home">
+        <span class="brand-mark"><img src="./images/sophia-icon-512.png" alt="SophIA icon" /></span>
+        <span>SophIA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#contexte" data-i18n="nav.context">Le Contexte</a>
+        <a href="index.html#methodologie" data-i18n="nav.methodology">La Méthodologie</a>
+        <a href="ingenierie.html" data-i18n="nav.architecture">Ingénierie</a>
+        <a href="architecte.html" data-i18n="nav.author">L'Architecte</a>
+        <a href="livre.html" class="active" data-i18n="nav.book">Le Livre</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="nav.github" style="padding: 0 1rem; min-height: 38px;">Code (GitHub)</a>
+      </nav>
+
+      <div class="controls-wrapper">
+        <button class="lang-btn" id="theme-toggle" type="button" aria-label="Toggle theme">🌙</button>
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="lang-btn" id="lang-fr" type="button" data-lang="fr">🇫🇷</button>
+          <button class="lang-btn" id="lang-en" type="button" data-lang="en">🇬🇧</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="book-hero">
+    <section class="container">
+      <div class="book-grid">
+        
+        <!-- Colonne Gauche : Couverture -->
+        <div class="book-cover-container">
+          <img src="./images/cover-sophia-book.jpg" alt="Couverture du livre SophIA : Assistant suprême ?" class="book-cover" onerror="this.outerHTML='<div class=\'book-cover\' style=\'padding:2rem;\'><strong>Couverture à insérer</strong><br><br><span style=\'font-size:0.8rem; font-family:var(--font-ui);\'>./images/cover-sophia-book.jpg</span></div>'" />
+        </div>
+
+        <!-- Colonne Droite : Contenu -->
+        <div class="book-content">
+          <div class="eyebrow" data-i18n="book.eyebrow">Essai & Vulgarisation technique</div>
+          <h1 data-i18n="book.title">SophIA — Assistant suprême ?</h1>
+          
+          <p class="lead" data-i18n="book.desc1">
+            Entre la promesse marketing d'une IA toute-puissante et la réalité de la mise en production, il y a un gouffre. Cet essai démystifie l'intelligence artificielle pour les décideurs et les équipes techniques.
+          </p>
+          
+          <p class="lead" data-i18n="book.desc2">
+            À travers un format hybride richement illustré, le livre explore les limites structurelles des grands modèles de langage et pose les bases d'une souveraineté technologique maîtrisée. L'ingénierie y est expliquée par des métaphores concrètes, loin du brouillard commercial habituel.
+          </p>
+
+          <p class="book-note" data-i18n="book.note">
+            Actuellement disponible uniquement en français.
+          </p>
+
+          <div class="action-group">
+            <a href="https://amzn.eu/d/03hTLyKs" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="book.btnKindle">Acheter la version Kindle (Amazon)</a>
+            <a href="https://amzn.eu/d/04ht4nMs" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="book.btnPaper">Acheter la version Brochée (Amazon)</a>
+          </div>
+
+          <div class="themes-grid">
+            <div class="theme-item">
+              <h4 data-i18n="book.t1Title">1. Démystifier la machine à deviner</h4>
+              <p data-i18n="book.t1Desc">Du mythe du robot pensant au moteur probabiliste. Comprendre le rôle des tokens, des probabilités, et pourquoi l'IA n'a aucune véritable "conscience" de ce qu'elle écrit.</p>
+            </div>
+            <div class="theme-item">
+              <h4 data-i18n="book.t2Title">2. Le mirage du "Vibe Coding"</h4>
+              <p data-i18n="book.t2Desc">La fausse promesse de l'application magique codée depuis son canapé, face à la réalité foudroyante de la dette technique et du besoin d'architecture.</p>
+            </div>
+            <div class="theme-item">
+              <h4 data-i18n="book.t3Title">3. Cadrer la machine (Le cahier de coloriage)</h4>
+              <p data-i18n="book.t3Desc">Empêcher les hallucinations systémiques grâce à l'approche Model-Driven et canaliser l'IA avec la topologie RAG (Retrieval-Augmented Generation).</p>
+            </div>
+            <div class="theme-item">
+              <h4 data-i18n="book.t4Title">4. Bâtir le Bunker Numérique</h4>
+              <p data-i18n="book.t4Desc">Protéger le système de l'empoisonnement (Model Collapse) et du "stagiaire maladroit" avec l'architecture souveraine, agnostique et bunkerisée SophIA.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span data-i18n="footer.copy">© 2026 SophIA / Damien Guesdon</span>
+      </div>
+      <div>
+        <a href="mailto:contact@kisai.fr">contact@kisai.fr</a>
+        &nbsp;•&nbsp;
+        <a href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        meta: { title: "Le Livre — SophIA / Damien Guesdon" },
+        nav: { context: "Le Contexte", methodology: "La Méthodologie", architecture: "Ingénierie", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },
+        book: {
+          eyebrow: "Essai & Vulgarisation technique",
+          title: "SophIA — Assistant suprême ?",
+          desc1: "Entre la promesse marketing d'une IA toute-puissante et la réalité de la mise en production, il y a un gouffre. Cet essai démystifie l'intelligence artificielle pour les décideurs et les équipes techniques.",
+          desc2: "À travers un format hybride richement illustré, le livre explore les limites structurelles des grands modèles de langage et pose les bases d'une souveraineté technologique maîtrisée. L'ingénierie y est expliquée par des métaphores concrètes, loin du brouillard commercial habituel.",
+          note: "Actuellement disponible uniquement en français.",
+          btnKindle: "Acheter la version Kindle (Amazon)",
+          btnPaper: "Acheter la version Brochée (Amazon)",
+          t1Title: "1. Démystifier la machine à deviner",
+          t1Desc: "Du mythe du robot pensant au moteur probabiliste. Comprendre le rôle des tokens, des probabilités, et pourquoi l'IA n'a aucune véritable \"conscience\" de ce qu'elle écrit.",
+          t2Title: "2. Le mirage du \"Vibe Coding\"",
+          t2Desc: "La fausse promesse de l'application magique codée depuis son canapé, face à la réalité foudroyante de la dette technique et du besoin d'architecture.",
+          t3Title: "3. Cadrer la machine (Le cahier de coloriage)",
+          t3Desc: "Empêcher les hallucinations systémiques grâce à l'approche Model-Driven et canaliser l'IA avec la topologie RAG (Retrieval-Augmented Generation).",
+          t4Title: "4. Bâtir le Bunker Numérique",
+          t4Desc: "Protéger le système de l'empoisonnement (Model Collapse) et du \"stagiaire maladroit\" avec l'architecture souveraine, agnostique et bunkerisée SophIA."
+        },
+        footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
+      },
+      en: {
+        meta: { title: "The Book — SophIA / Damien Guesdon" },
+        nav: { context: "The Context", methodology: "Methodology", architecture: "Engineering", author: "The Architect", book: "The Book", contact: "Contact", github: "Code (GitHub)" },
+        book: {
+          eyebrow: "Essay & Technical Popularization",
+          title: "SophIA — Supreme Assistant?",
+          desc1: "Between the marketing promise of an all-powerful AI and the reality of production deployment, there is a chasm. This essay demystifies artificial intelligence for decision-makers and technical teams.",
+          desc2: "Through a richly illustrated hybrid format, the book explores the structural limits of large language models and lays the foundation for controlled technological sovereignty. Engineering is explained through concrete metaphors, far from the usual commercial fog.",
+          note: "Currently available only in French.",
+          btnKindle: "Buy the Kindle Edition (Amazon)",
+          btnPaper: "Buy the Paperback Edition (Amazon)",
+          t1Title: "1. Demystifying the guessing machine",
+          t1Desc: "From the myth of the thinking robot to the probabilistic engine. Understanding the role of tokens, probabilities, and why AI has no real \"awareness\" of what it writes.",
+          t2Title: "2. The \"Vibe Coding\" Mirage",
+          t2Desc: "The false promise of the magic application coded from your sofa, faced with the crushing reality of technical debt and the need for architecture.",
+          t3Title: "3. Framing the machine (The coloring book)",
+          t3Desc: "Preventing systemic hallucinations through the Model-Driven approach and channeling the AI with RAG (Retrieval-Augmented Generation) topology.",
+          t4Title: "4. Building the Digital Bunker",
+          t4Desc: "Protecting the system from poisoning (Model Collapse) and the \"clumsy intern\" with the sovereign, agnostic, and bunkerized SophIA architecture."
+        },
+        footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
+      }
+    };
+
+    function getNestedValue(obj, path) { return path.split('.').reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : null, obj); }
+    
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang; document.title = dict.meta.title;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const value = getNestedValue(dict, el.getAttribute('data-i18n'));
+        if (value !== null) el.innerHTML = value;
+      });
+      document.querySelectorAll('.lang-switch .lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive); btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      localStorage.setItem('sophia-lang', lang);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('sophia-theme', theme);
+      const toggleBtn = document.getElementById('theme-toggle'); if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      applyLanguage(localStorage.getItem('sophia-lang') || (navigator.language.startsWith('fr') ? 'fr' : 'en'));
+      document.querySelectorAll('.lang-switch .lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+      applyTheme(localStorage.getItem('sophia-theme') || 'light');
+      document.getElementById('theme-toggle')?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+    });
+  </script>
+</body>
+</html>
