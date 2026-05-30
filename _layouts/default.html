@@ -2,6 +2,7 @@
 <html lang="{{ page.lang | default: 'fr' }}" data-theme="light">
 <head>
 {% include head.html %}
+{% if page.custom_css %}<style>{% include css/{{ page.custom_css }}.css %}</style>{% endif %}
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}" />
   <meta name="robots" content="{{ page.robots | default: 'index, follow' }}" />
