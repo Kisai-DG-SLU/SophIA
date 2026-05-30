@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — SophIA / Damien Guesdon</title>
-  <meta name="description" content="Contactez Damien Guesdon pour discuter de direction technique, de gouvernance IA et d'architectures souveraines." />
+  <title>Ingénierie — Architecture Modulaire SophIA</title>
+  <meta name="description" content="Cartographie de l'architecture SophIA : Fondations, Cerveau, Mémoire RAG, Panthéon Agentique et Roadmap d'intégration." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Damien Guesdon" />
 
@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     /* VARIABLES */
@@ -45,6 +45,7 @@
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Lora', serif;
       --font-ui: 'Inter', sans-serif; 
+      --font-code: 'JetBrains Mono', monospace;
     }
 
     [data-theme="dark"] {
@@ -63,7 +64,6 @@
     body {
       margin: 0; font-family: var(--font-body); color: var(--text-main);
       background: var(--bg-light); line-height: 1.7; transition: background 0.3s ease, color 0.3s ease;
-      display: flex; flex-direction: column; min-height: 100vh;
     }
 
     h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); font-weight: 700; transition: color 0.3s ease; }
@@ -110,42 +110,74 @@
     .btn-secondary { background: transparent; color: var(--text-main); border-color: var(--text-main); }
     .btn-secondary:hover { background: var(--text-main); color: var(--bg-light); }
 
-    /* Contact Page Specific Layout */
-    .main-content { flex: 1; display: flex; align-items: center; padding: 6rem 0; }
+    /* Hero */
+    .hero { padding: 5rem 0 4rem; background: var(--bg-dark); color: var(--text-dark); border-bottom: 1px solid var(--accent-gold); text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem; padding: .2rem 0; font-family: var(--font-ui); font-size: 0.85rem;
+      color: var(--text-dark-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; font-weight: 600;
+    }
+    .hero h1 { margin: 0 auto 1.2rem; font-size: clamp(2.5rem, 4vw, 3.8rem); line-height: 1.1; color: var(--text-dark); max-width: 800px; }
+    .hero .lead { margin: 0 auto 2rem; max-width: 75ch; color: var(--text-dark-muted); font-size: 1.15rem; }
+
+    /* Sections */
+    .section { padding: 4.5rem 0; scroll-margin-top: var(--header-height); transition: background-color 0.3s ease; }
+    section:nth-of-type(even) { background-color: var(--bg-alt); }
+    .section-intro { margin: 0 0 2rem; max-width: 75ch; color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s ease;}
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: start;}
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: start;}
     
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow); transition: all 0.3s ease; height: 100%;}
+    .card-tech { border-top: 3px solid var(--text-main); }
+    .card h3 { font-family: var(--font-ui); font-size: 1.15rem; margin-top: 0; margin-bottom: 1rem; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 0.8rem; }
+    .card p, .card li { color: var(--text-muted); font-size: 1rem; transition: color 0.3s ease; line-height: 1.6;}
+    .card ul { margin: 0; padding-left: 1.2rem; }
+    .card li { margin-bottom: 0.8rem; }
+
+    /* Timeline Roadmap */
+    .roadmap-list { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--accent-emerald); padding-left: 2rem; margin-top: 2rem; }
+    .roadmap-list li { position: relative; margin-bottom: 2.5rem; }
+    .roadmap-list li:last-child { margin-bottom: 0; }
+    .roadmap-list li::before {
+      content: ''; position: absolute; left: -2.4rem; top: 0.3rem; width: 12px; height: 12px;
+      background: var(--surface); border: 2px solid var(--accent-emerald); border-radius: 50%;
+    }
+    .roadmap-list h4 { margin: 0 0 0.5rem 0; font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main); }
+    .roadmap-list .date { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600; color: var(--accent-emerald); text-transform: uppercase; display: inline-block; margin-bottom: 0.3rem; }
+
+    /* Terminal / Code Block */
+    .terminal-window {
+      background: #1E1E1E; border-radius: var(--radius); border: 1px solid #333;
+      overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 3rem; max-width: 900px; margin-inline: auto;
+    }
+    .terminal-header {
+      background: #2D2D2D; padding: 0.5rem 1rem; display: flex; gap: 0.5rem; align-items: center; border-bottom: 1px solid #111;
+    }
+    .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: #FF5F56; } .dot-yellow { background: #FFBD2E; } .dot-green { background: #27C93F; }
+    .terminal-body { padding: 1.5rem; overflow-x: auto; }
+    .terminal-body pre {
+      margin: 0; color: #D4AF37; font-size: 0.85rem; line-height: 1.5; font-family: var(--font-code);
     }
 
-    .contact-header h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin: 0 0 1.5rem; }
-    .contact-header .lead { font-size: 1.15rem; color: var(--text-muted); max-width: 50ch; margin-bottom: 2rem; }
-    
-    .contact-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 3rem; box-shadow: var(--shadow); border-top: 4px solid var(--text-main);
-      transition: all 0.3s ease;
+    /* Stack Pills */
+    .stack { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .stack span { 
+      padding: .4rem 1rem; border-radius: 50px; background: var(--bg-alt); border: 1px solid var(--border); 
+      font-family: var(--font-ui); font-size: .85rem; color: var(--text-main); font-weight: 500;
     }
-    
-    .contact-card h2 { font-size: 1.5rem; margin-top: 0; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;}
-    
-    .scope-list { list-style: none; padding: 0; margin: 0 0 2.5rem 0; font-family: var(--font-ui); font-size: 0.95rem; }
-    .scope-list li { display: flex; gap: 1rem; margin-bottom: 1rem; color: var(--text-muted); }
-    .scope-list li::before { content: '→'; color: var(--accent-emerald); font-weight: bold; }
-
-    .action-group { display: flex; flex-direction: column; gap: 1rem; }
 
     /* Footer */
-    .footer { background: var(--bg-dark); color: var(--text-dark-muted); border-top: 1px solid var(--border-dark); padding: 2.5rem 0; font-family: var(--font-ui); font-size: .9rem; margin-top: auto;}
+    .footer { background: var(--bg-dark); color: var(--text-dark-muted); border-top: 1px solid var(--border-dark); padding: 2.5rem 0; font-family: var(--font-ui); font-size: .9rem; }
     .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
     .footer-brand { display: flex; align-items: center; gap: .9rem; color: var(--text-dark); font-weight: 500; }
     .footer a:hover { color: var(--text-dark); }
 
     @media (max-width: 980px) {
+      .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
       .nav { flex-wrap: wrap; padding: 1rem 0; }
       .nav-links { width: 100%; justify-content: flex-start; }
       .controls-wrapper { margin-left: 0; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .contact-card { padding: 2rem; }
     }
   </style>
 </head>
@@ -160,10 +192,10 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="index.html#contexte" data-i18n="nav.context">Le Contexte</a>
         <a href="index.html#methodologie" data-i18n="nav.methodology">La Méthodologie</a>
-        <a href="ingenierie.html" data-i18n="nav.architecture">Ingénierie</a>
+        <a href="ingenierie.html" class="active" data-i18n="nav.architecture">Ingénierie</a>
         <a href="architecte.html" data-i18n="nav.author">L'Architecte</a>
         <a href="livre.html" data-i18n="nav.book">Le Livre</a>
-        <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
         <a class="btn btn-secondary" href="https://github.com/Kisai-DG-SLU/SophIA-platform" target="_blank" rel="noopener noreferrer" data-i18n="nav.github" style="padding: 0 1rem; min-height: 38px;">Code (GitHub)</a>
       </nav>
 
@@ -177,39 +209,241 @@
     </div>
   </header>
 
-  <main class="main-content">
-    <section class="container">
-      <div class="contact-grid">
-        
-        <!-- Colonne de gauche : Le message -->
-        <div class="contact-header">
-          <h1 data-i18n="contact.title">Gouverner l'IA avant qu'elle ne vous gouverne.</h1>
-          <p class="lead" data-i18n="contact.intro">
-            L'intégration de l'intelligence artificielle n'est plus une question de faisabilité technique. C'est aujourd'hui un enjeu de direction stratégique, de sécurité des données et de souveraineté.
-          </p>
-          <p class="lead" data-i18n="contact.subintro" style="font-size: 1rem;">
-            Mon rôle est d'accompagner les organisations pour qu'elles maîtrisent cette infrastructure critique, sans céder leur propriété intellectuelle.
-          </p>
-        </div>
-
-        <!-- Colonne de droite : Le cadre et les actions -->
-        <div class="contact-card">
-          <h2 data-i18n="contact.cardTitle">Cadre d'intervention</h2>
-          
-          <ul class="scope-list">
-            <li data-i18n="contact.scope1">Direction technique et structuration de pôles IA (Head of AI / VP Eng).</li>
-            <li data-i18n="contact.scope2">Conception et audit d'architectures souveraines (RAG sécurisé, on-premise, OKD).</li>
-            <li data-i18n="contact.scope3">Échanges stratégiques avec les acteurs de l'écosystème open-source.</li>
-          </ul>
-
-          <div class="action-group">
-            <a href="mailto:contact@kisai.fr" class="btn btn-primary" data-i18n="contact.emailBtn">Envoyer un email (contact@kisai.fr)</a>
-            <a href="https://damienguesdon.github.io/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="contact.linkedinBtn">Consulter le CV & Profil LinkedIn</a>
-          </div>
-        </div>
-
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow" data-i18n="eng.eyebrow">Cartographie Fonctionnelle</div>
+        <h1 data-i18n="eng.h1">L'Ingénierie de SophIA.</h1>
+        <p class="lead" data-i18n="eng.lead">
+          SophIA n'est pas un bloc monolithique. C'est une architecture <strong>agnostique et modulaire</strong> organisée en 5 piliers distincts. Chaque composant technique est une proposition open-source, substituable selon l'écosystème et la politique de votre DSI.
+        </p>
       </div>
     </section>
+
+    <!-- SCHEMA ASCII -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="container">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+          </div>
+          <div class="terminal-body">
+<pre>
+                        Users / IDE / API
+                                │
+                                ▼
+                         WireGuard Access
+                                │
+                                ▼
+                  +----------------------------+
+                  | 2. Cerveau : Hermes (Orch.)|
+                  |     & LiteLLM (Routage)    |
+                  +-------------+--------------+
+                                │
+       ┌──────────┬─────────────┼──────────────┬───────────┐
+       ▼          ▼             ▼              ▼           ▼
+   1. Socle   3. Mémoire   4. Panthéon    Automatisation  5. Outils
+  OKD / K8s    RAG 5D      (Dev, Deploy,     (n8n)        (MCP, TTS,
+ Bare-metal   Pipeline    Maintenance)                  Ghost Web)
+</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1 : FONDATIONS -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.infraTitle">1. Fondations : Matériel & Orchestration</h2>
+        <p class="section-intro" data-i18n="eng.infraIntro">
+          La première couche garantit l'isolation physique et logique des processus. Le cloud public n'est envisagé que comme ressource de débordement, l'autonomie reposant sur le matériel.
+        </p>
+
+        <div class="grid-2">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.hardwareTitle">Le socle matériel (Compute)</h3>
+            <p data-i18n="eng.hardwareDesc">L'implémentation de référence s'appuie sur une infrastructure bare-metal (type Dell R630 / GPU A2). Cette base est transposable sur n'importe quel hyperviseur ou cloud privé répondant aux exigences de souveraineté de l'entreprise.</p>
+          </article>
+
+          <article class="card card-tech">
+            <h3 data-i18n="eng.k8sTitle">L'Orchestration (Kubernetes / OKD)</h3>
+            <p data-i18n="eng.k8sDesc">L'intégralité du système est conteneurisée. J'utilise OKD (OpenShift) pour sa robustesse réseau, remplaçable par un K8s standard. Les processus d'inférence, de base de données et de bac à sable sont enfermés dans des <em>namespaces</em> étanches.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 : LE CERVEAU -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.brainTitle">2. Le Cerveau : Inférence, Routage & Orchestration</h2>
+        <p class="section-intro" data-i18n="eng.brainIntro">
+          L'architecture découple strictement l'intelligence logique (qui décide) du moteur d'inférence (qui calcule) pour éliminer tout risque de "vendor lock-in" et maximiser l'efficacité.
+        </p>
+
+        <div class="grid-3">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.hermesTitle">Orchestration (ex: Hermes)</h3>
+            <p data-i18n="eng.hermesDesc">L'interface principale. C'est la couche cognitive qui reçoit la demande, l'analyse et décide du plan d'action à mener. Elle peut être remplacée par un autre orchestrateur open-source au gré des évolutions technologiques.</p>
+          </article>
+
+          <article class="card card-tech">
+            <h3 data-i18n="eng.routerTitle">Routage Dynamique (LiteLLM)</h3>
+            <p data-i18n="eng.routerDesc">Un point d'entrée d'API unique pour tous les modèles. Le routeur bascule dynamiquement la charge : la donnée critique est orientée vers l'inférence locale souveraine, tandis que les requêtes nécessitant une force de frappe massive peuvent déborder sur le Cloud.</p>
+          </article>
+
+          <article class="card card-tech">
+            <h3 data-i18n="eng.inferenceTitle">Inférence Locale Spécialisée</h3>
+            <p data-i18n="eng.inferenceDesc">L'architecture ne repose pas sur un modèle monolithique lourd, mais sur une approche modulaire « à la carte ». Le système orchestre une flotte de petits modèles spécialisés (SLM) dédiés à des tâches précises : <strong>développement, revue de code, ingestion RAG, ou encore traitement audio (TTS/STT)</strong>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 : LA MEMOIRE -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.memoryTitle">3. La Mémoire : Ingestion & RAG 5D</h2>
+        <p class="section-intro" data-i18n="eng.memoryIntro">
+          Pour prévenir les hallucinations probabilistes, l'architecture s'appuie sur un pipeline d'ingestion (chunking, embedding) et un Retrieval-Augmented Generation poussé à l'extrême.
+        </p>
+
+        <div class="grid-2">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.ragPillars">La topologie de la connaissance</h3>
+            <ul>
+              <li data-i18n="eng.rag1"><strong>Vectoriel (Qdrant) :</strong> Similarité sémantique pure.</li>
+              <li data-i18n="eng.rag2"><strong>Relationnel (PostgreSQL) :</strong> Métadonnées et journalisation.</li>
+              <li data-i18n="eng.rag3"><strong>Versionning (Forgejo/Git) :</strong> "Source of Truth" validée et certifiée.</li>
+              <li data-i18n="eng.rag4"><strong>Structure (Obsidian) :</strong> Organisation et chunking conceptuel.</li>
+              <li data-i18n="eng.rag5"><strong>Graphe :</strong> Interdépendances logiques du métier.</li>
+            </ul>
+          </article>
+
+          <article class="card card-tech" style="display: flex; flex-direction: column; justify-content: center;">
+            <h3 data-i18n="eng.memoryOrgTitle">Structuration par Projets</h3>
+            <p data-i18n="eng.memoryOrgDesc">
+              La donnée est gérée via un système multi-utilisateurs et d'ownership. Chaque exécution est isolée par "Projet", garantissant que le contexte d'une équipe n'interfère pas de manière inopportune avec celui d'une autre.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 : LE PANTHEON & N8N -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.pantheonTitle">4. Fonctions Intégrées : Le Panthéon & l'Automatisation</h2>
+        <p class="section-intro" data-i18n="eng.pantheonIntro">
+          SophIA sépare strictement l'orchestration cognitive (les Agents) de l'automatisation de processus (les Workflows).
+        </p>
+
+        <div class="grid-2">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.agentsTitle">Le Panthéon Agentique</h3>
+            <p data-i18n="eng.agentsDesc">Des agents spécialisés possédant des droits de namespace limités :</p>
+            <ul>
+              <li data-i18n="eng.agent1"><strong>Hephaïstos :</strong> Développement assisté exécuté uniquement dans une sandbox stérile pour créer de nouveaux outils.</li>
+              <li data-i18n="eng.agent2"><strong>Ouranos :</strong> En charge du déploiement et de l'exposition des outils validés.</li>
+              <li data-i18n="eng.agent3"><strong>Athena :</strong> Maintenance de la plateforme. <em>Sécurité absolue : un script externe déterministe impose systématiquement un HITL sur ses actions, indépendamment de la décision du modèle.</em></li>
+              <li data-i18n="eng.agent4"><strong>Dionysos :</strong> Supervision de l'ensemble de l'architecture et des agents.</li>
+            </ul>
+          </article>
+
+          <article class="card card-tech">
+            <h3 data-i18n="eng.n8nTitle">Automatisation Déterministe (n8n)</h3>
+            <p data-i18n="eng.n8nDesc">
+              L'automatisation pure des processus de l'entreprise ne relève pas de la probabilité d'un modèle IA. Elle est gérée par une brique déterministe stricte (n8n), qui peut être déclenchée par un agent, mais qui exécute des workflows immuables et codés en dur.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 : OUTILS & SKILLS -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.toolsTitle">5. Outils, Skills & Intégration SI</h2>
+        <p class="section-intro" data-i18n="eng.toolsIntro">
+          Un écosystème capacitaire modulaire, extensible à la demande via des intégrations natives, des protocoles standards (MCP) ou des projets open-source existants. L'interfaçage est audité et sur-mesure.
+        </p>
+
+        <div class="grid-2">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.skillsTitle">Hygiène de la Donnée</h3>
+            <ul>
+              <li data-i18n="eng.skill1"><strong>Ghost Search :</strong> Exécution de recherches fantômes simultanées pour masquer les intentions réelles et éviter le pistage web.</li>
+              <li data-i18n="eng.skill2"><strong>Sas Paranoïaque :</strong> Isolation de l'acquisition web dans des pods éphémères jetables.</li>
+              <li data-i18n="eng.skill3"><strong>Tribunal Sémantique :</strong> Évaluation du niveau de confiance de la donnée brute avant toute ingestion dans le RAG.</li>
+              <li data-i18n="eng.skill4"><strong>Filtre Anti-Fuite (DLP) :</strong> Détection, anonymisation ou blocage des données critiques (clés API, données financières) et remontée d'alerte <em>avant</em> toute transmission à un modèle distant.</li>
+            </ul>
+          </article>
+
+          <article class="card card-tech">
+            <h3 data-i18n="eng.siTitle">Supervision Proactive & SOC</h3>
+            <p data-i18n="eng.siDesc1">
+              Au-delà de l'adaptation applicative permise par le RAG, l'architecture s'interface directement avec le Système d'Information via le standard MCP. Il est possible de connecter le SOC (Security Operations Center) ou les outils de supervision existants.
+            </p>
+            <p data-i18n="eng.siDesc2">
+              Cette intégration permet une remontée d'alertes proactive et l'application de corrections automatisées. Qu'il s'agisse de développer un outil dédié ou de s'interfacer avec une API existante, chaque intégration est soumise à un audit rigoureux et à une analyse des risques propre à la situation de l'entreprise.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 : ROADMAP DE DEPLOIEMENT -->
+    <section class="section" style="background: var(--surface);">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <h2 data-i18n="eng.roadmapTitle">6. Roadmap d'Industrialisation (18 mois)</h2>
+            <p class="section-intro" data-i18n="eng.roadmapIntro">
+              Un déploiement critique ne s'improvise pas. Engager un CAPEX matériel avant d'avoir prouvé la viabilité d'un modèle est une hérésie financière. Voici la méthodologie de déploiement sécurisée pour un Comex.
+            </p>
+            
+            <ul class="roadmap-list">
+              <li>
+                <span class="date" data-i18n="eng.rdmDate1">Mois 0 à 3</span>
+                <h4 data-i18n="eng.rdmTitle1">Preuve de Concept (POC) sur SNO</h4>
+                <p data-i18n="eng.rdmDesc1" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Déploiement initial sur un nœud unique (Single Node OpenShift) ou matériel existant. Validation technique de l'orchestration locale et du RAG avant tout investissement matériel majeur.</p>
+              </li>
+              <li>
+                <span class="date" data-i18n="eng.rdmDate2">Mois 3 à 6</span>
+                <h4 data-i18n="eng.rdmTitle2">Scale Matériel & Fiabilisation Cluster</h4>
+                <p data-i18n="eng.rdmDesc2" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Validation du budget CAPEX suite au POC. Achat du bare-metal définitif, racking, déploiement du véritable cluster haute-disponibilité et fiabilisation réseau.</p>
+              </li>
+              <li>
+                <span class="date" data-i18n="eng.rdmDate3">Mois 6 à 9</span>
+                <h4 data-i18n="eng.rdmTitle3">Le MVP (Minimum Viable Product)</h4>
+                <p data-i18n="eng.rdmDesc3" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Bascule progressive des fonctionnalités aux utilisateurs pilotes. Les agents autonomes et les tableaux de bord sont opérationnels, avec des cas d'usage métiers définis.</p>
+              </li>
+              <li>
+                <span class="date" data-i18n="eng.rdmDate4">Mois 9 à 18</span>
+                <h4 data-i18n="eng.rdmTitle4">Intégration Totale</h4>
+                <p data-i18n="eng.rdmDesc4" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">L'IA devient une infrastructure. Interfaçage avec le SI (SOC, MCP), automatisation complète, application du filtre DLP et des règles de sécurité strictes sur l'ensemble du périmètre.</p>
+              </li>
+              <li>
+                <span class="date" data-i18n="eng.rdmDate5">Post 18 mois</span>
+                <h4 data-i18n="eng.rdmTitle5">Amélioration Continue (Run & Build)</h4>
+                <p data-i18n="eng.rdmDesc5" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Ajout de nouveaux workflows, création de nouveaux "skills", et mise à jour itérative de la flotte de modèles locaux spécialisés (SLM).</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: var(--bg-dark); border-color: var(--accent-gold); text-align: center; height: auto;">
+            <h3 data-i18n="eng.roleTitle" style="color: var(--text-dark); border-bottom: 1px solid var(--border-dark); padding-bottom: 0.8rem;">Fédérer et piloter l'implémentation.</h3>
+            <p data-i18n="eng.roleText" style="color: var(--text-dark-muted); margin-bottom: 2rem; margin-top: 1rem;">
+              Le déploiement d'une architecture modulaire aussi complète exige une direction technique forte. L'objectif n'est pas d'empiler des briques open-source, mais d'aligner cette ingénierie avec la sécurité et les enjeux métiers de votre DSI.
+            </p>
+            <a href="architecte.html" class="btn btn-primary" style="background: var(--accent-gold); color: var(--bg-dark); border: none;" data-i18n="eng.roleBtn">Découvrir la posture de l'Architecte →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -228,41 +462,174 @@
   <script>
     const translations = {
       fr: {
-        meta: { title: "Contact — SophIA / Damien Guesdon" },
+        meta: { title: "Ingénierie — Architecture Modulaire SophIA" },
         nav: { context: "Le Contexte", methodology: "La Méthodologie", architecture: "Ingénierie", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },
-        contact: {
-          title: "Gouverner l'IA avant qu'elle ne vous gouverne.",
-          intro: "L'intégration de l'intelligence artificielle n'est plus une question de faisabilité technique. C'est aujourd'hui un enjeu de direction stratégique, de sécurité des données et de souveraineté.",
-          subintro: "Mon rôle est d'accompagner les organisations pour qu'elles maîtrisent cette infrastructure critique, sans céder leur propriété intellectuelle.",
-          cardTitle: "Cadre d'intervention",
-          scope1: "Direction technique et structuration de pôles IA (Head of AI / VP Eng).",
-          scope2: "Conception et audit d'architectures souveraines (RAG sécurisé, on-premise, OKD).",
-          scope3: "Échanges stratégiques avec les acteurs de l'écosystème open-source.",
-          emailBtn: "Envoyer un email (contact@kisai.fr)",
-          linkedinBtn: "Consulter le CV & Profil LinkedIn"
+        eng: {
+          eyebrow: "Cartographie Fonctionnelle",
+          h1: "L'Ingénierie de SophIA.",
+          lead: "SophIA n'est pas un bloc monolithique. C'est une architecture <strong>agnostique et modulaire</strong> organisée en 5 piliers distincts. Chaque composant technique est une proposition open-source, substituable selon l'écosystème et la politique de votre DSI.",
+          cta: "Consulter les spécifications techniques (GitHub)",
+          
+          infraTitle: "1. Fondations : Matériel & Orchestration",
+          infraIntro: "La première couche garantit l'isolation physique et logique des processus. Le cloud public n'est envisagé que comme ressource de débordement, l'autonomie reposant sur le matériel.",
+          hardwareTitle: "Le socle matériel (Compute)",
+          hardwareDesc: "L'implémentation de référence s'appuie sur une infrastructure bare-metal (type Dell R630 / GPU A2). Cette base est transposable sur n'importe quel hyperviseur ou cloud privé répondant aux exigences de souveraineté de l'entreprise.",
+          k8sTitle: "L'Orchestration (Kubernetes / OKD)",
+          k8sDesc: "L'intégralité du système est conteneurisée. J'utilise OKD (OpenShift) pour sa robustesse réseau, remplaçable par un K8s standard. Les processus d'inférence, de base de données et de bac à sable sont enfermés dans des <em>namespaces</em> étanches.",
+          
+          brainTitle: "2. Le Cerveau : Inférence, Routage & Orchestration",
+          brainIntro: "L'architecture découple strictement l'intelligence logique (qui décide) du moteur d'inférence (qui calcule) pour éliminer tout risque de \"vendor lock-in\" et maximiser l'efficacité.",
+          hermesTitle: "Orchestration (ex: Hermes)",
+          hermesDesc: "L'interface principale. C'est la couche cognitive qui reçoit la demande, l'analyse et décide du plan d'action à mener. Elle peut être remplacée par un autre orchestrateur open-source au gré des évolutions technologiques.",
+          routerTitle: "Routage Dynamique (LiteLLM)",
+          routerDesc: "Un point d'entrée d'API unique pour tous les modèles. Le routeur bascule dynamiquement la charge : la donnée critique est orientée vers l'inférence locale souveraine, tandis que les requêtes nécessitant une force de frappe massive peuvent déborder sur le Cloud (après anonymisation).",
+          inferenceTitle: "Inférence Locale Spécialisée",
+          inferenceDesc: "L'architecture ne repose pas sur un modèle monolithique lourd, mais sur une approche modulaire « à la carte ». Le système orchestre une flotte de petits modèles spécialisés (SLM) dédiés à des tâches précises : <strong>développement, revue de code, ingestion RAG, ou encore traitement audio (TTS/STT)</strong>. Ce parc capacitaire est extensible à l'infini, avec pour seule restriction physique les limites de performance du serveur (RAM/vRAM).",
+
+          memoryTitle: "3. La Mémoire : Ingestion & RAG 5D",
+          memoryIntro: "Pour prévenir les hallucinations probabilistes, l'architecture s'appuie sur un pipeline d'ingestion (chunking, embedding) et un Retrieval-Augmented Generation poussé à l'extrême.",
+          ragPillars: "La topologie de la connaissance",
+          rag1: "<strong>Vectoriel (Qdrant) :</strong> Similarité sémantique pure.",
+          rag2: "<strong>Relationnel (PostgreSQL) :</strong> Métadonnées et journalisation.",
+          rag3: "<strong>Versionning (Forgejo/Git) :</strong> \"Source of Truth\" validée et certifiée.",
+          rag4: "<strong>Structure (Obsidian) :</strong> Organisation et chunking conceptuel.",
+          rag5: "<strong>Graphe :</strong> Interdépendances logiques du métier.",
+          memoryOrgTitle: "Structuration par Projets",
+          memoryOrgDesc: "La donnée est gérée via un système multi-utilisateurs et d'ownership. Chaque exécution est isolée par \"Projet\", garantissant que le contexte d'une équipe n'interfère pas de manière inopportune avec celui d'une autre.",
+
+          pantheonTitle: "4. Fonctions Intégrées : Le Panthéon & l'Automatisation",
+          pantheonIntro: "SophIA sépare strictement l'orchestration cognitive (les Agents) de l'automatisation de processus (les Workflows).",
+          agentsTitle: "Le Panthéon Agentique",
+          agentsDesc: "Des agents spécialisés possédant des droits de namespace limités :",
+          agent1: "<strong>Hephaïstos :</strong> Développement assisté exécuté uniquement dans une sandbox stérile pour créer de nouveaux outils.",
+          agent2: "<strong>Ouranos :</strong> En charge du déploiement et de l'exposition des outils validés.",
+          agent3: "<strong>Athena :</strong> Maintenance de la plateforme. <em>Sécurité absolue : un script externe déterministe impose systématiquement un HITL sur ses actions, indépendamment de la décision du modèle.</em>",
+          agent4: "<strong>Dionysos :</strong> Supervision de l'ensemble de l'architecture et des agents.",
+          n8nTitle: "Automatisation Déterministe (n8n)",
+          n8nDesc: "L'automatisation pure des processus de l'entreprise ne relève pas de la probabilité d'un modèle IA. Elle est gérée par une brique déterministe stricte (n8n), qui peut être déclenchée par un agent, mais qui exécute des workflows immuables et codés en dur.",
+
+          toolsTitle: "5. Outils, Skills & Intégration SI",
+          toolsIntro: "Un écosystème capacitaire modulaire, extensible à la demande via des intégrations natives, des protocoles standards (MCP) ou des projets open-source existants. L'interfaçage est audité et sur-mesure.",
+          skillsTitle: "Hygiène de la Donnée",
+          skill1: "<strong>Ghost Search :</strong> Exécution de recherches fantômes simultanées pour masquer les intentions réelles et éviter le pistage web.",
+          skill2: "<strong>Sas Paranoïaque :</strong> Isolation de l'acquisition web dans des pods éphémères jetables.",
+          skill3: "<strong>Tribunal Sémantique :</strong> Évaluation du niveau de confiance de la donnée brute avant toute ingestion dans le RAG.",
+          skill4: "<strong>Filtre Anti-Fuite (DLP) :</strong> Détection, anonymisation ou blocage des données critiques (clés API, données financières) et remontée d'alerte <em>avant</em> toute transmission à un modèle distant.",
+          
+          siTitle: "Supervision Proactive & SOC",
+          siDesc1: "Au-delà de l'adaptation applicative permise par le RAG, l'architecture s'interface directement avec le Système d'Information via le standard MCP. Il est possible de connecter le SOC (Security Operations Center) ou les outils de supervision existants.",
+          siDesc2: "Cette intégration permet une remontée d'alertes proactive et l'application de corrections automatisées. Qu'il s'agisse de développer un outil dédié ou de s'interfacer avec une API existante, chaque intégration est soumise à un audit rigoureux et à une analyse des risques propre à la situation de l'entreprise.",
+
+          roadmapTitle: "6. Roadmap d'Industrialisation (18 mois)",
+          roadmapIntro: "Un déploiement critique ne s'improvise pas. Engager un CAPEX matériel avant d'avoir prouvé la viabilité d'un modèle est une hérésie financière. Voici la méthodologie de déploiement sécurisée pour un Comex.",
+          rdmDate1: "Mois 0 à 3",
+          rdmTitle1: "Preuve de Concept (POC) sur SNO",
+          rdmDesc1: "Déploiement initial sur un nœud unique (Single Node OpenShift) ou matériel existant. Validation technique de l'orchestration locale et du RAG avant tout investissement matériel majeur.",
+          rdmDate2: "Mois 3 à 6",
+          rdmTitle2: "Scale Matériel & Fiabilisation Cluster",
+          rdmDesc2: "Validation du budget CAPEX suite au POC. Achat du bare-metal définitif, racking, déploiement du véritable cluster haute-disponibilité et fiabilisation réseau.",
+          rdmDate3: "Mois 6 à 9",
+          rdmTitle3: "Le MVP (Minimum Viable Product)",
+          rdmDesc3: "Bascule progressive des fonctionnalités aux utilisateurs pilotes. Les agents autonomes et les tableaux de bord sont opérationnels, avec des cas d'usage métiers définis.",
+          rdmDate4: "Mois 9 à 18",
+          rdmTitle4: "Intégration Totale",
+          rdmDesc4: "L'IA devient une infrastructure. Interfaçage avec le SI (SOC, MCP), automatisation complète, application du filtre DLP et des règles de sécurité strictes sur l'ensemble du périmètre.",
+          rdmDate5: "Post 18 mois",
+          rdmTitle5: "Amélioration Continue (Run & Build)",
+          rdmDesc5: "Ajout de nouveaux workflows, création de nouveaux 'skills', et mise à jour itérative de la flotte de modèles locaux spécialisés (SLM).",
+
+          roleTitle: "Fédérer et piloter l'implémentation.",
+          roleText: "Le déploiement d'une architecture modulaire aussi complète exige une direction technique forte. L'objectif n'est pas d'empiler des briques open-source, mais d'aligner cette ingénierie avec la sécurité et les enjeux métiers de votre DSI.",
+          roleBtn: "Découvrir la posture de l'Architecte →"
         },
         footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
       },
       en: {
-        meta: { title: "Contact — SophIA / Damien Guesdon" },
+        meta: { title: "Engineering — SophIA Modular Architecture" },
         nav: { context: "The Context", methodology: "Methodology", architecture: "Engineering", author: "The Architect", book: "The Book", contact: "Contact", github: "Code (GitHub)" },
-        contact: {
-          title: "Govern AI before it governs you.",
-          intro: "Integrating artificial intelligence is no longer a question of technical feasibility. Today, it is a matter of strategic direction, data security, and sovereignty.",
-          subintro: "My role is to support organizations in mastering this critical infrastructure without surrendering their intellectual property.",
-          cardTitle: "Scope of Discussion",
-          scope1: "Technical leadership and structuring AI departments (Head of AI / VP Eng).",
-          scope2: "Design and audit of sovereign architectures (Secure RAG, on-premise, OKD).",
-          scope3: "Strategic exchanges with actors in the open-source ecosystem.",
-          emailBtn: "Send an email (contact@kisai.fr)",
-          linkedinBtn: "View CV & LinkedIn Profile"
+        eng: {
+          eyebrow: "Functional Mapping",
+          h1: "The Engineering of SophIA.",
+          lead: "SophIA is not a monolithic block. It is an <strong>agnostic and modular</strong> architecture organized into 5 distinct pillars. Each technical component is an open-source proposal, replaceable according to your IT department's ecosystem and policy.",
+          cta: "Consult the technical specifications (GitHub)",
+          
+          infraTitle: "1. Foundations: Hardware & Orchestration",
+          infraIntro: "The first layer guarantees physical and logical isolation of processes. The public cloud is only considered as an overflow resource, autonomy relying on hardware.",
+          hardwareTitle: "Hardware Foundation (Compute)",
+          hardwareDesc: "The reference implementation relies on a bare-metal infrastructure (e.g., Dell R630 / A2 GPU). This base can be transposed to any hypervisor or private cloud meeting the company's sovereignty requirements.",
+          k8sTitle: "Orchestration (Kubernetes / OKD)",
+          k8sDesc: "The entire system is containerized. I use OKD (OpenShift) for its network robustness, replaceable by a standard K8s. Inference processes, databases, and sandboxes are locked in watertight <em>namespaces</em>.",
+          
+          brainTitle: "2. The Brain: Inference, Routing & Orchestration",
+          brainIntro: "The architecture strictly decouples the logical intelligence (that decides) from the inference engine (that computes) to eliminate any risk of 'vendor lock-in' and maximize efficiency.",
+          hermesTitle: "Primary Orchestration (e.g., Hermes)",
+          hermesDesc: "The main interface. This is the cognitive layer that receives the request, analyzes it, and decides on the action plan. It can be replaced by another open-source orchestrator as technology evolves.",
+          routerTitle: "Dynamic Routing (LiteLLM)",
+          routerDesc: "A single API entry point for all models. The router dynamically shifts the load: critical data is directed to sovereign local inference, while queries requiring massive striking power can overflow to the Cloud (after anonymization).",
+          inferenceTitle: "Specialized Local Inference",
+          inferenceDesc: "The architecture does not rely on a heavy monolithic model, but on a modular 'à la carte' approach. The system orchestrates a fleet of small, specialized models (SLM) dedicated to specific tasks: <strong>development, code review, RAG ingestion, or audio processing (TTS/STT)</strong>. This capability is infinitely extensible, limited only by the physical performance boundaries of the server (RAM/vRAM).",
+
+          memoryTitle: "3. Memory: Ingestion & 5D RAG",
+          memoryIntro: "To prevent probabilistic hallucinations, the architecture relies on an ingestion pipeline (chunking, embedding) and an extreme Retrieval-Augmented Generation approach.",
+          ragPillars: "Knowledge Topology",
+          rag1: "<strong>Vector (Qdrant):</strong> Pure semantic similarity.",
+          rag2: "<strong>Relational (PostgreSQL):</strong> Metadata and logging.",
+          rag3: "<strong>Versioning (Forgejo/Git):</strong> Validated and certified 'Source of Truth'.",
+          rag4: "<strong>Structure (Obsidian):</strong> Organization and conceptual chunking.",
+          rag5: "<strong>Graph:</strong> Logical business interdependencies.",
+          memoryOrgTitle: "Project Structuring",
+          memoryOrgDesc: "Data is managed via a multi-user and ownership system. Each execution is isolated by 'Project', ensuring that one team's context does not inappropriately interfere with another's.",
+
+          pantheonTitle: "4. Integrated Functions: The Pantheon & Automation",
+          pantheonIntro: "SophIA strictly separates cognitive orchestration (Agents) from process automation (Workflows).",
+          agentsTitle: "The Agentic Pantheon",
+          agentsDesc: "Specialized agents possessing limited namespace rights:",
+          agent1: "<strong>Hephaïstos:</strong> Assisted development executed only in a sterile sandbox to create new tools.",
+          agent2: "<strong>Ouranos:</strong> In charge of deployment and exposure of validated tools.",
+          agent3: "<strong>Athena:</strong> Platform maintenance. <em>Absolute security: a deterministic external script systematically imposes a HITL on its actions, regardless of the model's decision.</em>",
+          agent4: "<strong>Dionysos:</strong> Supervision of the entire architecture and agents.",
+          n8nTitle: "Deterministic Automation (n8n)",
+          n8nDesc: "Pure automation of company processes is not a matter of an AI model's probability. It is managed by a strict deterministic brick (n8n), which can be triggered by an agent, but executes immutable, hard-coded workflows.",
+
+          toolsTitle: "5. Tools, Skills & IS Integration",
+          toolsIntro: "A modular capability ecosystem, extensible on demand via native integrations, standard protocols (MCP), or existing open-source projects. Interfacing is audited and customized.",
+          skillsTitle: "Data Hygiene",
+          skill1: "<strong>Ghost Search:</strong> Execution of simultaneous phantom searches to hide real intentions and avoid web tracking.",
+          skill2: "<strong>Paranoid Airlock:</strong> Isolation of web acquisition in disposable ephemeral pods.",
+          skill3: "<strong>Semantic Tribunal:</strong> Evaluation of the trust level of raw data before any ingestion into the RAG.",
+          skill4: "<strong>Data Leak Prevention (DLP) Filter:</strong> Detection, anonymization, or blocking of critical data (API keys, financial data) and alert generation <em>before</em> any transmission to a remote model.",
+          
+          siTitle: "Proactive Supervision & SOC",
+          siDesc1: "Beyond the applicative adaptation allowed by the RAG, the architecture interfaces directly with the Information System via the MCP standard. It is possible to connect the SOC (Security Operations Center) or existing supervision tools.",
+          siDesc2: "This integration allows for proactive alert escalation and the application of automated corrections. Whether developing a dedicated tool or interfacing with an existing API, each integration is subject to a rigorous audit and risk analysis specific to the company's situation.",
+
+          roadmapTitle: "6. Industrialization Roadmap (18 months)",
+          roadmapIntro: "A critical deployment is not improvised. Committing hardware CAPEX before proving a model's viability is a financial heresy. Here is the secure deployment methodology for an Executive Board.",
+          rdmDate1: "Months 0 to 3",
+          rdmTitle1: "Proof of Concept (POC) on SNO",
+          rdmDesc1: "Initial deployment on a Single Node OpenShift or existing hardware. Technical validation of local orchestration and RAG before any major hardware investment.",
+          rdmDate2: "Months 3 to 6",
+          rdmTitle2: "Hardware Scale & Cluster Reliability",
+          rdmDesc2: "CAPEX budget validation following the POC. Purchase of final bare-metal, racking, deployment of the true high-availability cluster, and network stabilization.",
+          rdmDate3: "Months 6 to 9",
+          rdmTitle3: "The MVP (Minimum Viable Product)",
+          rdmDesc3: "Progressive rollout of features to pilot users. Autonomous agents and dashboards are operational, with defined business use cases.",
+          rdmDate4: "Months 9 to 18",
+          rdmTitle4: "Full Integration",
+          rdmDesc4: "AI becomes an infrastructure. Interfacing with the IS (SOC, MCP), complete automation, application of the DLP filter, and strict security rules across the entire scope.",
+          rdmDate5: "Post 18 months",
+          rdmTitle5: "Continuous Improvement (Run & Build)",
+          rdmDesc5: "Addition of new workflows, creation of new 'skills', and iterative updating of the fleet of specialized local models (SLM).",
+
+          roleTitle: "Federating and steering the implementation.",
+          roleText: "Deploying such a comprehensive modular architecture requires strong technical direction. The goal is not to pile up open-source bricks, but to align this engineering with the security and business stakes of your IT department.",
+          roleBtn: "Discover the Architect's posture →"
         },
         footer: { copy: "© 2026 SophIA / Damien Guesdon", github: "GitHub" }
       }
     };
 
     function getNestedValue(obj, path) { return path.split('.').reduce((acc, key) => acc && acc[key] !== undefined ? acc[key] : null, obj); }
-    
     function applyLanguage(lang) {
       const dict = translations[lang] || translations.en;
       document.documentElement.lang = lang; document.title = dict.meta.title;
@@ -276,7 +643,6 @@
       });
       localStorage.setItem('sophia-lang', lang);
     }
-
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('sophia-theme', theme);
       const toggleBtn = document.getElementById('theme-toggle'); if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
