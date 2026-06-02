@@ -11,7 +11,7 @@
     </div>
   </footer>
   <script>
-    const translations = {
+    const commonTranslations = {
       fr: {
         meta: { title: "SophIA — L'architecture IA souveraine & open-source" },
         nav: { problem: "Le Piège", solution: "Le Bunker", architecture: "Ingénierie", posture: "Ma Posture", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },

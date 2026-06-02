@@ -79,25 +79,25 @@
       display: grid; place-items: center; flex-shrink: 0;
     }
     .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; color: var(--text-dark-muted); font-size: .9rem; flex-wrap: wrap; }
+    .nav-links { display: flex; align-items: center; gap: 0.9rem; color: var(--text-dark-muted); font-size: 0.82rem; flex-wrap: wrap; }
     .nav-links a:hover, .nav-links a.active { color: var(--text-dark); }
     .nav-links a.active { border-bottom: 2px solid var(--accent-gold); padding-bottom: 2px; }
 
     /* Controls */
-    .controls-wrapper { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.75rem; }
+    .controls-wrapper { display: flex; align-items: center; gap: 0.25rem; margin-left: 0.75rem; }
     .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
     .lang-btn {
-      display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;
       border: 1px solid transparent; background: transparent; color: var(--text-dark); cursor: pointer; transition: all .2s ease;
-      font-size: 1.1rem; padding: 0; filter: grayscale(80%);
+      font-size: 1rem; padding: 0; filter: grayscale(80%);
     }
     .lang-btn:hover { filter: grayscale(0%); background: rgba(255,255,255,0.1); }
     .lang-btn.active { filter: grayscale(0%); border-color: var(--border-dark); background: rgba(255,255,255,0.05); }
 
     /* Buttons */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 1.5rem;
-      border-radius: var(--radius); font-weight: 500; font-family: var(--font-ui); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;
+      display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 1rem;
+      border-radius: var(--radius); font-weight: 500; font-family: var(--font-ui); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;
       transition: all .2s ease; border: 1px solid transparent; cursor: pointer;
     }
     .btn:hover { transform: translateY(-1px); }
