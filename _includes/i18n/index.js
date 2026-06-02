@@ -1,0 +1,90 @@
+const pageTranslations = {
+  fr: {
+    hero: { 
+          eyebrow: "L'IA est devenue une infrastructure", 
+          h1: "L'IA ne doit pas vous coûter votre Souveraineté.", 
+          titleLine: "SophIA n'est pas un produit sur étagère. C'est une architecture d'orchestration open-source, multi-agents et bunkerisée.", 
+          description: "C'est le plan d'ingénierie que je propose aux entreprises pour déployer l'Intelligence Artificielle en interne, sans compromettre leur propriété intellectuelle, ni s'enfermer dans un 'vendor lock-in' américain.", 
+          note: "Méthodologie ouverte, pensée pour la production de niveau industriel et le déploiement sur infrastructure critique.", 
+          viewArchitecture: "Découvrir l'architecture", 
+          contact: "Internaliser cette solution", 
+          meta1: "Blueprint Open-Source", meta2: "Souveraineté des Données", meta3: "No Vendor Lock-in", meta4: "Inférence Locale & Routage" 
+        },
+    problem: { 
+          title: "L'explosion du 'Shadow AI'", 
+          p1: "Quand l'IA générative est arrivée, nous avons assisté exactement à ce qui s'était passé au début du Cloud, mais en pire. Aujourd'hui, les entreprises subissent un phénomène critique : les collaborateurs utilisent massivement ChatGPT ou Copilot dans leur coin pour gagner du temps.", 
+          p2: "Le résultat ? Ils injectent la propriété intellectuelle de l'entreprise, des brevets en cours aux données financières, directement sur des serveurs étrangers.", 
+          quote: "\"Le vrai problème des entreprises aujourd'hui n'est pas de posséder une IA, c'est d'avoir une gouvernance de l'IA.\"",
+          cardTitle: "Le dilemme du dirigeant",
+          cardP1: "D'un côté, vous savez que vous devez intégrer l'IA pour rester compétitif et décupler la productivité de vos équipes. De l'autre, vous savez que vos données et vos process sont votre plus grande richesse.",
+          cardP2: "Or, la majorité des solutions du marché (les plateformes 'clés en main') vous demandent d'envoyer cette richesse sur leurs serveurs pour fonctionner. C'est signer un chèque en blanc sur votre autonomie stratégique."
+        },
+    solution: {
+          title: "La Plateforme comme Infrastructure Stratégique",
+          intro: "C'est pour résoudre ce dilemme de l'intérieur que j'ai conçu l'architecture SophIA de A à Z. Je voulais prouver qu'il était possible d'industrialiser l'IA sans s'enfermer dans le modèle propriétaire des GAFAM."
+        },
+    cards: { 
+          control: { title: "1. Sécurité Absolue", text: "SophIA est un 'bunker' cognitif. Vos données ne quittent jamais l'entreprise. Je mets en place une IA qui a la même puissance que les leaders du marché, mais qui tourne chez vous. Elle connaît vos règles, mais elle est physiquement incapable de les fuiter à l'extérieur." }, 
+          trust: { title: "2. Indépendance Totale", text: "Le système est basé sur des standards ouverts (OKD, LiteLLM, Hermes). Vous n'êtes lié à aucun modèle d'IA unique. Si demain un nouveau modèle open-source émerge (comme chez Mistral), il suffit de remplacer la brique technique. L'agnosticisme est total." }, 
+          deployment: { title: "3. ROI & Coût Maîtrisé", text: "Vous êtes propriétaire de votre infrastructure. Vous ne payez pas une taxe arbitraire à chaque fois qu'un de vos employés pose une question à l'IA ou à chaque révision tarifaire d'un fournisseur cloud externe." } 
+        },
+    posture: {
+          title: "De l'Ingénierie au Leadership",
+          p1: "Je ne suis pas un prestataire qui vend un logiciel fermé. Mon approche est radicalement différente : <strong>je fournis la recette, et je guide les équipes pour la cuisiner.</strong>",
+          p2: "J'ai audité, architecturé et assemblé les briques open-source les plus critiques du marché sur mon propre matériel de type Datacenter. Je sais exactement comment fonctionne le moteur sous le capot.",
+          p3: "Aujourd'hui, ma valeur ajoutée est de définir la stratégie d'IA souveraine de votre entreprise, de garantir la sécurité, et de diriger les équipes d'ingénierie internes pour passer de l'expérimentation à la mise en production à grande échelle.",
+          btn: "Découvrir mon profil",
+          h2: "Internaliser la compétence.",
+          intro: "Que vous soyez un leader français de l'IA construisant une plateforme produit (comme Mistral AI), ou une entreprise majeure souhaitant déployer sa propre plateforme interne, mon objectif est d'intégrer vos équipes pour piloter cette vision technique.",
+          li1: "<strong>Head of AI Platform / VP Engineering</strong>",
+          li2: "Gouvernance de la donnée et des accès (RBAC)",
+          li3: "Déploiement RAG souverain et Orchestration multi-agents",
+          li4: "Conduite du changement et fédération des équipes"
+        },
+    cta: { title: "Construisons votre infrastructure souveraine.", text: "Si la vision d'une intelligence artificielle puissante, gouvernable et totalement indépendante des GAFAM résonne avec votre stratégie d'entreprise, discutons de la manière dont je peux diriger ce projet en interne.", contact: "Contactez-moi (contact@kisai.fr)" },
+  },
+  en: {
+    hero: { 
+          eyebrow: "AI is the new infrastructure", 
+          h1: "Artificial Intelligence shouldn't cost you your Sovereignty.", 
+          titleLine: "SophIA is not an off-the-shelf product. It's an open-source, multi-agent, and bunkerized AI orchestration architecture.", 
+          description: "It's the engineering blueprint I propose to companies to deploy AI internally, without compromising their intellectual property or getting locked into American vendor ecosystems.", 
+          note: "Open methodology, designed for industrial-grade production and deployment on critical infrastructure.", 
+          viewArchitecture: "Discover the architecture", 
+          contact: "Internalize this solution", 
+          meta1: "Open-Source Blueprint", meta2: "Data Sovereignty", meta3: "No Vendor Lock-in", meta4: "Local Inference & Routing" 
+        },
+    problem: { 
+          title: "The 'Shadow AI' Explosion", 
+          p1: "When generative AI arrived, we witnessed exactly what happened at the dawn of the Cloud, but worse. Today, companies suffer from a critical phenomenon: employees massively use ChatGPT or Copilot on their own to save time.", 
+          p2: "The result? They inject the company's intellectual property, from pending patents to financial data, directly onto foreign servers.", 
+          quote: "\"The real problem for companies today is not having an AI, it's having AI governance.\"",
+          cardTitle: "The Leader's Dilemma",
+          cardP1: "On one hand, you know you must integrate AI to stay competitive and multiply your teams' productivity. On the other, you know your data and processes are your greatest asset.",
+          cardP2: "Yet, most market solutions ('turnkey' platforms) require you to send this wealth to their servers to function. It's signing a blank check on your strategic autonomy."
+        },
+    solution: {
+          title: "The Platform as Strategic Infrastructure",
+          intro: "To solve this dilemma from the inside, I designed the SophIA architecture from scratch. I wanted to prove it was possible to industrialize AI without locking into the proprietary model of Big Tech."
+        },
+    cards: { 
+          control: { title: "1. Absolute Security", text: "SophIA is a cognitive 'bunker'. Your data never leaves the company. I set up an AI that has the same power as market leaders, but runs at your premises. It knows your rules, but is physically incapable of leaking them outside." }, 
+          trust: { title: "2. Total Independence", text: "The system is based on open standards (OKD, LiteLLM, Hermes). You are not tied to any single AI model. If tomorrow a new open-source model emerges (like Mistral), you just replace the technical brick. Agnosticism is total." }, 
+          deployment: { title: "3. ROI & Cost Control", text: "You own your infrastructure. You don't pay an arbitrary tax every time an employee asks the AI a question, or at every pricing revision from an external cloud provider." } 
+        },
+    posture: {
+          title: "From Engineering to Leadership",
+          p1: "I am not a vendor selling closed software. My approach is radically different: <strong>I provide the recipe, and I guide the teams to cook it.</strong>",
+          p2: "I have audited, architected, and assembled the most critical open-source bricks on the market on my own Datacenter-grade hardware. I know exactly how the engine works under the hood.",
+          p3: "Today, my added value is to define your company's sovereign AI strategy, guarantee security, and lead internal engineering teams to move from experimentation to large-scale production.",
+          btn: "Discover my profile",
+          h2: "Internalizing the expertise.",
+          intro: "Whether you are a French AI leader building a product platform (like Mistral AI), or a major enterprise wanting to deploy its own internal platform, my goal is to join your teams to steer this technical vision.",
+          li1: "<strong>Head of AI Platform / VP Engineering</strong>",
+          li2: "Data and access governance (RBAC)",
+          li3: "Sovereign RAG deployment and multi-agent orchestration",
+          li4: "Change management and team federation"
+        },
+    cta: { title: "Let's build your sovereign infrastructure.", text: "If the vision of powerful, governable, and completely independent artificial intelligence resonates with your business strategy, let's discuss how I can lead this project internally.", contact: "Contact me (contact@kisai.fr)" },
+  }
+};
