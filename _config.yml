@@ -1,6 +1,6 @@
 title: SophIA
 description: Architecture IA souveraine
-url: https://sophia-ia.org
+url: https://sophia.kisai.fr
 baseurl: ""
 plugins:
   - jekyll-sitemap

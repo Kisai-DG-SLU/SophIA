@@ -9,10 +9,30 @@
   <meta name="robots" content="{{ page.robots | default: 'index, follow' }}" />
   <meta name="author" content="Damien Guesdon" />
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <link rel="alternate" hreflang="fr" href="{{ site.url }}{{ page.url }}" />
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}" />
   <meta property="og:title" content="{{ page.title }}" />
   <meta property="og:description" content="{{ page.description }}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}/images/sophia-og.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ site.url }}/images/sophia-og.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Damien Guesdon",
+    "jobTitle": "Head of AI Platform / VP Engineering",
+    "url": "{{ site.url }}",
+    "sameAs": ["https://github.com/Kisai-Studio"],
+    "knowsAbout": ["Artificial Intelligence", "AI Sovereignty", "Multi-Agent Orchestration", "RAG", "OKD/Kubernetes"],
+    "description": "{{ page.description }}"
+  }
+  </script>
 </head>
 <body>
 {% include nav.html %}
