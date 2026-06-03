@@ -3,7 +3,7 @@
 <head>
 {% include head.html %}
 {% if page.custom_css %}<style>{% include css/{{ page.custom_css }}.css %}</style>{% endif %}
-  {% if page.custom_i18n == 'index' %}<script>{% include i18n/index.js %}</script>{% elsif page.custom_i18n == 'architecte' %}<script>{% include i18n/architecte.js %}</script>{% elsif page.custom_i18n == 'ingenierie' %}<script>{% include i18n/ingenierie.js %}</script>{% elsif page.custom_i18n == 'livre' %}<script>{% include i18n/livre.js %}</script>{% elsif page.custom_i18n == 'contact' %}<script>{% include i18n/contact.js %}</script>{% endif %}
+  {% if page.custom_i18n == 'architecte' %}<script>{% include i18n/architecte.js %}</script>{% elsif page.custom_i18n == 'ingenierie' %}<script>{% include i18n/ingenierie.js %}</script>{% elsif page.custom_i18n == 'livre' %}<script>{% include i18n/livre.js %}</script>{% elsif page.custom_i18n == 'contact' %}<script>{% include i18n/contact.js %}</script>{% endif %}
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}" />
   <meta name="robots" content="{{ page.robots | default: 'index, follow' }}" />
