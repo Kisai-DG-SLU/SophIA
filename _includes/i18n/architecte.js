@@ -23,8 +23,8 @@ const pageTranslations = {
           act2Text1: "En parallèle, l'actualité sécuritaire a conforté cette impasse : l'ombre du Cloud Act, les dysfonctionnements des fournisseurs et les revues tarifaires arbitraires.",
           act2Text2: "Aujourd'hui, les géants américains déploient des plateformes agentiques \"clés en main\". L'entreprise y dépose ses données en échange d'une IA sur-mesure. Du point de vue du directeur technique, c'est le piège ultime : un aller simple vers une ultra-dépendance et un <em>vendor lock-in</em> irréversible. L'objectif n'était pas de créer une autarcie isolée, mais de bâtir une véritable <strong>autonomie stratégique</strong>.",
           act4Title: "L'Anti-Boîte Noire",
-          act4Text1: "La réalité est que SophIA n'a pas réinventé la roue. Je n'ai pas codé un nouveau LLM secret. L'architecture est une ingénierie d'intégration : un assemblage réfléchi et éprouvé de briques open-source.",
-          act4Text2: "Ma valeur ajoutée en tant qu'Architecte n'est pas d'avoir un algorithme révolutionnaire, c'est d'avoir essuyé les plâtres. C'est d'avoir pensé l'architecture de sécurité globale, mis en place les verrous cognitifs (HITL, RBAC) et réussi à faire dialoguer ces composants pour créer un système souverain, stable et prêt pour l'industrie.",
+          act4Text1: "La réalité est que SophIA n'a pas réinventé la roue. Il ne s'agit pas d'un nouveau LLM secret. L'architecture est une ingénierie d'intégration : un assemblage réfléchi et éprouvé de briques open-source.",
+          act4Text2: "La valeur ajoutée de l'Architecte n'est pas d'avoir un algorithme révolutionnaire, c'est d'avoir essuyé les plâtres. C'est d'avoir pensé l'architecture de sécurité globale, mis en place les verrous cognitifs (HITL, RBAC) et réussi à faire dialoguer ces composants pour créer un système souverain, stable et prêt pour l'industrie.",
 
           journeyTitle: "Parcours & Expertise",
           journeyIntro: "Un background résolument ancré dans les infrastructures critiques (Bare-metal, Réseau, BGP), aujourd'hui complété par une maîtrise des écosystèmes d'Intelligence Artificielle.",
@@ -69,8 +69,8 @@ const pageTranslations = {
           act2Text1: "In parallel, security news reinforced this dead end: the shadow of the Cloud Act, provider outages, and arbitrary pricing reviews.",
           act2Text2: "Today, American tech giants are deploying \"turnkey\" agentic platforms. The company deposits its data in exchange for a custom AI. From a technical director's point of view, it's the ultimate trap: a one-way ticket to ultra-dependency and irreversible <em>vendor lock-in</em>. The goal was not to create an isolated autarky, but to build true <strong>strategic autonomy</strong>.",
           act4Title: "The Anti-Black Box",
-          act4Text1: "The reality is that SophIA did not reinvent the wheel. I didn't code a secret new LLM. The architecture is integration engineering: a thoughtful and proven assembly of open-source bricks.",
-          act4Text2: "My added value as an Architect is not having a revolutionary algorithm, it's having cleared the path. It's having designed the overall security architecture, set up the cognitive locks (HITL, RBAC), and successfully made these components talk to each other to create a sovereign, stable system ready for the industry.",
+          act4Text1: "The reality is that SophIA did not reinvent the wheel. This is not a secret new LLM. The architecture is integration engineering: a thoughtful and proven assembly of open-source bricks.",
+          act4Text2: "The added value of the Architect is not having a revolutionary algorithm, it's having cleared the path. It's having designed the overall security architecture, set up the cognitive locks (HITL, RBAC), and successfully made these components talk to each other to create a sovereign, stable system ready for the industry.",
 
           journeyTitle: "Background & Expertise",
           journeyIntro: "A background firmly rooted in critical infrastructures (Bare-metal, Network, BGP), today complemented by a mastery of Artificial Intelligence ecosystems.",
