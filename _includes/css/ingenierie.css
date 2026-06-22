@@ -1,8 +1,3 @@
-    /* VARIABLES */
-      --font-code: 'JetBrains Mono', monospace;
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); display: grid; place-items: center; flex-shrink: 0;
-      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 2rem;
-      border-radius: var(--radius); font-weight: 600; font-family: var(--font-ui); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;
     .btn:hover { transform: translateY(-2px); }
     .btn-primary { background: var(--text-main); color: var(--bg-light); border: 1px solid var(--text-main); }
     .btn-primary:hover { background: transparent; color: var(--text-main); }
@@ -56,7 +51,7 @@
     .dot-red { background: #FF5F56; } .dot-yellow { background: #FFBD2E; } .dot-green { background: #27C93F; }
     .terminal-body { padding: 1.5rem; overflow-x: auto; }
     .terminal-body pre {
-      margin: 0; color: #D4AF37; font-size: 0.85rem; line-height: 1.5; font-family: var(--font-code);
+      margin: 0; color: #D4AF37; font-size: 0.85rem; line-height: 1.3; font-family: var(--font-code);
     }
 
     /* Stack Pills */
