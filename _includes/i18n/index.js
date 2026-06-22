@@ -3,7 +3,7 @@ const pageTranslations = {
     hero: { 
           eyebrow: "L'IA est devenue une infrastructure", 
           h1: "L'IA ne doit pas vous coûter votre Souveraineté.", 
-          titleLine: "SophIA n'est pas un produit sur étagère. C'est une architecture d'orchestration open-source, multi-agents et bunkerisée.", 
+          titleLine: "SophIA n'est pas un produit sur étagère. C'est une proposition d'architecture d'orchestration open-source, multi-agents et bunkerisée.", 
           description: "C'est le plan d'ingénierie que je propose aux entreprises pour déployer l'Intelligence Artificielle en interne, sans compromettre leur propriété intellectuelle, ni s'enfermer dans un 'vendor lock-in' américain.", 
           note: "Méthodologie ouverte, pensée pour la production de niveau industriel et le déploiement sur infrastructure critique.", 
           viewArchitecture: "Découvrir l'architecture", 
