@@ -29,7 +29,7 @@ const pageTranslations = {
           rag2: "<strong>Relationnel (PostgreSQL) :</strong> Métadonnées et journalisation.",
           rag3: "<strong>Versionning (Forgejo/Git) :</strong> \"Source of Truth\" validée et certifiée.",
           rag4: "<strong>Structure (Obsidian) :</strong> Organisation et chunking conceptuel.",
-          rag5: "<strong>Graphe :</strong> Interdépendances logiques du métier.",
+          rag5: "<strong>Graphe (Neo4j) :</strong> Interdépendances logiques du métier.",
           memoryOrgTitle: "Structuration par Projets",
           memoryOrgDesc: "La donnée est gérée via un système multi-utilisateurs et d'ownership. Chaque exécution est isolée par \"Projet\", garantissant que le contexte d'une équipe n'interfère pas de manière inopportune avec celui d'une autre.",
 
@@ -109,7 +109,7 @@ const pageTranslations = {
           rag2: "<strong>Relational (PostgreSQL):</strong> Metadata and logging.",
           rag3: "<strong>Versioning (Forgejo/Git):</strong> Validated and certified 'Source of Truth'.",
           rag4: "<strong>Structure (Obsidian):</strong> Organization and conceptual chunking.",
-          rag5: "<strong>Graph:</strong> Logical business interdependencies.",
+          rag5: "<strong>Graph (Neo4j):</strong> Logical business interdependencies.",
           memoryOrgTitle: "Project Structuring",
           memoryOrgDesc: "Data is managed via a multi-user and ownership system. Each execution is isolated by 'Project', ensuring that one team's context does not inappropriately interfere with another's.",
 
