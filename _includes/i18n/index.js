@@ -21,7 +21,7 @@ const pageTranslations = {
         },
     solution: {
           title: "La Plateforme comme Infrastructure Stratégique",
-          intro: "C'est pour résoudre ce dilemme de l'intérieur que j'ai conçu l'architecture SophIA de A à Z. Je voulais prouver qu'il était possible d'industrialiser l'IA sans s'enfermer dans le modèle propriétaire des GAFAM."
+          intro: "C'est pour résoudre ce dilemme qu'a été conçue l'architecture SophIA : industrialiser l'IA sans s'enfermer dans le modèle propriétaire des GAFAM."
         },
     cards: { 
           control: { title: "1. Sécurité Absolue", text: "SophIA est un 'bunker' cognitif. Vos données ne quittent jamais l'entreprise. Je mets en place une IA qui a la même puissance que les leaders du marché, mais qui tourne chez vous. Elle connaît vos règles, mais elle est physiquement incapable de les fuiter à l'extérieur." }, 
@@ -65,7 +65,7 @@ const pageTranslations = {
         },
     solution: {
           title: "The Platform as Strategic Infrastructure",
-          intro: "To solve this dilemma from the inside, I designed the SophIA architecture from scratch. I wanted to prove it was possible to industrialize AI without locking into the proprietary model of Big Tech."
+          intro: "This dilemma drove the design of the SophIA architecture: industrializing AI without locking into the proprietary model of Big Tech."
         },
     cards: { 
           control: { title: "1. Absolute Security", text: "SophIA is a cognitive 'bunker'. Your data never leaves the company. I set up an AI that has the same power as market leaders, but runs at your premises. It knows your rules, but is physically incapable of leaking them outside." }, 
