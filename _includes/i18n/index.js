@@ -30,9 +30,9 @@ const pageTranslations = {
         },
     posture: {
           title: "De l'Ingénierie au Leadership",
-          p1: "Je ne suis pas un prestataire qui vend un logiciel fermé. Mon approche est radicalement différente : <strong>je fournis la recette, et je guide les équipes pour la cuisiner.</strong>",
+          p1: "SophIA n'est pas un logiciel fermé destiné à la vente ou location. Mon approche est radicalement différente : <strong>je fournis la recette, et je peux diriger les équipes pour sa mise en oeuvre.</strong>",
           p2: "J'ai audité, architecturé et assemblé les briques open-source les plus critiques du marché sur mon propre matériel de type Datacenter. Je sais exactement comment fonctionne le moteur sous le capot.",
-          p3: "Aujourd'hui, ma valeur ajoutée est de définir la stratégie d'IA souveraine de votre entreprise, de garantir la sécurité, et de diriger les équipes d'ingénierie internes pour passer de l'expérimentation à la mise en production à grande échelle.",
+          p3: "Ma valeur ajoutée est de vous aider à définir la stratégie d'IA souveraine de votre entreprise, de garantir la sécurité, et de diriger les équipes d'ingénierie internes pour passer de l'expérimentation à la mise en production à grande échelle.",
           btn: "Découvrir mon profil",
           h2: "Internaliser la compétence.",
           intro: "Que vous soyez un leader français de l'IA construisant une plateforme produit (comme Mistral AI), ou une entreprise majeure souhaitant déployer sa propre plateforme interne, mon objectif est d'intégrer vos équipes pour piloter cette vision technique.",
@@ -74,9 +74,9 @@ const pageTranslations = {
         },
     posture: {
           title: "From Engineering to Leadership",
-          p1: "I am not a vendor selling closed software. My approach is radically different: <strong>I provide the recipe, and I guide the teams to cook it.</strong>",
+          p1: "SophIA is not closed software intended for sale or lease. My approach is radically different: <strong>I provide the recipe and can lead the teams in its implementation.</strong>",
           p2: "I have audited, architected, and assembled the most critical open-source bricks on the market on my own Datacenter-grade hardware. I know exactly how the engine works under the hood.",
-          p3: "Today, my added value is to define your company's sovereign AI strategy, guarantee security, and lead internal engineering teams to move from experimentation to large-scale production.",
+          p3: "My added value is to help you define your company's sovereign AI strategy, guarantee security, and lead internal engineering teams to move from experimentation to large-scale production.",
           btn: "Discover my profile",
           h2: "Internalizing the expertise.",
           intro: "Whether you are a French AI leader building a product platform (like Mistral AI), or a major enterprise wanting to deploy its own internal platform, my goal is to join your teams to steer this technical vision.",
