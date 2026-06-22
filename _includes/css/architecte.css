@@ -72,8 +72,8 @@
 
     /* Écosystème — vignette Renaud */
     .eco-item-renaud { display: flex; gap: 1.5rem; align-items: flex-start; }
-    .eco-item-img { flex-shrink: 0; width: 120px; }
-    .eco-item-img img { width: 100%; height: auto; border-radius: 8px; display: block; }
+    .eco-item-img { flex-shrink: 0; width: 120px; height: 80px; }
+    .eco-item-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; display: block; }
     .eco-item-content { flex: 1; }
 
     /* Footer */
@@ -90,6 +90,6 @@
       .journey-timeline { padding-left: 1.5rem; }
       .journey-item::before { left: -1.85rem; }
       .eco-item-renaud { flex-direction: column; }
-      .eco-item-img { width: 80px; }
+      .eco-item-img { width: 80px; height: 54px; }
     }
   

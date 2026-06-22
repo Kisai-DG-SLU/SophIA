@@ -41,8 +41,10 @@ const pageTranslations = {
           ecoIntro: "L'indépendance technologique ne se construit pas en vase clos. Une communauté grandissante d'experts milite pour une IA ouverte, souveraine et robuste.",
           eco1Title: "La Veille Stratégique : Renaud Dekode",
           eco1Desc: "Dans un marché inondé par le bruit marketing, <a href='https://www.renaud-dekode.fr/' target='_blank'>Renaud Dekode</a> effectue à lui seul un travail phénoménal de veille. Il anime de manière dynamique, pédagogue et sur un ton léger toutes les actualités de la tech, du digital et de l'IA. L'IA occupe aujourd'hui 99% de ses actualités, mais il ne s'y limite pas : il organise régulièrement des ateliers qui ont permis de développer plusieurs outils gratuits avec sa communauté, et interviewe des personnalités de l'IA. Toute entreprise devrait inciter ses équipes IT à suivre sa chaîne.",
-          eco2Title: "Les outils compagnons : Loky & Gungnir",
-          eco2Desc: "Je ne suis pas le seul 'artisan' à forger des solutions concrètes. Des projets comme <a href='#' target='_blank'>Loky</a> (par Omniatek) ou <a href='#' target='_blank'>Gungnir</a> (par Scarlet Wolf) répondent parfaitement à certains besoins spécifiques de l'écosystème open-source. Les soutenir, c'est soutenir notre filière."
+          eco2Title: "Loky, par Omniatek",
+          eco2Desc: "Loky incarne la vision pragmatique et le principe KISS. Un Perplexity-like dédié à l'entreprise, déployable on premise.",
+          eco3Title: "Gungnir, par Scarlet Wolf",
+          eco3Desc: "Gungnir adopte une vision opposée, plus philosophique. L'IA y est dotée d'une conscience persistante et de mécanismes d'auto-amélioration. Un projet ambitieux qui regroupe de nombreux outils, le tout déployable en un seul clic."
         },
   },
   en: {
@@ -87,8 +89,10 @@ const pageTranslations = {
           ecoIntro: "Technological independence is not built in a vacuum. A growing community of experts advocates for an open, sovereign, and robust AI.",
           eco1Title: "Strategic Watch: Renaud Dekode",
           eco1Desc: "In a market flooded by marketing noise, <a href='https://www.renaud-dekode.fr/' target='_blank'>Renaud Dekode</a> does a phenomenal job all by himself. He covers all tech, digital and AI news in a dynamic, pedagogical and light-hearted tone. AI currently accounts for 99% of his content, but he doesn't limit himself to it: he regularly organizes workshops that have led to several free tools built with his community, and interviews AI personalities. Every company should encourage its IT teams to follow his channel.",
-          eco2Title: "Companion tools: Loky & Gungnir",
-          eco2Desc: "I am not the only 'artisan' forging concrete solutions. Projects like <a href='#' target='_blank'>Loky</a> (by Omniatek) or <a href='#' target='_blank'>Gungnir</a> (by Scarlet Wolf) respond perfectly to certain specific needs of the open-source ecosystem. Supporting them means supporting our industry."
+          eco2Title: "Loky, by Omniatek",
+          eco2Desc: "Loky embodies the pragmatic vision and the KISS principle. A Perplexity-like search engine dedicated to the enterprise, deployable on premise.",
+          eco3Title: "Gungnir, by Scarlet Wolf",
+          eco3Desc: "Gungnir takes the opposite, more philosophical approach. AI is given a persistent consciousness and self-improvement mechanisms. An ambitious project bundling many tools, all deployable in one click."
         },
   }
 };
