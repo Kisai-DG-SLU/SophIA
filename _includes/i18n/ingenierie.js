@@ -22,7 +22,7 @@ const pageTranslations = {
           inferenceTitle: "Inférence Locale Spécialisée",
           inferenceDesc: "L'architecture ne repose pas sur un modèle monolithique lourd, mais sur une approche modulaire « à la carte ». Le système orchestre une flotte de petits modèles spécialisés (SLM) dédiés à des tâches précises : <strong>développement, revue de code, ingestion RAG, ou encore traitement audio (TTS/STT)</strong>. Ce parc capacitaire est extensible à l'infini, avec pour seule restriction physique les limites de performance du serveur (RAM/vRAM).",
 
-          memoryTitle: "3. La Mémoire : Ingestion & RAG 5D",
+          memoryTitle: "3. La Mémoire : Ingestion & RAG⁵",
           memoryIntro: "Pour prévenir les hallucinations probabilistes, l'architecture s'appuie sur un pipeline d'ingestion (chunking, embedding) et un Retrieval-Augmented Generation poussé à l'extrême.",
           ragPillars: "La topologie de la connaissance",
           rag1: "<strong>Vectoriel (Qdrant) :</strong> Similarité sémantique pure.",
@@ -102,7 +102,7 @@ const pageTranslations = {
           inferenceTitle: "Specialized Local Inference",
           inferenceDesc: "The architecture does not rely on a heavy monolithic model, but on a modular 'à la carte' approach. The system orchestrates a fleet of small, specialized models (SLM) dedicated to specific tasks: <strong>development, code review, RAG ingestion, or audio processing (TTS/STT)</strong>. This capability is infinitely extensible, limited only by the physical performance boundaries of the server (RAM/vRAM).",
 
-          memoryTitle: "3. Memory: Ingestion & 5D RAG",
+          memoryTitle: "3. Memory: Ingestion & RAG⁵",
           memoryIntro: "To prevent probabilistic hallucinations, the architecture relies on an ingestion pipeline (chunking, embedding) and an extreme Retrieval-Augmented Generation approach.",
           ragPillars: "Knowledge Topology",
           rag1: "<strong>Vector (Qdrant):</strong> Pure semantic similarity.",
