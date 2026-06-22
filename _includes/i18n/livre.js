@@ -2,7 +2,7 @@ const pageTranslations = {
   fr: {
     book: {
           eyebrow: "Essai & Vulgarisation technique",
-          title: "SophIA — Assistant suprême ?",
+          title: "SophIA<br>Assistant suprême ?",
           desc1: "Entre la promesse marketing d'une IA toute-puissante et la réalité de la mise en production, il y a un gouffre. Cet essai démystifie l'intelligence artificielle pour les décideurs et les équipes techniques.",
           desc2: "À travers un format hybride richement illustré, le livre explore les limites structurelles des grands modèles de langage et pose les bases d'une souveraineté technologique maîtrisée. L'ingénierie y est expliquée par des métaphores concrètes, loin du brouillard commercial habituel.",
           note: "Actuellement disponible uniquement en français.",
@@ -21,7 +21,7 @@ const pageTranslations = {
   en: {
     book: {
           eyebrow: "Essay & Technical Popularization",
-          title: "SophIA — Supreme Assistant?",
+          title: "SophIA<br>Supreme Assistant?",
           desc1: "Between the marketing promise of an all-powerful AI and the reality of production deployment, there is a chasm. This essay demystifies artificial intelligence for decision-makers and technical teams.",
           desc2: "Through a richly illustrated hybrid format, the book explores the structural limits of large language models and lays the foundation for controlled technological sovereignty. Engineering is explained through concrete metaphors, far from the usual commercial fog.",
           note: "Currently available only in French.",
