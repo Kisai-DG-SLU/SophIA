@@ -40,7 +40,7 @@ const pageTranslations = {
           ecoTitle: "Un Écosystème d'Artisans",
           ecoIntro: "L'indépendance technologique ne se construit pas en vase clos. Une communauté grandissante d'experts milite pour une IA ouverte, souveraine et robuste.",
           eco1Title: "La Veille Stratégique : Renaud Dekode",
-          eco1Desc: "Dans un marché inondé par le bruit marketing, la communauté <a href='#' target='_blank'>Renaud Dekode</a> est un point d'ancrage vital pour le discernement technologique et l'échange entre professionnels de l'IA.",
+          eco1Desc: "Dans un marché inondé par le bruit marketing, Renaud Dekode effectue à lui seul un travail phénoménal de veille. Il anime de manière dynamique, pédagogue et sur un ton léger toutes les actualités de la tech, du digital et de l'IA. L'IA occupe aujourd'hui 99% de ses actualités, mais il ne s'y limite pas : il organise régulièrement des ateliers qui ont permis de développer plusieurs outils gratuits avec sa communauté, et interviewe des personnalités de l'IA. Toute entreprise devrait inciter ses équipes IT à suivre sa chaîne.",
           eco2Title: "Les outils compagnons : Loky & Gungnir",
           eco2Desc: "Je ne suis pas le seul 'artisan' à forger des solutions concrètes. Des projets comme <a href='#' target='_blank'>Loky</a> (par Omniatek) ou <a href='#' target='_blank'>Gungnir</a> (par Scarlet Wolf) répondent parfaitement à certains besoins spécifiques de l'écosystème open-source. Les soutenir, c'est soutenir notre filière."
         },
@@ -86,7 +86,7 @@ const pageTranslations = {
           ecoTitle: "An Ecosystem of Artisans",
           ecoIntro: "Technological independence is not built in a vacuum. A growing community of experts advocates for an open, sovereign, and robust AI.",
           eco1Title: "Strategic Watch: Renaud Dekode",
-          eco1Desc: "In a market flooded by marketing noise, the <a href='#' target='_blank'>Renaud Dekode</a> community is a vital anchor for technological discernment and exchange between AI professionals.",
+          eco1Desc: "In a market flooded by marketing noise, Renaud Dekode does a phenomenal job all by himself. He covers all tech, digital and AI news in a dynamic, pedagogical and light-hearted tone. AI currently accounts for 99% of his content, but he doesn't limit himself to it: he regularly organizes workshops that have led to several free tools built with his community, and interviews AI personalities. Every company should encourage its IT teams to follow his channel.",
           eco2Title: "Companion tools: Loky & Gungnir",
           eco2Desc: "I am not the only 'artisan' forging concrete solutions. Projects like <a href='#' target='_blank'>Loky</a> (by Omniatek) or <a href='#' target='_blank'>Gungnir</a> (by Scarlet Wolf) respond perfectly to certain specific needs of the open-source ecosystem. Supporting them means supporting our industry."
         },
