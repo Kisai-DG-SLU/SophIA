@@ -76,7 +76,20 @@ const pageTranslations = {
 
           roleTitle: "Fédérer et piloter l'implémentation.",
           roleText: "Le déploiement d'une architecture modulaire aussi complète exige une direction technique forte. L'objectif n'est pas d'empiler des briques open-source, mais d'aligner cette ingénierie avec la sécurité et les enjeux métiers de votre DSI.",
-          roleBtn: "Découvrir la posture de l'Architecte →"
+          roleBtn: "Découvrir la posture de l'Architecte →",
+
+          budgetTitle: "Budget de Démarrage (POC)",
+          budgetSubtitle: "Équipe minimale — 3 mois",
+          budgetRo1: "<strong>Architecte / Pilote</strong> &nbsp; 33 JH (mi-temps)",
+          budgetRo2: "<strong>Ing. Platform / DevOps</strong> &nbsp; 65 JH",
+          budgetRo3: "<strong>Ing. Data / RAG</strong> &nbsp; 65 JH",
+          budgetRo4: "<strong>Dev Full-Stack</strong> &nbsp; 33 JH (mi-temps)",
+          budgetTotal: "<strong>Total ~195 JH (~3 ETP)</strong>",
+          budgetHwTitle: "Serveur Rack 1U — POC",
+          budgetHwSpec: "Supermicro SYS-511R-W • Xeon E • 64 Go DDR5 ECC • 2 To NVMe + RTX 4060 Ti 16 Go VRAM",
+          budgetHwPrice: "<strong>~4 500 €</strong> <em>(prix marché juin 2026, non contractuels)</em>",
+          budgetDisclaimer: "Configuration POC minimale. Le matériel définitif est dimensionné après validation des besoins réels (phase 2, Mois 3-6).",
+          budgetRoleBtn: "Découvrir la posture de l'Architecte →"
         },
   },
   en: {
@@ -156,7 +169,20 @@ const pageTranslations = {
 
           roleTitle: "Federating and steering the implementation.",
           roleText: "Deploying such a comprehensive modular architecture requires strong technical direction. The goal is not to pile up open-source bricks, but to align this engineering with the security and business stakes of your IT department.",
-          roleBtn: "Discover the Architect's posture →"
+          roleBtn: "Discover the Architect's posture →",
+
+          budgetTitle: "Startup Budget (POC)",
+          budgetSubtitle: "Minimum team — 3 months",
+          budgetRo1: "<strong>Architect / Lead</strong> &nbsp; 33 man-days (part-time)",
+          budgetRo2: "<strong>Platform / DevOps Engineer</strong> &nbsp; 65 man-days",
+          budgetRo3: "<strong>Data / RAG Engineer</strong> &nbsp; 65 man-days",
+          budgetRo4: "<strong>Full-Stack Developer</strong> &nbsp; 33 man-days (part-time)",
+          budgetTotal: "<strong>Total ~195 man-days (~3 FTE)</strong>",
+          budgetHwTitle: "1U Rack Server — POC",
+          budgetHwSpec: "Supermicro SYS-511R-W • Xeon E • 64 GB DDR5 ECC • 2 TB NVMe + RTX 4060 Ti 16 GB VRAM",
+          budgetHwPrice: "<strong>~€4,500</strong> <em>(market price June 2026, non-contractual)</em>",
+          budgetDisclaimer: "Minimum POC configuration. Final hardware is sized after real needs are validated (phase 2, Months 3-6).",
+          budgetRoleBtn: "Discover the Architect's posture →"
         },
   }
 };
