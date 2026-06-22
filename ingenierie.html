@@ -28,6 +28,7 @@ custom_i18n: ingenierie
             <div class="terminal-dot dot-green"></div>
           </div>
           <div class="terminal-body">
+<div class="diagram-lang" data-lang="fr">
 <pre>
                              Users / IDE / API
                                      │
@@ -50,6 +51,31 @@ custom_i18n: ingenierie
 │   Pipeline        Maintenance)                              Ghost Web)     │
 └────────────────────────────────────────────────────────────────────────────┘
 </pre>
+</div>
+<div class="diagram-lang" data-lang="en">
+<pre>
+                             Users / IDE / API
+                                     │
+                                     ▼
+                              WireGuard Access
+                                     │
+                                     ▼
+┌────────────────────────────────────┼───────────────────────────────────────┐
+│                       1. Foundations: Hardware & K8s                       │
+│                                    │                                       │
+│                       +----------------------------+                       │
+│                       |  2. Brain: Hermes (Orch.)  |                       │
+│                       |    & LiteLLM (Routing)     |                       │
+│                       +------------+---------------+                       │
+│                                    │                                       │
+│      ┌───────────────────┬─────────┼──────────┬──────────────────┐         │
+│      ▼                   ▼                    ▼                  ▼         │
+│  3. Memory     4. Agentic Pantheon     5. Automation         6. Tools      │
+│    RAG 5D          (Dev,Deploy,              (n8n)             (MCP,TTS,   │
+│   Pipeline         Maintenance)                              Ghost Web)    │
+└────────────────────────────────────────────────────────────────────────────┘
+</pre>
+</div>
           </div>
         </div>
       </div>
