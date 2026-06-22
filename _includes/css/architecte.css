@@ -69,6 +69,8 @@
     .eco-list li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .eco-list h4 { font-family: var(--font-ui); font-size: 1.05rem; margin: 0 0 0.5rem 0; color: var(--text-main); }
     .eco-list a { color: var(--accent-emerald); text-decoration: underline; text-underline-offset: 2px; }
+    .eco-list h4 a { color: inherit; text-decoration: none; }
+    .eco-list h4 a:hover { text-decoration: underline; }
 
     /* Écosystème — vignette Renaud */
     .eco-item-renaud { display: flex; gap: 1.5rem; align-items: flex-start; }
