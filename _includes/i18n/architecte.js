@@ -33,7 +33,7 @@ const pageTranslations = {
           desc1: "Validation d'un <a href='#' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>cursus spécialisé</a> en Ingénierie IA. Conception de l'architecture souveraine multi-agents SophIA. Rédaction et publication de l'essai technique <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA : Assistant suprême ?\"</em></a>.",
           date2: "Plus de 20 Ans d'expérience",
           role2: "Direction Technique & Expert Infrastructures Critiques",
-          desc2: "Pilotage de la stratégie IT et gestion d'infrastructures haut niveau. Maîtrise des protocoles de routage complexes (BGP), des routeurs opérateurs (Cisco ASR), de l'orchestration (OKD) et des serveurs bare-metal. Cette expertise garantit aujourd'hui la robustesse et la sécurité absolue des architectures IA que je conçois.",
+          desc2: "Pilotage de la stratégie IT et gestion d'infrastructures haut niveau. Maîtrise des protocoles de routage complexes (BGP), des routeurs opérateurs (Cisco ASR), de l'orchestration (OKD) et des serveurs bare-metal. Cette expertise garantit aujourd'hui la robustesse et la sécurité des architectures IA que je conçois.",
 
           contactBtn: "Discuter d'une collaboration →",
           
@@ -79,7 +79,7 @@ const pageTranslations = {
           desc1: "Validation of a <a href='#' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>specialized curriculum</a> in AI Engineering. Design of the SophIA multi-agent sovereign architecture. Writing and publishing of the technical essay <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA: Supreme Assistant?\"</em></a>.",
           date2: "Over 20 Years of experience",
           role2: "Technical Direction & Critical Infrastructure Expert",
-          desc2: "Steering IT strategy and managing high-level infrastructures. Mastery of complex routing protocols (BGP), carrier routers (Cisco ASR), orchestration (OKD), and bare-metal servers. This expertise now guarantees the robustness and absolute security of the AI architectures I design.",
+          desc2: "Steering IT strategy and managing high-level infrastructures. Mastery of complex routing protocols (BGP), carrier routers (Cisco ASR), orchestration (OKD), and bare-metal servers. This expertise now guarantees the robustness and security of the AI architectures I design.",
 
           contactBtn: "Discuss a collaboration →",
           
