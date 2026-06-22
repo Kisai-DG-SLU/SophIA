@@ -70,6 +70,12 @@
     .eco-list h4 { font-family: var(--font-ui); font-size: 1.05rem; margin: 0 0 0.5rem 0; color: var(--text-main); }
     .eco-list a { color: var(--accent-emerald); text-decoration: underline; text-underline-offset: 2px; }
 
+    /* Écosystème — vignette Renaud */
+    .eco-item-renaud { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .eco-item-img { flex-shrink: 0; width: 120px; }
+    .eco-item-img img { width: 100%; height: auto; border-radius: 8px; display: block; }
+    .eco-item-content { flex: 1; }
+
     /* Footer */
     .footer { background: var(--bg-dark); color: var(--text-dark-muted); border-top: 1px solid var(--border-dark); padding: 2.5rem 0; font-family: var(--font-ui); font-size: .9rem; }
     .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
@@ -83,5 +89,7 @@
       .controls-wrapper { margin-left: 0; }
       .journey-timeline { padding-left: 1.5rem; }
       .journey-item::before { left: -1.85rem; }
+      .eco-item-renaud { flex-direction: column; }
+      .eco-item-img { width: 80px; }
     }
   
