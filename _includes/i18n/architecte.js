@@ -6,7 +6,7 @@ const pageTranslations = {
           lead: "Je m'appelle Damien Guesdon.<br>On ne sécurise pas une IA si l'on ne comprend pas l'infrastructure sur laquelle elle repose.<br>Mon approche de l'IA n'est pas algorithmique, elle est fondamentalement architecturale.",
 
           visionTitle: "Guider, structurer, fédérer.",
-          visionIntro: "Je ne suis pas un développeur freelance qui exécute \"à la place\" de vos équipes. Je suis un leader technique. Ma mission en tant que VP Engineering ou Head of AI Platform est de définir une gouvernance stricte et de guider vos ingénieurs vers le déploiement d'une infrastructure maîtrisée.",
+          visionIntro: "J'accompagne vos équipes techniques avec une vision stratégique, sans me substituer à elles, je les oriente et définis avec elles la feuille de route.",
           leadTitle1: "Aligner l'Ingénierie sur la Stratégie",
           lead1_1: "Face à l'IA, les organisations oscillent souvent entre l'enthousiasme aveugle et la méfiance absolue. Mon rôle est de réconcilier ces deux mondes.",
           lead1_2: "Il s'agit de démystifier l'outil auprès du Board (Comex/Codir) en prouvant que l'IA n'est pas une \"boîte noire magique\", mais un processus d'ingénierie prédictible, contrôlable, et soumis à des règles du jeu inviolables.",
@@ -52,7 +52,7 @@ const pageTranslations = {
           lead: "My name is Damien Guesdon.<br>You cannot secure an AI if you don't understand the infrastructure it runs on.<br>My approach to AI is not algorithmic; it is fundamentally architectural.",
 
           visionTitle: "Guiding, structuring, federating.",
-          visionIntro: "I am not a freelance developer who executes \"instead of\" your teams. I am a technical leader. My mission as VP Engineering or Head of AI Platform is to define strict governance and guide your engineers towards deploying a controlled infrastructure.",
+          visionIntro: "I accompany your technical teams with a strategic vision, without substituting myself for them, I guide them and define the roadmap with them.",
           leadTitle1: "Aligning Engineering with Strategy",
           lead1_1: "Faced with AI, organizations often oscillate between blind enthusiasm and absolute distrust. My role is to reconcile these two worlds.",
           lead1_2: "This involves demystifying the tool for the Board (Comex/Codir) by proving that AI is not a \"magic black box\", but a predictable, controllable engineering process subject to unbreakable rules.",
