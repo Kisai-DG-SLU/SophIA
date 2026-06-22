@@ -27,7 +27,7 @@ const pageTranslations = {
           act4Text2: "La valeur ajoutée de l'Architecte n'est pas d'avoir un algorithme révolutionnaire, c'est d'avoir essuyé les plâtres. C'est d'avoir pensé l'architecture de sécurité globale, mis en place les verrous cognitifs (HITL, RBAC) et réussi à faire dialoguer ces composants pour créer un système souverain, stable et prêt pour l'industrie.",
 
           journeyTitle: "Parcours & Expertise",
-          journeyIntro: "Un background résolument ancré dans les infrastructures critiques (Bare-metal, Réseau, BGP), aujourd'hui complété par une maîtrise des écosystèmes d'Intelligence Artificielle.",
+          journeyIntro: "Un background résolument ancré dans les infrastructures critiques (Bare-metal, Réseau, BGP...), aujourd'hui complété par une maîtrise des écosystèmes d'Intelligence Artificielle.",
           date1: "2026",
           role1: "Ingénierie IA & Architecture",
           desc1: "Validation d'un <a href='#' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>cursus spécialisé</a> en Ingénierie IA. Conception de l'architecture souveraine multi-agents SophIA. Rédaction et publication de l'essai technique <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA : Assistant suprême ?\"</em></a>.",
@@ -73,7 +73,7 @@ const pageTranslations = {
           act4Text2: "The added value of the Architect is not having a revolutionary algorithm, it's having cleared the path. It's having designed the overall security architecture, set up the cognitive locks (HITL, RBAC), and successfully made these components talk to each other to create a sovereign, stable system ready for the industry.",
 
           journeyTitle: "Background & Expertise",
-          journeyIntro: "A background firmly rooted in critical infrastructures (Bare-metal, Network, BGP), today complemented by a mastery of Artificial Intelligence ecosystems.",
+          journeyIntro: "A background firmly rooted in critical infrastructures (Bare-metal, Network, BGP...), today complemented by a mastery of Artificial Intelligence ecosystems.",
           date1: "2026",
           role1: "AI Engineering & Architecture",
           desc1: "Validation of a <a href='#' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>specialized curriculum</a> in AI Engineering. Design of the SophIA multi-agent sovereign architecture. Writing and publishing of the technical essay <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA: Supreme Assistant?\"</em></a>.",
