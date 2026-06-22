@@ -38,7 +38,7 @@ const pageTranslations = {
           contactBtn: "Discuter d'une collaboration →",
           
           ecoTitle: "Un Écosystème d'Artisans",
-          ecoIntro: "L'indépendance technologique ne se construit pas en vase clos. Je me positionne en fédérateur d'une communauté grandissante d'experts qui militent pour une IA ouverte, souveraine et robuste.",
+          ecoIntro: "L'indépendance technologique ne se construit pas en vase clos. Une communauté grandissante d'experts milite pour une IA ouverte, souveraine et robuste.",
           eco1Title: "La Veille Stratégique : Renaud Dekode",
           eco1Desc: "Dans un marché inondé par le bruit marketing, la communauté <a href='#' target='_blank'>Renaud Dekode</a> est un point d'ancrage vital pour le discernement technologique et l'échange entre professionnels de l'IA.",
           eco2Title: "Les outils compagnons : Loky & Gungnir",
@@ -84,7 +84,7 @@ const pageTranslations = {
           contactBtn: "Discuss a collaboration →",
           
           ecoTitle: "An Ecosystem of Artisans",
-          ecoIntro: "Technological independence is not built in a vacuum. I position myself as a federator of a growing community of experts campaigning for an open, sovereign, and robust AI.",
+          ecoIntro: "Technological independence is not built in a vacuum. A growing community of experts advocates for an open, sovereign, and robust AI.",
           eco1Title: "Strategic Watch: Renaud Dekode",
           eco1Desc: "In a market flooded by marketing noise, the <a href='#' target='_blank'>Renaud Dekode</a> community is a vital anchor for technological discernment and exchange between AI professionals.",
           eco2Title: "Companion tools: Loky & Gungnir",
