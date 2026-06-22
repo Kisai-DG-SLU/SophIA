@@ -35,16 +35,20 @@ custom_i18n: ingenierie
                          WireGuard Access
                                 │
                                 ▼
-                  +----------------------------+
-                  | 2. Cerveau : Hermes (Orch.)|
-                  |     & LiteLLM (Routage)    |
-                  +-------------+--------------+
-                                │
-       ┌──────────┬─────────────┼──────────────┬───────────┐
-       ▼          ▼             ▼              ▼           ▼
-   1. Socle   3. Mémoire   4. Panthéon    Automatisation  5. Outils
-  OKD / K8s    RAG 5D      (Dev, Deploy,     (n8n)        (MCP, TTS,
- Bare-metal   Pipeline    Maintenance)                  Ghost Web)
+┌───────────────────────────────┼────────────────────────────────────┐
+│                       1. Fondations : Matériel & K8s              │
+│                               │                                   │
+│                     +----------------------------+                │
+│                     | 2. Cerveau : Hermes (Orch.)|               │
+│                     |     & LiteLLM (Routage)    |               │
+│                     +-------------+--------------+                │
+│                               │                                   │
+│   ┌────────────┬──────────────┼────────────────────┬────────────┐ │
+│   ▼            ▼              ▼                    ▼            ▼ │
+│ 3. Mémoire  4. Panthéon   5. Automatisation     6. Outils       │
+│  RAG 5D     (Dev,Deploy,     (n8n)                (MCP,TTS,    │
+│ Pipeline     Maintenance)                        Ghost Web)    │
+└──────────────────────────────────────────────────────────────────┘
 </pre>
           </div>
         </div>
