@@ -3,7 +3,7 @@ const pageTranslations = {
     arch: {
           eyebrow: "Vision & Direction Technique",
           h1: "De l'infrastructure critique à la gouvernance de l'IA.",
-          lead: "Je m'appelle Damien Guesdon.<br>On ne sécurise pas une Intelligence Artificielle si l'on ne comprend pas le réseau sur lequel elle tourne.<br>Mon approche de l'IA n'est pas algorithmique, elle est fondamentalement architecturale.",
+          lead: "Je m'appelle Damien Guesdon.<br>On ne sécurise pas une IA si l'on ne comprend pas l'infrastructure sur laquelle elle repose.<br>Mon approche de l'IA n'est pas algorithmique, elle est fondamentalement architecturale.",
 
           visionTitle: "Guider, structurer, fédérer.",
           visionIntro: "Je ne suis pas un développeur freelance qui exécute \"à la place\" de vos équipes. Je suis un leader technique. Ma mission en tant que VP Engineering ou Head of AI Platform est de définir une gouvernance stricte et de guider vos ingénieurs vers le déploiement d'une infrastructure maîtrisée.",
@@ -49,7 +49,7 @@ const pageTranslations = {
     arch: {
           eyebrow: "Vision & Technical Direction",
           h1: "From critical infrastructure to AI governance.",
-          lead: "My name is Damien Guesdon.<br>You cannot secure an Artificial Intelligence if you don't understand the network it runs on.<br>My approach to AI is not algorithmic; it is fundamentally architectural.",
+          lead: "My name is Damien Guesdon.<br>You cannot secure an AI if you don't understand the infrastructure it runs on.<br>My approach to AI is not algorithmic; it is fundamentally architectural.",
 
           visionTitle: "Guiding, structuring, federating.",
           visionIntro: "I am not a freelance developer who executes \"instead of\" your teams. I am a technical leader. My mission as VP Engineering or Head of AI Platform is to define strict governance and guide your engineers towards deploying a controlled infrastructure.",
