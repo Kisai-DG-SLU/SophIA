@@ -43,7 +43,7 @@ const pageTranslations = {
           eco1Desc: "Dans un marché inondé par le bruit marketing, <a href='https://www.renaud-dekode.fr/' target='_blank'>Renaud Dekode</a> effectue à lui seul un travail phénoménal de veille. Il anime de manière dynamique, pédagogique et sur un ton léger toutes les actualités de la tech, du digital et de l'IA. L'IA occupe aujourd'hui 99% de ses actualités, mais il ne s'y limite pas.<br>Il organise régulièrement des ateliers qui ont permis de développer plusieurs outils gratuits avec sa communauté, et interviewe des personnalités de l'IA. Toute entreprise devrait inciter ses équipes IT à suivre sa chaîne.",
           ecoLead: "SophIA est une étude architecturale. Mais d'autres artisans ont forgé des solutions concrètes, finalisées et clé en main.",
           eco2Title: "<a href='https://loki.omniatek.fr/' target='_blank' rel='noopener noreferrer'>Loky, par Omniatek</a>",
-          eco2Desc: "Loky incarne la vision pragmatique et le principe KISS. Un Perplexity-like dédié à l'entreprise, déployable on premise.",
+          eco2Desc: "Yannick Tanneur incarne le pragmatisme et le principe KISS. En ce sens, il a développé Loky, un Perplexity-like efficace, sans fioritures, dédié à l'entreprise, hébergé chez Omniatek ou déployable on-premise.",
           eco3Title: "<a href='https://scarletwolf.cloud/' target='_blank' rel='noopener noreferrer'>Gungnir, par Scarlet Wolf</a>",
           eco3Desc: "Gungnir adopte une vision opposée, plus philosophique. L'IA y est dotée d'une conscience persistante et de mécanismes d'auto-amélioration. Un projet ambitieux qui regroupe de nombreux outils, le tout déployable en un seul clic."
         },
@@ -92,7 +92,7 @@ const pageTranslations = {
           eco1Desc: "In a market flooded by marketing noise, <a href='https://www.renaud-dekode.fr/' target='_blank'>Renaud Dekode</a> does a phenomenal job all by himself. He covers all tech, digital and AI news in a dynamic, pedagogical and light-hearted tone. AI currently accounts for 99% of his content, but he doesn't limit himself to it.<br>He regularly organizes workshops that have led to several free tools built with his community, and interviews AI personalities. Every company should encourage its IT teams to follow his channel.",
           ecoLead: "SophIA is an architectural study. But other craftsmen have forged concrete, finalized, turnkey solutions.",
           eco2Title: "<a href='https://loki.omniatek.fr/' target='_blank' rel='noopener noreferrer'>Loky, by Omniatek</a>",
-          eco2Desc: "Loky embodies the pragmatic vision and the KISS principle. A Perplexity-like search engine dedicated to the enterprise, deployable on premise.",
+          eco2Desc: "Yannick Tanneur embodies pragmatism and the KISS principle. He developed Loky, an efficient, no-frills Perplexity-like search engine dedicated to the enterprise, hosted at Omniatek or deployable on-premise.",
           eco3Title: "<a href='https://scarletwolf.cloud/' target='_blank' rel='noopener noreferrer'>Gungnir, by Scarlet Wolf</a>",
           eco3Desc: "Gungnir takes the opposite, more philosophical approach. AI is given a persistent consciousness and self-improvement mechanisms. An ambitious project bundling many tools, all deployable in one click."
         },
