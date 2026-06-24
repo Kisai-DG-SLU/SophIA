@@ -9,7 +9,8 @@
 
     /* Hero */
     .hero { padding: 6rem 0 5rem; background: var(--bg-dark); color: var(--text-dark); border-bottom: 1px solid var(--accent-gold); }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
+    .hero-header { grid-column: 1 / -1; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: .5rem; padding: .2rem 0; font-family: var(--font-ui); font-size: 0.85rem;
       color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; font-weight: 600;
