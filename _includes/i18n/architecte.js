@@ -45,7 +45,7 @@ const pageTranslations = {
           eco2Title: "<a href='https://loki.omniatek.fr/' target='_blank' rel='noopener noreferrer'>Loky, par Omniatek</a>",
           eco2Desc: "Yannick Tanneur incarne le pragmatisme et le principe KISS. En ce sens, il a développé Loky, un Perplexity-like efficace, sans fioritures, dédié à l'entreprise, hébergé chez Omniatek ou déployable on-premise.",
           eco3Title: "<a href='https://scarletwolf.cloud/' target='_blank' rel='noopener noreferrer'>Gungnir, par Scarlet Wolf</a>",
-          eco3Desc: "Gungnir adopte une vision opposée, plus philosophique. L'IA y est dotée d'une conscience persistante et de mécanismes d'auto-amélioration. Un projet ambitieux qui regroupe de nombreux outils, le tout déployable en un seul clic."
+          eco3Desc: "Kevin Guegan adopte une vision opposée, plus philosophique. Gungnir y est doté d'une conscience persistante et de mécanismes d'auto-amélioration. Un projet ambitieux qui regroupe de nombreux outils, le tout déployable en un seul clic."
         },
   },
   en: {
@@ -94,7 +94,7 @@ const pageTranslations = {
           eco2Title: "<a href='https://loki.omniatek.fr/' target='_blank' rel='noopener noreferrer'>Loky, by Omniatek</a>",
           eco2Desc: "Yannick Tanneur embodies pragmatism and the KISS principle. He developed Loky, an efficient, no-frills Perplexity-like search engine dedicated to the enterprise, hosted at Omniatek or deployable on-premise.",
           eco3Title: "<a href='https://scarletwolf.cloud/' target='_blank' rel='noopener noreferrer'>Gungnir, by Scarlet Wolf</a>",
-          eco3Desc: "Gungnir takes the opposite, more philosophical approach. AI is given a persistent consciousness and self-improvement mechanisms. An ambitious project bundling many tools, all deployable in one click."
+          eco3Desc: "Kevin Guegan takes the opposite, more philosophical approach. Gungnir is endowed with a persistent consciousness and self-improvement mechanisms. An ambitious project bundling many tools, all deployable in one click."
         },
   }
 };
