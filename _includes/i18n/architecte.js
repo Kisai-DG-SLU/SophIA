@@ -44,7 +44,7 @@ const pageTranslations = {
           ecoLead: "SophIA est une étude architecturale. Mais d'autres artisans ont forgé des solutions concrètes, finalisées et clé en main :",
           eco2Title: "<a href='https://loki.omniatek.fr/' target='_blank' rel='noopener noreferrer'>Loky, par Omniatek</a>",
           eco2Desc: "<strong>Yannick Tanneur</strong> incarne le pragmatisme et le principe KISS. En ce sens, il a développé <strong>Loky</strong>, un Perplexity-like efficace, sans fioritures, dédié à l'entreprise, hébergé chez <strong>Omniatek</strong> ou déployable on-premise.",
-          eco3Title: "<a href='https://scarletwolf.cloud/' target='_blank' rel='noopener noreferrer'>Gungnir, par Scarlet Wolf</a>",
+          eco3Title: "<a href='https://scarletwolf.ai/' target='_blank' rel='noopener noreferrer'>Gungnir, par Scarlet Wolf</a>",
           eco3Desc: "<strong>Kevin Guegan</strong> adopte une vision opposée, plus philosophique. <strong>Gungnir</strong> y est doté d'une conscience persistante et de mécanismes d'auto-amélioration. Un projet ambitieux de <strong>Scarlet Wolf</strong> qui regroupe de nombreux outils, le tout déployable en un seul clic."
         },
   },
@@ -93,7 +93,7 @@ const pageTranslations = {
           ecoLead: "SophIA is an architectural study. But other craftsmen have forged concrete, finalized, turnkey solutions:",
           eco2Title: "<a href='https://loki.omniatek.fr/' target='_blank' rel='noopener noreferrer'>Loky, by Omniatek</a>",
           eco2Desc: "<strong>Yannick Tanneur</strong> embodies pragmatism and the KISS principle. He developed <strong>Loky</strong>, an efficient, no-frills Perplexity-like search engine dedicated to the enterprise, hosted at <strong>Omniatek</strong> or deployable on-premise.",
-          eco3Title: "<a href='https://scarletwolf.cloud/' target='_blank' rel='noopener noreferrer'>Gungnir, by Scarlet Wolf</a>",
+          eco3Title: "<a href='https://scarletwolf.ai/' target='_blank' rel='noopener noreferrer'>Gungnir, by Scarlet Wolf</a>",
           eco3Desc: "<strong>Kevin Guegan</strong> takes the opposite, more philosophical approach. <strong>Gungnir</strong> is endowed with a persistent consciousness and self-improvement mechanisms. An ambitious project by <strong>Scarlet Wolf</strong> bundling many tools, all deployable in one click."
         },
   }
