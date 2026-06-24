@@ -2,13 +2,13 @@ const pageTranslations = {
   fr: {
     hero: { 
           eyebrow: "L'IA est devenue une infrastructure", 
-          h1: "L'IA ne doit pas vous coûter votre Souveraineté.", 
-          titleLine: "SophIA n'est pas un produit sur étagère. C'est une proposition d'architecture d'orchestration open-source, multi-agents et bunkerisée.", 
-          description: "C'est le plan d'ingénierie que je propose aux entreprises pour déployer l'Intelligence Artificielle en interne, sans compromettre leur propriété intellectuelle, ni s'enfermer dans un 'vendor lock-in' américain.", 
-          note: "Méthodologie ouverte, pensée pour la production de niveau industriel et le déploiement sur infrastructure critique.", 
+          h1: "Industrialisez l'IA sans exposer votre propriété intellectuelle.", 
+          titleLine: "SophIA est une plateforme multi-agents open-source, modulaire et souveraine. Vos données ne quittent jamais votre infrastructure.", 
+          description: "Conçu pour les entreprises. Agentique sans nécessiter de modèle agentique : l'orchestration gère la délégation et le routage entre modèles (Mistral, Llama, Qwen, Gemma interchangeables). Aucun vendor lock-in, aucune dépendance cloud. Ce n'est pas un produit clé en main — c'est un blueprint d'architecture, un plan d'ingénierie, une méthode ouverte.", 
+          note: "Multi-agents sans dépendance cloud. Pensé pour la production de niveau industriel, déployé sur votre infrastructure critique.", 
           viewArchitecture: "Découvrir l'architecture", 
           contact: "Internaliser cette solution", 
-          meta1: "Blueprint Open-Source", meta2: "Souveraineté des Données", meta3: "No Vendor Lock-in", meta4: "Inférence Locale & Routage" 
+          meta1: "Multi-Agents Souverain", meta2: "Données On-Premise", meta3: "LLM Agnostic", meta4: "Aucun Vendor Lock-in" 
         },
     problem: { 
           title: "L'explosion du 'Shadow AI'", 
@@ -46,13 +46,13 @@ const pageTranslations = {
   en: {
     hero: { 
           eyebrow: "AI is the new infrastructure", 
-          h1: "Artificial Intelligence shouldn't cost you your Sovereignty.", 
-          titleLine: "SophIA is not an off-the-shelf product. It's an open-source, multi-agent, and bunkerized AI orchestration architecture.", 
-          description: "It's the engineering blueprint I propose to companies to deploy AI internally, without compromising their intellectual property or getting locked into American vendor ecosystems.", 
-          note: "Open methodology, designed for industrial-grade production and deployment on critical infrastructure.", 
+          h1: "Industrialize AI without exposing your intellectual property.", 
+          titleLine: "SophIA is an open-source, modular, sovereign multi-agent platform. Your data never leaves your infrastructure.", 
+          description: "Built for enterprises. Agentic without requiring agentic models: orchestration handles delegation and routing between interchangeable models (Mistral, Llama, Qwen, Gemma). No vendor lock-in, no cloud dependency. This is not a turnkey product — it's an architecture blueprint, an engineering plan, an open methodology.", 
+          note: "Multi-agent without cloud dependency. Designed for industrial-grade production, deployed on your critical infrastructure.", 
           viewArchitecture: "Discover the architecture", 
           contact: "Internalize this solution", 
-          meta1: "Open-Source Blueprint", meta2: "Data Sovereignty", meta3: "No Vendor Lock-in", meta4: "Local Inference & Routing" 
+          meta1: "Sovereign Multi-Agent", meta2: "Data On-Premise", meta3: "LLM Agnostic", meta4: "No Vendor Lock-in" 
         },
     problem: { 
           title: "The 'Shadow AI' Explosion", 
