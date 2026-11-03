@@ -6,7 +6,7 @@ const pageTranslations = {
           lead: "Je m'appelle Damien Guesdon.<br>On ne sécurise pas une IA si l'on ne comprend pas l'infrastructure sur laquelle elle repose.<br>Mon approche de l'IA n'est pas algorithmique, elle est fondamentalement architecturale.",
 
           visionTitle: "Guider, structurer, fédérer.",
-          visionIntro: "J'accompagne vos équipes techniques avec une vision stratégique, sans me substituer à elles, je les oriente et définis avec elles la feuille de route. Ma mission en tant que VP Engineering ou Head of AI Platform est de définir une gouvernance stricte et de guider vos ingénieurs vers le déploiement d'une infrastructure maîtrisée.",
+          visionIntro: "J'accompagne vos équipes techniques avec une vision stratégique, sans me substituer à elles, je les oriente et définis avec elles la feuille de route. Que ce soit en mission, par Kisaï, ou au sein de vos équipes, ma mission est de définir une gouvernance stricte et de guider vos ingénieurs vers le déploiement d'une infrastructure maîtrisée.",
           leadTitle1: "Aligner l'Ingénierie sur la Stratégie",
           lead1_1: "Face à l'IA, les organisations oscillent souvent entre l'enthousiasme aveugle et la méfiance absolue. Mon rôle est de réconcilier ces deux mondes.",
           lead1_2: "Il s'agit de démystifier l'outil auprès du Board (Comex/Codir) en prouvant que l'IA n'est pas une \"boîte noire magique\", mais un processus d'ingénierie prédictible, contrôlable, et soumis à des règles du jeu inviolables.",
@@ -30,8 +30,8 @@ const pageTranslations = {
           journeyIntro: "Un background résolument ancré dans les infrastructures critiques (Bare-metal, Réseau, BGP,...), aujourd'hui complété par une maîtrise des écosystèmes d'Intelligence Artificielle.",
           date1: "2026",
           role1: "Ingénierie IA & Architecture",
-          desc1: "Validation d'un <a href='https://kisai-dg-slu.github.io/' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>cursus spécialisé</a> en Ingénierie IA. Conception de l'architecture souveraine multi-agents SophIA. Rédaction et publication de l'essai technique <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA : Assistant suprême ?\"</em></a>.",
-          date2: "Plus de 20 Ans d'expérience",
+          desc1: "Validation d'un <a href='https://kisai-dg-slu.github.io/' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>cursus spécialisé</a> en Ingénierie IA. Conception de l'architecture souveraine multi-agents SophIA. Rédaction et publication de l'essai technique <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA : Assistant suprême ?\"</em></a>. Création de Kisaï, entreprise individuelle de conseil et d'ingénierie (IA sur site, direction technique, infrastructure et réseau).",
+          date2: "Plus de vingt ans d'expérience",
           role2: "Direction Technique & Expert Infrastructures Critiques",
           desc2: "Pilotage de la stratégie IT et gestion d'infrastructures haut niveau. Maîtrise des protocoles de routage complexes (BGP), des routeurs opérateurs (Cisco ASR), de l'orchestration (OKD) et des serveurs bare-metal. Cette expertise garantit aujourd'hui la robustesse et la sécurité des architectures IA que je conçois.",
 
@@ -55,7 +55,7 @@ const pageTranslations = {
           lead: "My name is Damien Guesdon.<br>You cannot secure an AI if you don't understand the infrastructure it runs on.<br>My approach to AI is not algorithmic; it is fundamentally architectural.",
 
           visionTitle: "Guiding, structuring, federating.",
-          visionIntro: "I accompany your technical teams with a strategic vision, without substituting myself for them, I guide them and define the roadmap with them. My mission as VP Engineering or Head of AI Platform is to define strict governance and guide your engineers towards deploying a controlled infrastructure.",
+          visionIntro: "I accompany your technical teams with a strategic vision, without substituting myself for them, I guide them and define the roadmap with them. Whether on assignment through Kisaï or within your teams, my mission is to define strict governance and guide your engineers towards deploying a controlled infrastructure.",
           leadTitle1: "Aligning Engineering with Strategy",
           lead1_1: "Faced with AI, organizations often oscillate between blind enthusiasm and absolute distrust. My role is to reconcile these two worlds.",
           lead1_2: "This involves demystifying the tool for the Board (Comex/Codir) by proving that AI is not a \"magic black box\", but a predictable, controllable engineering process subject to unbreakable rules.",
@@ -79,8 +79,8 @@ const pageTranslations = {
           journeyIntro: "A background firmly rooted in critical infrastructures (Bare-metal, Network, BGP,...), today complemented by a mastery of Artificial Intelligence ecosystems.",
           date1: "2026",
           role1: "AI Engineering & Architecture",
-          desc1: "Validation of a <a href='https://kisai-dg-slu.github.io/' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>specialized curriculum</a> in AI Engineering. Design of the SophIA multi-agent sovereign architecture. Writing and publishing of the technical essay <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA: Supreme Assistant?\"</em></a>.",
-          date2: "Over 20 Years of experience",
+          desc1: "Validation of a <a href='https://kisai-dg-slu.github.io/' target='_blank' rel='noopener noreferrer' style='text-decoration:underline;'>specialized curriculum</a> in AI Engineering. Design of the SophIA multi-agent sovereign architecture. Writing and publishing of the technical essay <a href='livre.html' style='text-decoration:underline;'><em>\"SophIA: Supreme Assistant?\"</em></a>. Founded Kisaï, a sole-proprietor consulting and engineering company (on-premise AI, technical leadership, infrastructure and networking).",
+          date2: "Over twenty years of experience",
           role2: "Technical Direction & Critical Infrastructure Expert",
           desc2: "Steering IT strategy and managing high-level infrastructures. Mastery of complex routing protocols (BGP), carrier routers (Cisco ASR), orchestration (OKD), and bare-metal servers. This expertise now guarantees the robustness and security of the AI architectures I design.",
 
