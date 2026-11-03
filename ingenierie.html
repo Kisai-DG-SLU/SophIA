@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Ingénierie — Architecture Modulaire SophIA
-description: "Cartographie de l'architecture SophIA : Fondations, Cerveau, Mémoire RAG, Panthéon Agentique et Roadmap d'intégration."
+description: "Cartographie de l'architecture SophIA : Fondations, Cockpit et identité, Répartiteur, Mémoire RAG 5D, Panthéon agentique, Services, Outils et Feuille de route."
 permalink: /ingenierie.html
 custom_css: ingenierie
 custom_i18n: ingenierie
@@ -12,9 +12,7 @@ custom_i18n: ingenierie
       <div class="container">
         <div class="eyebrow" data-i18n="eng.eyebrow">Cartographie Fonctionnelle</div>
         <h1 data-i18n="eng.h1">L'Ingénierie de SophIA.</h1>
-        <p class="lead" data-i18n="eng.lead">
-          SophIA n'est pas un bloc monolithique. C'est une architecture <strong>agnostique et modulaire</strong> organisée en 5 piliers distincts. Chaque composant technique est une proposition open-source, substituable selon l'écosystème et la politique de votre DSI.
-        </p>
+        <p class="lead" data-i18n="eng.lead">SophIA n'est pas un bloc monolithique. C'est une architecture <strong>agnostique et modulaire</strong> organisée en couches distinctes. Chaque composant technique est une proposition open source, substituable selon l'écosystème et la politique de votre DSI.</p>
       </div>
     </section>
 
@@ -30,49 +28,65 @@ custom_i18n: ingenierie
           <div class="terminal-body">
 <div class="diagram-lang" data-lang="fr">
 <pre>
-                             Users / IDE / API
-                                     │
-                                     ▼
-                              WireGuard Access
-                                     │
-                                     ▼
-┌────────────────────────────────────┼───────────────────────────────────────┐
-│                       1. Fondations : Matériel & K8s                       │
-│                                    │                                       │
-│                       +----------------------------+                       │
-│                       | 2. Cerveau : Hermes (Orch.)|                       │
-│                       |     & LiteLLM (Routage)    |                       │
-│                       +------------+---------------+                       │
-│                                    │                                       │
-│      ┌───────────────────┬─────────┼──────────┬──────────────────┐         │
-│      ▼                   ▼                    ▼                  ▼         │
-│  3. Mémoire   4. Panthéon Agentique    5. Automatisation    6. Outils      │
-│    RAG⁵           (Dev,Deploy,              (n8n)            (MCP,TTS,     │
-│   Pipeline        Maintenance)                              Ghost Web)     │
+                       Utilisateurs / navigateur / API
+                                      │
+                                      ▼
+                            Accès WireGuard (VPN)
+                                      │
+┌─────────────────────────────────────┼──────────────────────────────────────┐
+│                   1. Fondations : matériel & Kubernetes                    │
+│                                     │                                      │
+│                                     ▼                                      │
+│               +--------------------------------------------+               │
+│               |                 2. Cockpit                 |               │
+│               |         identité unique (Keycloak)         |               │
+│               +---------------------+----------------------+               │
+│                                     │                                      │
+│               +---------------------+----------------------+               │
+│               |          3. Répartiteur à règles           |               │
+│               |      Temporal · RabbitMQ · validation      |               │
+│               +---------------------+----------------------+               │
+│                                     │                                      │
+│      ┌─────────────────┬────────────┴────────────┬─────────────┐           │
+│      ▼                 ▼                         ▼             ▼           │
+│   4. Mémoire        5. Panthéon               6. Services   7. Outils      │
+│      RAG 5D            agentique                bureautique,  MCP,         │
+│                                                 messagerie,   sas web      │
+│                                                 visio                      │
+│                                                                            │
+│       Routeur LiteLLM ──► inférence locale (GPU) · modèles distants        │
 └────────────────────────────────────────────────────────────────────────────┘
 </pre>
 </div>
 <div class="diagram-lang" data-lang="en">
 <pre>
-                             Users / IDE / API
-                                     │
-                                     ▼
-                              WireGuard Access
-                                     │
-                                     ▼
-┌────────────────────────────────────┼───────────────────────────────────────┐
-│                       1. Foundations: Hardware & K8s                       │
-│                                    │                                       │
-│                       +----------------------------+                       │
-│                       |  2. Brain: Hermes (Orch.)  |                       │
-│                       |    & LiteLLM (Routing)     |                       │
-│                       +------------+---------------+                       │
-│                                    │                                       │
-│      ┌───────────────────┬─────────┼──────────┬──────────────────┐         │
-│      ▼                   ▼                    ▼                  ▼         │
-│  3. Memory     4. Agentic Pantheon     5. Automation         6. Tools      │
-│    RAG⁵            (Dev,Deploy,              (n8n)             (MCP,TTS,   │
-│   Pipeline         Maintenance)                              Ghost Web)    │
+                            Users / browser / API
+                                      │
+                                      ▼
+                            WireGuard access (VPN)
+                                      │
+┌─────────────────────────────────────┼──────────────────────────────────────┐
+│                   1. Foundations: hardware & Kubernetes                    │
+│                                     │                                      │
+│                                     ▼                                      │
+│               +--------------------------------------------+               │
+│               |                 2. Cockpit                 |               │
+│               |         single identity (Keycloak)         |               │
+│               +---------------------+----------------------+               │
+│                                     │                                      │
+│               +---------------------+----------------------+               │
+│               |          3. Rule-based dispatcher          |               │
+│               |       Temporal · RabbitMQ · approval       |               │
+│               +---------------------+----------------------+               │
+│                                     │                                      │
+│      ┌─────────────────┬────────────┴────────────┬─────────────┐           │
+│      ▼                 ▼                         ▼             ▼           │
+│   4. Memory         5. Agentic                6. Services   7. Tools       │
+│      5D RAG            Pantheon                 office suite  MCP,         │
+│                                                 messaging,    web airlock  │
+│                                                 video                      │
+│                                                                            │
+│          LiteLLM router ──► local inference (GPU) · remote models          │
 └────────────────────────────────────────────────────────────────────────────┘
 </pre>
 </div>
@@ -92,51 +106,64 @@ custom_i18n: ingenierie
         <div class="grid-2">
           <article class="card card-tech">
             <h3 data-i18n="eng.hardwareTitle">Le socle matériel (Compute)</h3>
-            <p data-i18n="eng.hardwareDesc">L'implémentation de référence s'appuie sur une infrastructure bare-metal (type Dell R630 / GPU A2). Cette base est transposable sur n'importe quel hyperviseur ou cloud privé répondant aux exigences de souveraineté de l'entreprise.</p>
+            <p data-i18n="eng.hardwareDesc">L'implémentation de référence s'appuie sur un serveur physique avec un GPU d'inférence. Cette base est transposable sur n'importe quel hyperviseur ou cloud privé répondant aux exigences de souveraineté de l'entreprise.</p>
           </article>
 
           <article class="card card-tech">
             <h3 data-i18n="eng.k8sTitle">L'Orchestration (Kubernetes / OKD)</h3>
-            <p data-i18n="eng.k8sDesc">L'intégralité du système est conteneurisée. J'utilise OKD (OpenShift) pour sa robustesse réseau, remplaçable par un K8s standard. Les processus d'inférence, de base de données et de bac à sable sont enfermés dans des <em>namespaces</em> étanches.</p>
+            <p data-i18n="eng.k8sDesc">L'intégralité du système est conteneurisée. J'utilise OKD (OpenShift) pour sa robustesse réseau, remplaçable par un K8s standard. Un namespace par zone, refus par défaut en entrée et en sortie ; inférence, compétences et mémoire sans accès Internet, acquisition web isolée dans un sas.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2 : LE CERVEAU -->
+    <!-- SECTION 2 : COCKPIT & IDENTITE -->
     <section class="section">
       <div class="container">
-        <h2 data-i18n="eng.brainTitle">2. Le Cerveau : Inférence, Routage & Orchestration</h2>
-        <p class="section-intro" data-i18n="eng.brainIntro">
-          L'architecture découple strictement l'intelligence logique (qui décide) du moteur d'inférence (qui calcule) pour éliminer tout risque de "vendor lock-in" et maximiser l'efficacité.
-        </p>
+        <h2 data-i18n="eng.cockpitSectionTitle">2. Cockpit & Identité</h2>
+        <p class="section-intro" data-i18n="eng.cockpitIntro">Une seule porte d'entrée pour les personnes, derrière le VPN et une identité unique.</p>
+        <div class="grid-2">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.cockpitTitle">Le Cockpit</h3>
+            <p data-i18n="eng.cockpitDesc">Une seule application : on parle à l'assistante, Sophia, par écrit ou à la voix (voix traitée en local) ; les applications s'ouvrent au centre selon le rôle, avec « Demander à Sophia » dans chacune. Un volet « Quoi de neuf ? » rassemble des résumés produits de façon déterministe par les applications. Sophia ouvre la bonne page (« ouvre le document X ») et écrit dans le document ouvert ; Ctrl+Z annule.</p>
+          </article>
+          <article class="card card-tech">
+            <h3 data-i18n="eng.ssoTitle">Identité unique (Keycloak)</h3>
+            <p data-i18n="eng.ssoDesc">Une connexion unique (SSO) pour toutes les interfaces, des rôles et cinq niveaux de confidentialité. Le modèle utilisé est imposé par le serveur selon le rôle, jamais choisi par le navigateur ; se déconnecter du cockpit ferme aussi les sessions des applications.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION 3 : LE CERVEAU -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.brainTitle">3. Le Cerveau : Répartition, Routage & Inférence</h2>
+        <p class="section-intro" data-i18n="eng.brainIntro">Le code orchestre, le modèle réfléchit, les règles décident. L'architecture découple strictement ce qui décide (des règles, sans modèle) de ce qui calcule (le moteur d'inférence), pour éliminer tout « vendor lock-in » et rendre chaque décision auditable.</p>
 
         <div class="grid-3">
           <article class="card card-tech">
-            <h3 data-i18n="eng.hermesTitle">Orchestration (ex: Hermes)</h3>
-            <p data-i18n="eng.hermesDesc">L'interface principale. C'est la couche cognitive qui reçoit la demande, l'analyse et décide du plan d'action à mener. Elle peut être remplacée par un autre orchestrateur open-source au gré des évolutions technologiques.</p>
+            <h3 data-i18n="eng.dispatcherTitle">Répartiteur à règles (Temporal, RabbitMQ)</h3>
+            <p data-i18n="eng.dispatcherDesc">Le point d'entrée unique des délégations. Le modèle propose en sortie contrainte, des règles valident sans modèle, une compétence déterministe exécute. Chaque demande devient un workflow durable ; les actions critiques attendent une validation humaine à deux niveaux.</p>
           </article>
 
           <article class="card card-tech">
             <h3 data-i18n="eng.routerTitle">Routage Dynamique (LiteLLM)</h3>
-            <p data-i18n="eng.routerDesc">Un point d'entrée d'API unique pour tous les modèles. Le routeur bascule dynamiquement la charge : la donnée critique est orientée vers l'inférence locale souveraine, tandis que les requêtes nécessitant une force de frappe massive peuvent déborder sur le Cloud.</p>
+            <p data-i18n="eng.routerDesc">Un point d'entrée d'API unique pour tous les modèles, locaux ou distants, derrière les mêmes alias, avec une clé par usage ; le modèle est imposé selon le rôle. La donnée sensible reste sur l'inférence locale ; pour un modèle distant, l'architecture prévoit un filtre anti-fuite avant tout envoi.</p>
           </article>
 
           <article class="card card-tech">
             <h3 data-i18n="eng.inferenceTitle">Inférence Locale Spécialisée</h3>
-            <p data-i18n="eng.inferenceDesc">L'architecture ne repose pas sur un modèle monolithique lourd, mais sur une approche modulaire « à la carte ». Le système orchestre une flotte de petits modèles spécialisés (SLM) dédiés à des tâches précises : <strong>développement, revue de code, ingestion RAG, ou encore traitement audio (TTS/STT)</strong>.</p>
+            <p data-i18n="eng.inferenceDesc">Texte et vision sur le GPU (llama.cpp), voix et images sur CPU, sans accès réseau ; vLLM ou Ollama sont substituables. Plutôt qu'un modèle monolithique lourd, une flotte de modèles spécialisés à la carte (<strong>développement, revue de code, ingestion, voix</strong>), extensible dans la limite de la mémoire du serveur (RAM/vRAM).</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3 : LA MEMOIRE -->
+    <!-- SECTION 4 : LA MEMOIRE -->
     <section class="section">
       <div class="container">
-        <h2 data-i18n="eng.memoryTitle">3. La Mémoire : Ingestion & RAG⁵</h2>
-        <p class="section-intro" data-i18n="eng.memoryIntro">
-          Pour prévenir les hallucinations probabilistes, l'architecture s'appuie sur un pipeline d'ingestion (chunking, embedding) et un Retrieval-Augmented Generation poussé à l'extrême.
-        </p>
+        <h2 data-i18n="eng.memoryTitle">4. La Mémoire : Ingestion & RAG 5D</h2>
+        <p class="section-intro" data-i18n="eng.memoryIntro">Pour prévenir les hallucinations, l'architecture s'appuie sur un pipeline d'ingestion (chunking, embedding) et une mémoire versionnée à cinq dimensions : chaque fait retrouvé peut être relié à sa source.</p>
 
         <div class="grid-2">
           <article class="card card-tech">
@@ -144,26 +171,24 @@ custom_i18n: ingenierie
             <ul>
               <li data-i18n="eng.rag1"><strong>Vectoriel (Qdrant) :</strong> Similarité sémantique pure.</li>
               <li data-i18n="eng.rag2"><strong>Relationnel (PostgreSQL) :</strong> Métadonnées et journalisation.</li>
-              <li data-i18n="eng.rag3"><strong>Versionning (Forgejo/Git) :</strong> "Source of Truth" validée et certifiée.</li>
+              <li data-i18n="eng.rag3"><strong>Versionné (Forgejo/Git) :</strong> originaux dans un stockage objet versionné, textes validés dans la forge, « source de vérité » certifiée.</li>
               <li data-i18n="eng.rag4"><strong>Structure (Obsidian) :</strong> Organisation et chunking conceptuel.</li>
-              <li data-i18n="eng.rag5"><strong>Graphe (Neo4j) :</strong> Interdépendances logiques du métier.</li>
+              <li data-i18n="eng.rag5"><strong>Graphe (Neo4j) :</strong> l'architecture prévoit un graphe des interdépendances logiques du métier.</li>
             </ul>
           </article>
 
           <article class="card card-tech" style="display: flex; flex-direction: column; justify-content: center;">
             <h3 data-i18n="eng.memoryOrgTitle">Structuration par Projets</h3>
-            <p data-i18n="eng.memoryOrgDesc">
-              La donnée est gérée via un système multi-utilisateurs et d'ownership. Chaque exécution est isolée par "Projet", garantissant que le contexte d'une équipe n'interfère pas de manière inopportune avec celui d'une autre.
-            </p>
+            <p data-i18n="eng.memoryOrgDesc">La donnée est gérée via un système multi-utilisateurs et d'ownership. Chaque exécution est isolée par "Projet", garantissant que le contexte d'une équipe n'interfère pas de manière inopportune avec celui d'une autre. Chaque document porte un niveau de confidentialité, appliqué selon le rôle de la personne.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4 : LE PANTHEON & N8N -->
+    <!-- SECTION 5 : LE PANTHEON & N8N -->
     <section class="section">
       <div class="container">
-        <h2 data-i18n="eng.pantheonTitle">4. Fonctions Intégrées : Le Panthéon & l'Automatisation</h2>
+        <h2 data-i18n="eng.pantheonTitle">5. Le Panthéon agentique & l'Automatisation</h2>
         <p class="section-intro" data-i18n="eng.pantheonIntro">
           SophIA sépare strictement l'orchestration cognitive (les Agents) de l'automatisation de processus (les Workflows).
         </p>
@@ -171,49 +196,65 @@ custom_i18n: ingenierie
         <div class="grid-2">
           <article class="card card-tech">
             <h3 data-i18n="eng.agentsTitle">Le Panthéon Agentique</h3>
-            <p data-i18n="eng.agentsDesc">Des agents spécialisés possédant des droits de namespace limités :</p>
+            <p data-i18n="eng.agentsDesc">Des agents spécialisés, un domaine chacun, joints par le seul répartiteur et jamais entre eux ; droits minimaux :</p>
             <ul>
-              <li data-i18n="eng.agent1"><strong>Hephaïstos :</strong> Développement assisté exécuté uniquement dans une sandbox stérile pour créer de nouveaux outils.</li>
+              <li data-i18n="eng.agent1"><strong>Hephaïstos :</strong> développement assisté, exécuté dans un bac à sable sans privilège sur le nœud, pour créer de nouveaux outils.</li>
               <li data-i18n="eng.agent2"><strong>Ouranos :</strong> En charge du déploiement et de l'exposition des outils validés.</li>
               <li data-i18n="eng.agent3"><strong>Athena :</strong> Maintenance de la plateforme. <em>Sécurité absolue : un script externe déterministe impose systématiquement un HITL sur ses actions, indépendamment de la décision du modèle.</em></li>
-              <li data-i18n="eng.agent4"><strong>Dionysos :</strong> Supervision de l'ensemble de l'architecture et des agents.</li>
+              <li data-i18n="eng.agent4"><strong>Dionysos :</strong> supervision de l'architecture et des agents, en lecture seule.</li>
             </ul>
+            <p data-i18n="eng.agentsEngine">Hermes Agent sert de moteur aux agents dont le métier est une boucle libre avec des outils.</p>
           </article>
 
           <article class="card card-tech">
             <h3 data-i18n="eng.n8nTitle">Automatisation Déterministe (n8n)</h3>
-            <p data-i18n="eng.n8nDesc">
-              L'automatisation pure des processus de l'entreprise ne relève pas de la probabilité d'un modèle IA. Elle est gérée par une brique déterministe stricte (n8n), qui peut être déclenchée par un agent, mais qui exécute des workflows immuables et codés en dur.
-            </p>
+            <p data-i18n="eng.n8nDesc">L'automatisation pure des processus de l'entreprise ne relève pas de la probabilité d'un modèle IA. L'architecture prévoit une brique déterministe stricte (n8n), déclenchée par un agent ou par le répartiteur, qui exécute des workflows immuables et codés en dur.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5 : OUTILS & SKILLS -->
+    <!-- SECTION 6 : SERVICES -->
     <section class="section">
       <div class="container">
-        <h2 data-i18n="eng.toolsTitle">5. Outils, Skills & Intégration SI</h2>
-        <p class="section-intro" data-i18n="eng.toolsIntro">
-          Un écosystème capacitaire modulaire, extensible à la demande via des intégrations natives, des protocoles standards (MCP) ou des projets open-source existants. L'interfaçage est audité et sur-mesure.
-        </p>
+        <h2 data-i18n="eng.servicesTitle">6. Services</h2>
+        <p class="section-intro" data-i18n="eng.servicesIntro">Les outils du quotidien, hébergés dans la plateforme, derrière la même identité, et accessibles à l'assistante sous l'identité de la personne.</p>
+        <div class="grid-3">
+          <article class="card card-tech">
+            <h3 data-i18n="eng.officeTitle">Bureautique</h3>
+            <p data-i18n="eng.officeDesc">Fichiers privés par défaut, édition dans le navigateur. Depuis la discussion, l'assistante retrouve, ouvre et lit les documents de la personne sous son identité ; leur contenu ne part qu'au modèle local.</p>
+          </article>
+          <article class="card card-tech">
+            <h3 data-i18n="eng.commsTitle">Messagerie & Visio</h3>
+            <p data-i18n="eng.commsDesc">Chat en XMPP et visio Jitsi Meet, par le navigateur seulement, le média passant uniquement par le VPN. « Dis à … » : l'assistante écrit un message au nom de la personne, après confirmation.</p>
+          </article>
+          <article class="card card-tech">
+            <h3 data-i18n="eng.obsTitle">Observabilité</h3>
+            <p data-i18n="eng.obsDesc">Métriques des services, règles d'alerte, suivi du GPU et garde-fou du VPN, état mesuré de chaque composant ; les alertes filtrées partent vers l'administrateur hors de la plateforme.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION 7 : OUTILS & SKILLS -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="eng.toolsTitle">7. Outils, Skills & Intégration SI</h2>
+        <p class="section-intro" data-i18n="eng.toolsIntro">Un écosystème capacitaire modulaire, extensible à la demande via des intégrations natives, des protocoles standards (MCP) ou des projets open source existants, par exemple des outils MCP locaux (géographie, images, fichiers). L'interfaçage est audité et sur mesure.</p>
 
         <div class="grid-2">
           <article class="card card-tech">
             <h3 data-i18n="eng.skillsTitle">Hygiène de la Donnée</h3>
             <ul>
-              <li data-i18n="eng.skill1"><strong>Ghost Search :</strong> Exécution de recherches fantômes simultanées pour masquer les intentions réelles et éviter le pistage web.</li>
-              <li data-i18n="eng.skill2"><strong>Sas Paranoïaque :</strong> Isolation de l'acquisition web dans des pods éphémères jetables.</li>
-              <li data-i18n="eng.skill3"><strong>Tribunal Sémantique :</strong> Évaluation du niveau de confiance de la donnée brute avant toute ingestion dans le RAG.</li>
-              <li data-i18n="eng.skill4"><strong>Filtre Anti-Fuite (DLP) :</strong> Détection, anonymisation ou blocage des données critiques (clés API, données financières) et remontée d'alerte <em>avant</em> toute transmission à un modèle distant.</li>
+              <li data-i18n="eng.skill1"><strong>Ghost Search :</strong> l'architecture prévoit des recherches fantômes simultanées pour masquer les intentions réelles et éviter le pistage web.</li>
+              <li data-i18n="eng.skill2"><strong>Sas Paranoïaque :</strong> l'acquisition web est isolée dans un sas : pages réduites en texte sans script, adresses internes refusées.</li>
+              <li data-i18n="eng.skill3"><strong>Tribunal Sémantique :</strong> l'architecture prévoit d'évaluer le niveau de confiance de la donnée brute avant toute ingestion dans la mémoire.</li>
+              <li data-i18n="eng.skill4"><strong>Filtre Anti-Fuite (DLP) :</strong> l'architecture prévoit la détection, l'anonymisation ou le blocage des données critiques (clés API, données financières), avec alerte, <em>avant</em> toute transmission à un modèle distant.</li>
             </ul>
           </article>
 
           <article class="card card-tech">
             <h3 data-i18n="eng.siTitle">Supervision Proactive & SOC</h3>
-            <p data-i18n="eng.siDesc1">
-              Au-delà de l'adaptation applicative permise par le RAG, l'architecture s'interface directement avec le Système d'Information via le standard MCP. Il est possible de connecter le SOC (Security Operations Center) ou les outils de supervision existants.
-            </p>
+            <p data-i18n="eng.siDesc1">Au-delà de l'adaptation applicative permise par le RAG, l'architecture prévoit de s'interfacer avec le Système d'Information via le standard MCP, pour connecter le SOC (Security Operations Center) ou les outils de supervision existants.</p>
             <p data-i18n="eng.siDesc2">
               Cette intégration permet une remontée d'alertes proactive et l'application de corrections automatisées. Qu'il s'agisse de développer un outil dédié ou de s'interfacer avec une API existante, chaque intégration est soumise à un audit rigoureux et à une analyse des risques propre à la situation de l'entreprise.
             </p>
@@ -222,12 +263,12 @@ custom_i18n: ingenierie
       </div>
     </section>
 
-    <!-- SECTION 6 : ROADMAP DE DEPLOIEMENT -->
+    <!-- SECTION 8 : ROADMAP DE DEPLOIEMENT -->
     <section class="section" style="background: var(--surface);">
       <div class="container">
         <div class="grid-2" style="align-items: center;">
           <div>
-            <h2 data-i18n="eng.roadmapTitle">6. Roadmap d'Industrialisation (18 mois)</h2>
+            <h2 data-i18n="eng.roadmapTitle">8. Roadmap d'Industrialisation (18 mois)</h2>
             <p class="section-intro" data-i18n="eng.roadmapIntro">
               Un déploiement critique ne s'improvise pas. Engager un CAPEX matériel avant d'avoir prouvé la viabilité d'un modèle est une hérésie financière. Voici la méthodologie de déploiement sécurisée pour un Comex.
             </p>
@@ -259,6 +300,7 @@ custom_i18n: ingenierie
                 <p data-i18n="eng.rdmDesc5" style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Ajout de nouveaux workflows, création de nouveaux "skills", et mise à jour itérative de la flotte de modèles locaux spécialisés (SLM).</p>
               </li>
             </ul>
+            <p class="section-intro" style="margin-top: 1.5rem; font-size: 0.95rem;" data-i18n="eng.roadmapLink">Où en est la plateforme : <a href="https://github.com/Kisai-DG-SLU/SophIA-platform/blob/main/docs/roadmap.md" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">feuille de route publique</a>.</p>
           </div>
 
           <div class="card" style="background: var(--bg-dark); border-color: var(--accent-gold); height: auto;">

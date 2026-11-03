@@ -2,7 +2,7 @@
 
 This repository contains the source code of the SOPHIA website.
 
-SOPHIA (Sovereign Orchestrator Platform for Holistic Intelligence Architecture) is an experimental architecture exploring how AI systems can be deployed in sovereign and secure infrastructures.
+SOPHIA (Sovereign Orchestrator Platform for Holistic Intelligence Architecture) assembles open-source building blocks into an agentic AI platform that the organization hosts, governs and audits itself. Security comes from the architecture, not from the model.
 
 The website presents:
 

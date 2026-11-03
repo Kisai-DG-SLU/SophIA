@@ -44,6 +44,14 @@
     .card p, .card li { color: var(--text-muted); font-size: 1rem; transition: color 0.3s ease; margin-bottom: 1rem;}
     .card ul { margin: 1rem 0 0; padding-left: 1.2rem; }
     
+    .features-title { margin: 4rem 0 1.5rem; font-size: 1.5rem; }
+    .features-grid { gap: 1.5rem; }
+    .features-grid .card { padding: 1.8rem; border-top: 3px solid var(--accent-gold); }
+    .features-grid .card p { margin-bottom: 0; font-size: .95rem; }
+    .features-more { margin: 2rem 0 0; font-family: var(--font-ui); font-weight: 500; }
+    .features-more a { color: var(--accent-emerald); }
+    .features-more a:hover { text-decoration: underline; }
+
     .quote-block {
       border-left: 4px solid var(--accent-emerald);
       padding-left: 1.5rem;

@@ -18,16 +18,16 @@
     const commonTranslations = {
       fr: {
         meta: { title: "SophIA — L'architecture IA souveraine & open-source" },
-        nav: { problem: "Le Piège", solution: "Le Bunker", architecture: "Ingénierie", posture: "Collaborer", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },
+        nav: { problem: "Le Piège", solution: "La Plateforme", architecture: "Ingénierie", posture: "Collaborer", author: "L'Architecte", book: "Le Livre", contact: "Contact", github: "Code (GitHub)" },
         hero: { 
           eyebrow: "L'IA est devenue une infrastructure", 
           h1: "Industrialisez l'IA sans exposer votre propriété intellectuelle.", 
-          titleLine: "SophIA est une plateforme multi-agents open-source, modulaire et souveraine. Vos données ne quittent jamais votre infrastructure.", 
-          description: "Conçu pour les entreprises. Agentique sans nécessiter de modèle agentique : l'orchestration gère la délégation et le routage entre modèles (Mistral, Llama, Qwen, Gemma interchangeables). Aucun vendor lock-in, aucune dépendance cloud. Ce n'est pas un produit clé en main — c'est un blueprint d'architecture, un plan d'ingénierie, une méthode ouverte.", 
+          titleLine: "SophIA est une plateforme d'IA agentique open source que l'organisation héberge, gouverne et audite elle-même. La sécurité vient de l'architecture, pas du modèle.", 
+          description: "Le code orchestre, le modèle réfléchit, les règles décident. Chaque demande passe par un répartiteur qui décide sans modèle ; les modèles tournent en local, derrière un routeur qui accepte n'importe quel modèle (Mistral, Llama, Qwen, Gemma…). Ce n'est pas un produit clé en main : c'est une architecture de référence, une recette reproductible.", 
           note: "Multi-agents sans dépendance cloud. Pensé pour la production de niveau industriel, déployé sur votre infrastructure critique.", 
           viewArchitecture: "Découvrir l'architecture", 
           contact: "Parler de votre projet", 
-          meta1: "Multi-Agents Souverain", meta2: "Données On-Premise", meta3: "LLM Agnostic", meta4: "Aucun Vendor Lock-in" 
+          meta1: "Agents gouvernés", meta2: "Données sur site", meta3: "Modèle au choix", meta4: "SSO et validation humaine" 
         },
         problem: { 
           title: "L'explosion du 'Shadow AI'", 
@@ -43,9 +43,19 @@
           intro: "C'est pour résoudre ce dilemme qu'a été conçue l'architecture SophIA : industrialiser l'IA sans s'enfermer dans le modèle propriétaire des grands fournisseurs américains de cloud et d'IA."
         },
         cards: { 
-          control: { title: "1. Sécurité Absolue", text: "SophIA est un 'bunker' cognitif. Vos données ne quittent jamais l'entreprise. C'est une IA qui a la même puissance que les leaders du marché, mais qui tourne chez vous. Elle connaît vos règles, mais elle est physiquement incapable de les fuiter à l'extérieur." }, 
-          trust: { title: "2. Indépendance Totale", text: "Le système est basé sur des standards ouverts (OKD, LiteLLM, Hermes). Vous n'êtes lié à aucun modèle d'IA unique. Si demain un nouveau modèle open-source émerge (comme chez Mistral), il suffit de remplacer la brique technique. L'agnosticisme est total." }, 
+          control: { title: "1. Sécurité par l'architecture", text: "Accès par VPN seulement, identité unique (SSO) et rôles pour toutes les interfaces, un périmètre réseau par zone. Un agent n'a que des droits minimaux ; une action de modification attend une validation humaine imposée par le code, pas par une consigne." }, 
+          trust: { title: "2. Indépendance", text: "Briques open source (Kubernetes, LiteLLM, llama.cpp, Keycloak, Temporal, RabbitMQ, Qdrant, PostgreSQL, Forgejo). Un modèle local ou distant est un choix de routage, pas une dépendance : on change de modèle sans changer d'architecture." }, 
           deployment: { title: "3. ROI & Coût Maîtrisé", text: "Vous êtes propriétaire de votre infrastructure. Vous ne payez pas une taxe arbitraire à chaque fois qu'un de vos employés pose une question à l'IA ou à chaque révision tarifaire d'un fournisseur cloud externe." } 
+        },
+        features: {
+          title: "Ce que la plateforme apporte",
+          more: "Voir l'ingénierie →",
+          cockpit: { title: "Cockpit", text: "Une seule application : on parle à l'assistante, les applications s'ouvrent au centre selon le rôle, « Demander à Sophia » dans chacune." },
+          identity: { title: "Identité", text: "SSO pour toutes les interfaces, rôles et niveaux de confidentialité ; le modèle est imposé par le serveur selon le rôle." },
+          inference: { title: "Inférence locale", text: "Texte et vision sur le GPU du serveur, voix et images sur CPU, sans accès réseau." },
+          dispatcher: { title: "Répartiteur", text: "Point d'entrée unique des délégations : règles sans modèle, workflows durables (Temporal), événements (RabbitMQ), validation humaine." },
+          memory: { title: "Mémoire versionnée", text: "RAG 5D : vectoriel, relationnel, versionné dans Git, structurel, graphe ; chaque fait relié à sa source." },
+          services: { title: "Bureautique, messagerie, visio", text: "Fichiers privés et édition en ligne, chat et visio par le navigateur, joignables par le VPN seulement ; l'assistante lit un document ou écrit un message au nom de la personne, après confirmation." }
         },
         posture: {
           title: "De l'ingénierie à la direction technique",
@@ -65,16 +75,16 @@
       },
       en: {
         meta: { title: "SophIA — Sovereign & Open-Source AI Architecture" },
-        nav: { problem: "The Trap", solution: "The Bunker", architecture: "Engineering", posture: "Work together", author: "The Architect", book: "The Book", contact: "Contact", github: "Code (GitHub)" },
+        nav: { problem: "The Trap", solution: "The Platform", architecture: "Engineering", posture: "Work together", author: "The Architect", book: "The Book", contact: "Contact", github: "Code (GitHub)" },
         hero: { 
           eyebrow: "AI is the new infrastructure", 
           h1: "Industrialize AI without exposing your intellectual property.", 
-          titleLine: "SophIA is an open-source, modular, sovereign multi-agent platform. Your data never leaves your infrastructure.", 
-          description: "Built for enterprises. Agentic without requiring agentic models: orchestration handles delegation and routing between interchangeable models (Mistral, Llama, Qwen, Gemma). No vendor lock-in, no cloud dependency. This is not a turnkey product — it's an architecture blueprint, an engineering plan, an open methodology.", 
+          titleLine: "SophIA is an open-source agentic AI platform that the organization hosts, governs and audits itself. Security comes from the architecture, not from the model.", 
+          description: "Code orchestrates, the model thinks, rules decide. Every request goes through a dispatcher that decides without a model; models run locally, behind a router that accepts any model (Mistral, Llama, Qwen, Gemma…). Not a turnkey product: a reference architecture, a reproducible recipe.", 
           note: "Multi-agent without cloud dependency. Designed for industrial-grade production, deployed on your critical infrastructure.", 
           viewArchitecture: "Discover the architecture", 
           contact: "Discuss your project", 
-          meta1: "Sovereign Multi-Agent", meta2: "Data On-Premise", meta3: "LLM Agnostic", meta4: "No Vendor Lock-in" 
+          meta1: "Governed agents", meta2: "On-premise data", meta3: "Any model", meta4: "SSO and human approval" 
         },
         problem: { 
           title: "The 'Shadow AI' Explosion", 
@@ -90,9 +100,19 @@
           intro: "This dilemma drove the design of the SophIA architecture: industrializing AI without locking into the proprietary model of the large US cloud and AI providers."
         },
         cards: { 
-          control: { title: "1. Absolute Security", text: "SophIA is a cognitive 'bunker'. Your data never leaves the company. It's an AI that has the same power as market leaders, but runs at your premises. It knows your rules, but is physically incapable of leaking them outside." }, 
-          trust: { title: "2. Total Independence", text: "The system is based on open standards (OKD, LiteLLM, Hermes). You are not tied to any single AI model. If tomorrow a new open-source model emerges (like Mistral), you just replace the technical brick. Agnosticism is total." }, 
+          control: { title: "1. Security by architecture", text: "VPN-only access, single sign-on and roles for every interface, one network perimeter per zone. Agents get minimal rights; a mutating action waits for human approval enforced by code, not by an instruction." }, 
+          trust: { title: "2. Independence", text: "Open-source building blocks (Kubernetes, LiteLLM, llama.cpp, Keycloak, Temporal, RabbitMQ, Qdrant, PostgreSQL, Forgejo). A local or remote model is a routing choice, not a dependency: you change models without changing the architecture." }, 
           deployment: { title: "3. ROI & Cost Control", text: "You own your infrastructure. You don't pay an arbitrary tax every time an employee asks the AI a question, or at every pricing revision from an external cloud provider." } 
+        },
+        features: {
+          title: "What the platform brings",
+          more: "See the engineering →",
+          cockpit: { title: "Cockpit", text: "One application: talk to the assistant, applications open in the centre according to role, \"Ask Sophia\" in each." },
+          identity: { title: "Identity", text: "SSO for every interface, roles and confidentiality levels; the model is enforced server-side by role." },
+          inference: { title: "Local inference", text: "Text and vision on the server's GPU, voice and images on CPU, with no network access." },
+          dispatcher: { title: "Dispatcher", text: "Single entry point for delegations: model-free rules, durable workflows (Temporal), events (RabbitMQ), human approval." },
+          memory: { title: "Versioned memory", text: "5D RAG: vector, relational, Git-versioned, structural, graph; every fact traced to its source." },
+          services: { title: "Office, messaging, video", text: "Private files and online editing, chat and video in the browser, reachable through the VPN only; the assistant reads a document or writes a message on the person's behalf, after confirmation." }
         },
         posture: {
           title: "From engineering to technical leadership",
