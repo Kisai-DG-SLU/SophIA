@@ -8,7 +8,7 @@ The website presents:
 
 - the vision of the project
 - the architectural concepts
-- documentation and whitepaper
+- documentation
 - links to the public repositories
 
 Official website:
