@@ -4,3 +4,8 @@ url: https://sophia.kisai.fr
 baseurl: ""
 plugins:
   - jekyll-sitemap
+defaults:
+  - scope:
+      path: "docs"
+    values:
+      sitemap: false
