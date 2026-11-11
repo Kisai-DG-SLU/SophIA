@@ -14,3 +14,15 @@ The website presents:
 Official website:
 
 https://sophia.kisai.fr
+
+## Publication
+
+- This public repository is a mirror: changes are made in a private working repository and mirrored here.
+- The site is built by GitHub Pages (Jekyll, `jekyll-sitemap` generates `sitemap.xml`): every push to `main` goes live.
+- Visible changes (text, layout, images) are reviewed on desktop and tablet before being merged into `main`.
+
+## Publication (FR)
+
+- Ce dépôt public est un miroir : le travail se fait dans un dépôt privé, recopié ici.
+- Le site est construit par GitHub Pages (Jekyll, `jekyll-sitemap` produit `sitemap.xml`) : tout push sur `main` part en ligne.
+- Un changement visible (texte, mise en page, images) est relu sur ordinateur et tablette avant d'entrer dans `main`.
