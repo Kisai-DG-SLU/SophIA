@@ -10,22 +10,39 @@ custom_css: confidentialite
 <main class="policy">
   <article class="container policy-body">
     <h1>Politique de confidentialité</h1>
-    <p class="policy-meta">Applications SophIA utilisant les API Google — dernière mise à jour : 15 novembre 2026 — <a href="/privacy.html" hreflang="en" lang="en">English version</a></p>
+    <p class="policy-meta">Applications SophIA utilisant les API Google — dernière mise à jour : 16 novembre 2026 — <a href="/privacy.html" hreflang="en" lang="en">English version</a></p>
 
     <h2>Objet</h2>
     <p>SophIA est une plateforme d'IA open source que chaque organisation héberge et exploite elle-même. Certaines de ses applications utilisent les API Google. Ce sont des applications privées : elles ne sont ni vendues ni proposées au public, et ne servent qu'à l'organisation qui héberge son instance de SophIA. Cette page décrit les données Google auxquelles elles accèdent et ce qu'elles en font.</p>
 
     <h2>Données Google consultées</h2>
+    <h3>Google Drive</h3>
     <ul>
       <li>L'accès à Google Drive est limité à l'étendue <code>drive.file</code> : l'application n'a accès qu'aux fichiers qu'elle a elle-même créés. Elle ne voit, ne lit et ne modifie aucun autre fichier du Drive.</li>
-      <li>Aucune autre donnée du compte Google n'est demandée : ni courriels, ni contacts, ni agenda, ni photos.</li>
     </ul>
+    <h3>Google Agenda</h3>
+    <ul>
+      <li>L'application lit la liste des agendas et leurs propriétés (nom, couleurs, libellés d'événements).</li>
+      <li>Elle lit les événements de ces agendas : titre, début et fin, lieu, visibilité, statut, récurrence et couleur. La description et les invités d'un événement ne sont jamais conservés.</li>
+      <li>Elle n'ajoute un événement qu'à la demande d'un utilisateur de SophIA, après sa confirmation explicite, et seulement dans un agenda que possède le compte qui l'a autorisée. Elle ne modifie ni ne supprime aucun événement existant.</li>
+    </ul>
+    <p>Aucune autre donnée du compte Google n'est demandée : ni courriels, ni contacts, ni photos.</p>
 
     <h2>Utilisation des données</h2>
+    <h3>Google Drive</h3>
     <ul>
       <li>L'application écrit des fichiers uniquement dans le Drive de l'utilisateur qui l'a autorisée, et ne relit que ces fichiers.</li>
       <li>L'application peut partager ces fichiers avec d'autres personnes, ou par lien, uniquement selon les réglages de l'utilisateur dans SophIA.</li>
-      <li>Le jeton d'autorisation est conservé sur l'infrastructure de l'organisation qui héberge SophIA et ne sert qu'à ces opérations.</li>
+    </ul>
+    <h3>Google Agenda</h3>
+    <ul>
+      <li>Les événements lus servent uniquement à donner aux utilisateurs de SophIA leurs rappels et à répondre à leurs questions sur leur emploi du temps, selon les accès réglés dans SophIA.</li>
+      <li>Une copie de ces événements est conservée sur l'infrastructure de l'organisation qui héberge SophIA. Elle est mise à jour toutes les quelques minutes : un événement modifié ou supprimé dans Google est modifié ou retiré de la copie à la mise à jour suivante. La copie ne garde un événement que tant qu'il existe dans Google.</li>
+    </ul>
+    <h3>Pour toutes les applications</h3>
+    <ul>
+      <li>Les données reçues des API Google ne sont traitées que sur l'infrastructure de l'organisation qui héberge SophIA, y compris par des modèles d'IA qu'elle héberge elle-même. Elles ne servent pas à entraîner de modèles d'IA.</li>
+      <li>Les jetons d'autorisation sont conservés sur cette infrastructure et ne servent qu'à ces opérations.</li>
     </ul>
 
     <h2>Partage</h2>
@@ -35,7 +52,7 @@ custom_css: confidentialite
     <p>L'utilisation et le transfert vers toute autre application des informations reçues des API Google respectent la <a href="https://developers.google.com/terms/api-services-user-data-policy" hreflang="en">Google API Services User Data Policy</a>, y compris les exigences de Limited Use.</p>
 
     <h2>Révocation</h2>
-    <p>L'accès peut être retiré à tout moment depuis la page <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. L'application ne peut alors plus accéder au Drive. Les fichiers déjà créés restent dans le Drive de l'utilisateur, qui peut les supprimer.</p>
+    <p>L'accès peut être retiré à tout moment depuis la page <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. L'application ne peut alors plus accéder au Drive ni à l'agenda. Les fichiers et les événements déjà créés restent dans le compte Google de l'utilisateur, qui peut les supprimer. La copie des événements n'est plus mise à jour ; elle est supprimée sur demande adressée au contact ci-dessous.</p>
 
     <h2>Contact</h2>
     <p>Pour toute question sur cette politique : <a href="mailto:contact@kisai.fr">contact@kisai.fr</a>.</p>
